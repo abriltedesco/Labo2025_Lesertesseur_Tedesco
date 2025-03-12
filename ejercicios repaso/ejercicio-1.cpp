@@ -17,7 +17,7 @@ struct Empleado{
 };
 
 void crearEmpleados (vector<Empleado> &empleados){
-    for(int i=0 ; i<10 ; i++){
+    for(int i=0 ; i<3 ; i++){
         Empleado empleado;
         cout<<"Ingreso de datos"<<endl;
         cin>>empleado.nombre;
@@ -27,21 +27,13 @@ void crearEmpleados (vector<Empleado> &empleados){
         cin>>empleado.fecha.anio;
         cin>>empleado.sexo;
         cin>>empleado.salario;
-        empleados.push_back(empleado)
-
-        // cin>>empleados[i].nombre;
-        // cin>>empleados[i].apellido;
-        // cin>>empleados[i].fecha.dia;
-        // cin>>empleados[i].fecha.mes;
-        // cin>>empleados[i].fecha.anio;
-        // cin>>empleados[i].sexo;
-        // cin>>empleados[i].salario;
+        empleados.push_back(empleado);
     }
 }
 
 Empleado ordenarVector(vector<Empleado> &empleados){
     for (int i = 1; i < empleados.size(); ++i) {
-        int key = empleados[i].salario;
+        float key = empleados[i].salario;
         int j = i - 1;
         while (j >= 0 && empleados[j].salario > key) {
             empleados[j + 1].salario = empleados[j].salario;
@@ -61,33 +53,26 @@ Empleado ordenarVector(vector<Empleado> &empleados){
 Empleado empleadoConMayorSueldo (vector<Empleado> &empleados, vector<Empleado> &eMenorSalario){
     for(Empleado e: empleados){
         if(e.salario <= 400000){
-            vector <Empleado> eMenorSalario;
             eMenorSalario.push_back(e);
-            cout<< e.nombre << endl;
-            cout<< e.apellido << endl;
-            cout<< e.sexo << endl;
-            cout<< e.salario << endl; 
-        }
-        else{
-            return ordenarVector(empleados);
         }
     }
+
+    return ordenarVector(empleados);
+
 }
 
-
-
 int main(){
-    // Empleado empleado;
     vector<Empleado> empleados;
     vector<Empleado> eMenorSalario;
     crearEmpleados(empleados);
 
-    cout << "Empleado con mayor sueldo: " ;
+    cout << "Empleado con mayor sueldo: " << endl ;
     Empleado emp = empleadoConMayorSueldo(empleados, eMenorSalario);
-    cout << emp.nombre << " " <<emp.apellido << " su suedo es: " << emp.salario;
+    cout << emp.nombre << " " <<emp.apellido << " su sueldo es: " << emp.salario << endl;
 
     cout << "Empleados con menor sueldo: " <<endl;
     for (Empleado e: eMenorSalario){
-        cout << e.nombre << " " << e.apellido;
+        cout << e.nombre << " " << e.apellido << endl;
     }
 }
+
