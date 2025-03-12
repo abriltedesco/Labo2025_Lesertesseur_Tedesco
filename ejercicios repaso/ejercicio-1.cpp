@@ -18,20 +18,28 @@ struct Empleado{
 
 void crearEmpleados (vector<Empleado> &empleados){
     for(int i=0 ; i<10 ; i++){
+        Empleado empleado;
         cout<<"Ingreso de datos"<<endl;
-        cin>>empleados[i].nombre;
-        cin>>empleados[i].apellido;
-        cin>>empleados[i].fecha.dia;
-        cin>>empleados[i].fecha.mes;
-        cin>>empleados[i].fecha.anio;
-        cin>>empleados[i].sexo;
-        cin>>empleados[i].salario;
+        cin>>empleado.nombre;
+        cin>>empleado.apellido;
+        cin>>empleado.fecha.dia;
+        cin>>empleado.fecha.mes;
+        cin>>empleado.fecha.anio;
+        cin>>empleado.sexo;
+        cin>>empleado.salario;
+        empleados.push_back(empleado)
+
+        // cin>>empleados[i].nombre;
+        // cin>>empleados[i].apellido;
+        // cin>>empleados[i].fecha.dia;
+        // cin>>empleados[i].fecha.mes;
+        // cin>>empleados[i].fecha.anio;
+        // cin>>empleados[i].sexo;
+        // cin>>empleados[i].salario;
     }
 }
 
 Empleado ordenarVector(vector<Empleado> &empleados){
-
-
     for (int i = 1; i < empleados.size(); ++i) {
         int key = empleados[i].salario;
         int j = i - 1;
@@ -69,7 +77,7 @@ Empleado empleadoConMayorSueldo (vector<Empleado> &empleados, vector<Empleado> &
 
 
 int main(){
-    Empleado empleado;
+    // Empleado empleado;
     vector<Empleado> empleados;
     vector<Empleado> eMenorSalario;
     crearEmpleados(empleados);
