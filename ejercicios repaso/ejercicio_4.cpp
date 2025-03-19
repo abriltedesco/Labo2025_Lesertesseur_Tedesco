@@ -36,6 +36,8 @@ void cancelarCita(vector<Paciente_t>&vector_pacientes){
             vector_pacientes[i].estado_cita = "cancelada";
         }    
     }
+
+    // en la correcion vimos que utiliza el .erase() para directamente borrar el paciente
 }
 
 void mostrarCitas (vector<Paciente_t>vector_pacientes){
