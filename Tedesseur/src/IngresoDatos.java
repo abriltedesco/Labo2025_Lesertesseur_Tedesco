@@ -1,3 +1,4 @@
+import java.util.Scanner;
 public class IngresoDatos {
     public static void main(String[] args) {
         Scanner entrada = new Scanner (System.in);
