@@ -2,8 +2,7 @@ package unidad1;
 
 public class Circulo {
     private double radio;
-    private double area;
-    private double perimetro;
+
 
     /* constructor por defecto */
     public Circulo(){
@@ -23,22 +22,14 @@ public class Circulo {
         this.radio = radio;
     }
 
-    public double setArea(double radio){
-        this.area = 3.14 * (radio * radio);
+    public double calcularArea(){
+        double area = 3.14 * (radio * radio);
         return area;
     }
 
-    public double getArea(){
-        return setArea(radio);
-    }
-
-    public double setPerimetro(double radio){
-        this.perimetro = 2 * radio * 3.14;
-        return perimetro;
-    }
-
-    public double getPerimetro(){
-        return setPerimetro(radio);
+    public double calcularPerimetro(){
+        double p = 2 * radio * 3.14;
+        return p;
     }
 
     public static void main(String[] args) {
@@ -47,11 +38,12 @@ public class Circulo {
 
         c1.setRadio(2.0);
         System.out.println(c1.getRadio());
-        System.out.println(c1.getArea());
-        System.out.println(c1.getPerimetro());
-
         System.out.println(c2.getRadio());
-        System.out.println(c2.getArea());
-        System.out.println(c2.getPerimetro());
+
+        System.out.println("C1 a: " + c1.calcularArea());
+        System.out.println("C2 a : " + c2.calcularArea());
+        System.out.println("C1 p: " + c1.calcularPerimetro());
+        System.out.println("C2 p: " + c2.calcularPerimetro());
+
     }
 }

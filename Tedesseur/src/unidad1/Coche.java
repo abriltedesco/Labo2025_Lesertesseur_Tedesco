@@ -13,15 +13,14 @@ public class Coche {
     }
 
     public Coche(String marca, String modelo, String color) {
-
+        this.marca = marca;
+        this.modelo = modelo;
+        this.color = color;
     }
 
-
-}
-
-
-
-
-
+    public static void main(String[] args) {
+        Coche c1 = new Coche();
+        Coche c2 = new Coche("Mazda", "RX7", "Blanco");
+    }
 
 }

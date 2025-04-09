@@ -29,17 +29,15 @@ public class Rectangulo {
         this.altura = altura;
     }
 
-    public double calcularArea(double altura, double base){
+    public double calcularArea(){
         double area = altura * base;
         return area;
     }
 
-    public double calcularPerimetro(double altura, double base){
+    public double calcularPerimetro(){
         double p = altura * 2 + base * 2;
         return p;
     }
-
-
 
     public static void main(String[] args) {
         Rectangulo r1 = new Rectangulo(5,3);
@@ -52,8 +50,8 @@ public class Rectangulo {
         System.out.println("R1: " + r1.getAltura());
         System.out.println("R2: " + r2.getBase());
         System.out.println("R2: " +r2.getAltura());
-        System.out.println("R1: " + r1.calcularArea(r1.getAltura(), r1.getBase()));
-        System.out.println("R1: " + r1.calcularPerimetro(r1.getAltura(), r1.getBase()));
+        System.out.println("R1: " + r1.calcularArea());
+        System.out.println("R1: " + r1.calcularPerimetro());
     }
 
 }

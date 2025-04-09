@@ -2,8 +2,8 @@ import java.util.Scanner;
 public class IngresoDatos {
     public static void main(String[] args) {
         Scanner entrada = new Scanner (System.in);
-        n = entrada.nextInt();
-        a = entrada.nextDouble();
+        int n = entrada.nextInt();
+        double a = entrada.nextDouble();
         String charsito = entrada.nextLine();
         char c = charsito.charAt(0);
         
