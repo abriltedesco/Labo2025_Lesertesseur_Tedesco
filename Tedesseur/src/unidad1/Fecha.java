@@ -17,21 +17,45 @@ public class Fecha {
         this.anio = 2007;
     }
 
+    public int getDia() {
+        return dia;
+    }
+
+    public void setDia(int dia) {
+        this.dia = dia;
+    }
+
+    public int getAnio() {
+        return anio;
+    }
+
+    public void setAnio(int anio) {
+        this.anio = anio;
+    }
+
+    public int getMes() {
+        return mes;
+    }
+
+    public void setMes(int mes) {
+        this.mes = mes;
+    }
+
     public void valida(){
         boolean fechaV = false,fechaM = false;
-        if(dia >= 1 && dia <= 31){
+        if(this.dia >= 1 && this.dia <= 31){
             fechaV = true;
         }
         else{
             System.out.println("fecha invalida, se modificara a 31");
-            dia = 31;
+            this.dia = 31;
         }
-        if(mes >= 1 && mes <= 12){
+        if(this.mes >= 1 && this.mes <= 12){
             fechaM = true;
         }
         else{
             System.out.println("fecha invalida, se modificara a 12");
-            mes = 12;
+            this.mes = 12;
         }
         if (fechaV && fechaM){
             System.out.println("Fecha ingresada es valida. ");
@@ -40,10 +64,10 @@ public class Fecha {
 
     public int diasMes(){
         int dias = 0;
-        if(mes == 2){
+        if(this.mes == 2){
             dias = 28;
         }
-        else if(mes == 4 || mes == 9 || mes == 6 || mes == 11){
+        else if(this.mes == 4 || this.mes == 9 || this.mes == 6 || this.mes == 11){
             dias = 30;
         }
         else{
@@ -53,22 +77,22 @@ public class Fecha {
     }
 
     public void corta(){
-        System.out.println(dia + " / " + mes + " / " + anio);
+        System.out.println(this.dia + " / " + this.mes + " / " + this.anio);
     }
 
     public void larga(){
-        System.out.println("dia de semana " +  dia + " / " + mes + " / " + anio);
+        System.out.println("dia de semana " +  this.dia + " / " + this.mes + " / " + this.anio);
     }
 
     public void siguiente(){
-        dia ++;
-        System.out.println("siguiente: " + dia);
+        this.dia ++;
+        System.out.println("siguiente: " + this.dia);
     }
 
     public void anterior(){
-        dia--;
-        dia--;
-        System.out.println("anterior: " + dia);
+        this.dia--;
+        this.dia--;
+        System.out.println("anterior: " + this.dia);
     }
 
     public void igualQue(Fecha fecha, Fecha fecha2){

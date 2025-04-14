@@ -1,3 +1,5 @@
+package primerosEjercicios;
+
 import java.util.Scanner;
 public class IngresoDatos {
     public static void main(String[] args) {

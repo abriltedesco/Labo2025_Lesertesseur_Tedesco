@@ -1,3 +1,5 @@
+package primerosEjercicios;
+
 public class NumeroMayor {
     public static void main(String[] args) {
         int num1 = 2;

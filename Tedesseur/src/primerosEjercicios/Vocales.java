@@ -1,3 +1,5 @@
+package primerosEjercicios;
+
 public class Vocales {
     public static void main(String[] args) {
         char[] vocales = {'a', 'e', 'i', 'o', 'u', 'A'};

@@ -1,4 +1,4 @@
-package unidad1;
+package vehiculos;
 
 public class Coche {
     private String marca;
@@ -10,29 +10,29 @@ public class Coche {
         return velocidad;
     }
 
-    public void setVelocidad(double v){
-        this.velocidad = v;
+    public void setVelocidad(double velocidad){
+        this.velocidad = velocidad;
     }
 
     public String getMarca(){
         return marca;
     }
-    public void setMarca(String m){
-        this.marca = m;
+    public void setMarca(String marca){
+        this.marca = marca;
     }
 
     public String getColor(){
         return color;
     }
-    public void setColor(String c){
-        this.color = c;
+    public void setColor(String color){
+        this.color = color;
     }
 
     public String getModelo(){
         return modelo;
     }
-    public void setModelo(String m){
-        this.modelo = m;
+    public void setModelo(String modelo){
+        this.modelo = modelo;
     }
 
     public Coche() {

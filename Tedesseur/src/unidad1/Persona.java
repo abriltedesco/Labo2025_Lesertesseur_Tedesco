@@ -8,27 +8,33 @@ public class Persona {
     public Persona (){
         this.nombre = "Francis";
         this.edad = 17;
-        this.direccion = "albarellos 5555";
+        this.direccion = "Albarellos 5555";
     }
 
-    public Persona (String nombre, int edad, String dir){
+    public Persona (String nombre, int edad, String direccion){
         this.nombre = nombre;
         this.edad = edad;
-        this.direccion = dir;
+        this.direccion = direccion;
     }
 
-    public void mostrarDatos(Persona p1, Persona p2){
-        System.out.println("P1 nombre: " + p1.nombre);
-        System.out.println("P1 edad: " + p1.edad);
-        System.out.println("P1 dir: " + p1.direccion);
-        System.out.println("P2 nombre: " + p2.nombre);
-        System.out.println("P2 edad: " + p2.edad);
-        System.out.println("P2 dir: " + p2.direccion);
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public void mostrarDatos(){
+        System.out.println("nombre: " + this.nombre);
+        System.out.println("edad: " + this.edad);
+        System.out.println("direcion: " + this.direccion);
     }
 
     public static void main(String[] args) {
         Persona p1 = new Persona();
-        Persona p2 = new Persona("Clara", 23, "warnes 1564");
-        p1.mostrarDatos(p1, p2);
+        Persona p2 = new Persona("Clara", 23, "Warnes 1564");
+        p1.mostrarDatos();
+        p2.mostrarDatos();
     }
 }
