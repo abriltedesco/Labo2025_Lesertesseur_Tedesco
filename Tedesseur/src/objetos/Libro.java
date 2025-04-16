@@ -86,7 +86,7 @@ public class Libro {
     public static void main(String[] args) {
         Libro libro1 = new Libro();
         Libro libro2 = new Libro("Crepusculo",  new Persona ("Stephanie Meyer", 28, "xxxx"), 2, 230, "editorial",  new Fecha(20, 05, 2005));
-        Libro libro3 = new Libro("The Hunger Games", new Persona("Suzanne Collins", 32, "zzzz"), 3, 376, "molino", new Fecha(14, 9, 2008));
+        Libro libro3 = new Libro();
 
         libro3.setTitulo("The Hunger Games");
         libro3.setAutor(new Persona("Suzanne Collins", 32, "zzzz"));
@@ -95,11 +95,11 @@ public class Libro {
         libro3.setPaginas(376);
         libro3.setFechaPublicacion(new Fecha(14, 9, 2008));
         
-        System.out.println("Info del libro 1 : " ) ;
+        System.out.println("INFO DEL LIBRO 1" ) ;
         libro1.mostrarInfo();
-        System.out.println("Info del libro 2 : " ) ;
+        System.out.println("INFO DEL LIBRO 2" ) ;
         libro2.mostrarInfo();
-        System.out.println("Info del libro 3 : " ) ;
+        System.out.println("INFO DEL LIBRO 3" ) ;
         libro3.mostrarInfo();
 
         libro1.compararFechas(libro3.getFechaPublicacion());
