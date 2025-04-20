@@ -26,8 +26,8 @@ public class ShopApp{
         shopApp.setCliente(c1);
         System.out.println("Customer: " + shopApp.getCliente().getName());
 
-        System.out.println("item1: " + item1.getDescription() + ", size: " + item1.getSize() + ", price: " + item1.getPrice());
-        System.out.println("item2: " + item2.getDescription() + ", size: " + item2.getSize() + ", price: " + item2.getPrice());
+        System.out.println("item1: " + item1.getDescription() + ", " + item1.getSize() + ", " + item1.getPrice());
+        System.out.println("item2: " + item2.getDescription() + ", " + item2.getSize() + ", " + item2.getPrice());
 
         total = item2.getPrice() * 2 + item1.getPrice();
         total *= tax;
