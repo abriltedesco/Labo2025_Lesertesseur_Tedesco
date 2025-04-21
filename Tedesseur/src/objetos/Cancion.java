@@ -9,12 +9,12 @@ public class Cancion {
 
     public Cancion(String titulo, Persona artista) {
         this.titulo = titulo;
-        this.artista = artista;
+        Cancion.artista = artista;
     }
 
     public Cancion() {
         this.titulo = "";
-        this.artista = new Persona("", 0, "");
+        artista = new Persona("", 0, "");
     }
 
     public String getTitulo() {
@@ -30,7 +30,7 @@ public class Cancion {
     }
 
     public void setArtista(Persona artista) {
-        this.artista = artista;
+        Cancion.artista = artista;
     }
 
     public void mostrarArtista(){

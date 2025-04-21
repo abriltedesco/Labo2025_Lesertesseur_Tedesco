@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Labo2025_Lesertesseur_Tedesco.iml" filepath="$PROJECT_DIR$/Labo2025_Lesertesseur_Tedesco.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Tedesseur/Tedesseur.iml" filepath="$PROJECT_DIR$/Tedesseur/Tedesseur.iml" />
+    </modules>
+  </component>
+</project>

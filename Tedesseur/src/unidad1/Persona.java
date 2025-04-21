@@ -6,8 +6,8 @@ public class Persona {
     private String direccion;
 
     public Persona (){
-        this.nombre = "Francis";
-        this.edad = 17;
+        this.nombre = "Charli XCX";
+        this.edad =32;
         this.direccion = "Albarellos 5555";
     }
 
@@ -15,6 +15,10 @@ public class Persona {
         this.nombre = nombre;
         this.edad = edad;
         this.direccion = direccion;
+    }
+
+    public int getEdad() {
+        return edad;
     }
 
     public String getNombre() {
