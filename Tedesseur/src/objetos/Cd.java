@@ -10,7 +10,7 @@ public class Cd {
 
     public Cd() {
         this.nombre = "BRAT";
-        this.canciones =  new ArrayList<Cancion> ();
+        this.canciones =  new ArrayList<Cancion>();
         canciones.add(new Cancion( "Von Dutch", new Persona() ));
         canciones.add(new Cancion( "B2b", new Persona() ));
         canciones.add(new Cancion( "Guess", new Persona() ));
