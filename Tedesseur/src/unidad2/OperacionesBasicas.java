@@ -21,7 +21,7 @@ public class OperacionesBasicas {
         palabras.add("Estufa");
         palabras.add("Computadora");
         palabras.add("Auriculares");
-        palabras.add("Musica");
+        palabras.add("musica");
 
         personas.add(new Persona( "Carlos", 30, "xxxxxx" ));
         personas.add(new Persona( "Carly", 34, "xxxxxx" ));

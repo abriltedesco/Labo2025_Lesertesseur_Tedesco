@@ -1,4 +1,4 @@
-package objetos;
+package musica;
 
 import unidad1.Persona;
 

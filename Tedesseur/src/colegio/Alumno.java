@@ -1,4 +1,4 @@
-package unidad2;
+package colegio;
 import unidad1.Fecha;
 import java.util.ArrayList;
 
@@ -8,16 +8,16 @@ public class Alumno {
     private int edad;
     private Fecha fechaNacimiento;
     private ArrayList<Float> listaDeNotas;
-    private ArrayList<Materia> materias;
+    private ArrayList<Materia> listaMaterias;
 
 
-    public Alumno(String nombre, String apellido, int edad, ArrayList<Float> listaDeNotas, Fecha fechaNacimiento, ArrayList <Materia> materias) {
+    public Alumno(String nombre, String apellido, int edad, ArrayList<Float> listaDeNotas, Fecha fechaNacimiento, ArrayList <Materia> listaMaterias) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.edad = edad;
         this.listaDeNotas = listaDeNotas;
         this.fechaNacimiento = fechaNacimiento;
-        this.materias = materias;
+        this.listaMaterias = listaMaterias;
     }
 
     public Alumno() {
@@ -31,7 +31,7 @@ public class Alumno {
         listaDeNotas.add(3.9F);
         listaDeNotas.add(6.0F);
         this.fechaNacimiento = new Fecha(19, 5, 1954);
-        this.materias = new ArrayList<Materia>();
+        this.listaMaterias = new ArrayList<Materia>();
     }
 
     public Alumno(String nombre, String apellido, Fecha fechaNacimiento) {
@@ -45,7 +45,7 @@ public class Alumno {
         listaDeNotas.add(4.5F);
         listaDeNotas.add(3.9F);
         listaDeNotas.add(7.0F);
-        this.materias = new ArrayList<Materia>();
+        this.listaMaterias = new ArrayList<Materia>();
     }
 
 
@@ -81,13 +81,14 @@ public class Alumno {
         this.apellido = apellido;
     }
 
-    public ArrayList<Materia> getMaterias() {
-        return materias;
+    public ArrayList<Materia> getlistaMaterias() {
+        return listaMaterias;
     }
 
-    public void setMaterias(ArrayList<Materia> materias) {
-        this.materias = materias;
+    public void setlistaMaterias(ArrayList<Materia> listaMaterias) {
+        this.listaMaterias = listaMaterias;
     }
+
     public int getEdad() {
         return edad;
     }
@@ -120,20 +121,32 @@ public class Alumno {
         return mayor_nota;
     }
 
+    public float promedioNotas(){
+        float promedio = 0F;
+        for (Float nota : this.listaDeNotas){
+            promedio += nota;
+        }
+        return promedio / this.listaDeNotas.size();
+    }
+
+    public void agregarMateria(Materia materia){
+        listaMaterias.add(materia); // añade materia al alumno
+        materia.agregarAlumno(this);
+    }
 
     public static void main(String[] args) {
-
+        // CREANDO
         ArrayList<Float> listaDeNotas1 = new ArrayList<Float>();
         ArrayList<Float> listaDeNotas2 = new ArrayList<Float>();
         ArrayList<Float> listaDeNotas3 = new ArrayList<Float>();
 
-        ArrayList<Materia> materias1 = new ArrayList<Materia>();
-        ArrayList<Materia> materias2 = new ArrayList<Materia>();
-        ArrayList<Materia> materias3 = new ArrayList<Materia>();
+        ArrayList<Materia> listaMaterias1 = new ArrayList<Materia>();
+        ArrayList<Materia> listaMaterias2 = new ArrayList<Materia>();
+        ArrayList<Materia> listaMaterias3 = new ArrayList<Materia>();
 
-        Alumno alumno1 = new Alumno("Victoria", "Tsai Liao", 15, listaDeNotas1, new Fecha(), materias1 );
-        Alumno alumno2 = new Alumno("Clara", "Lesertesseur", 17, listaDeNotas2, new Fecha(20, 3, 2008) , materias2 );
-        Alumno alumno3 = new Alumno("Francisco", "Esposito", 19, listaDeNotas3, new Fecha(27, 8, 2007), materias3 );
+        Alumno alumno1 = new Alumno("Victoria", "Tsai Liao", 15, listaDeNotas1, new Fecha(), listaMaterias1 );
+        Alumno alumno2 = new Alumno("Clara", "Lesertesseur", 17, listaDeNotas2, new Fecha(20, 3, 2008) , listaMaterias2 );
+        Alumno alumno3 = new Alumno("Francisco", "Esposito", 19, listaDeNotas3, new Fecha(27, 8, 2007), listaMaterias3 );
         Alumno alumno4 = new Alumno("Teo", "Gray", new Fecha(15, 10, 2010));
 
         alumno1.agregarNota(9.0F);
@@ -148,22 +161,74 @@ public class Alumno {
         alumno2.agregarNota(9.9F);
         alumno2.agregarNota(7.8F);
 
-        alumno3.agregarNota( 5.0F);
+        alumno3.agregarNota(5.0F);
         alumno3.agregarNota(7.5F);
         alumno3.agregarNota(9.2F);
         alumno3.agregarNota(6.9F);
         alumno3.agregarNota(8.8F);
+
+        alumno4.agregarNota(5.5F);
+        alumno4.agregarNota(9.5F);
+        alumno4.agregarNota(8.2F);
+        alumno4.agregarNota(6.5F);
+        alumno4.agregarNota(8.8F);
 
         System.out.println("--- Menores notas ---");
         System.out.println("Alumno 1: " + alumno1.menorNota());
         System.out.println("Alumno 2: " + alumno2.menorNota());
         System.out.println("Alumno 3: " + alumno3.menorNota());
         System.out.println("Alumno 4: " + alumno4.menorNota());
-
+        System.out.println();
         System.out.println("--- Mayores notas ---");
         System.out.println("Alumno 1: " + alumno1.mayorNota());
         System.out.println("Alumno 2: " + alumno2.mayorNota());
         System.out.println("Alumno 3: " + alumno3.mayorNota());
         System.out.println("Alumno 4: " + alumno4.mayorNota());
+        System.out.println();
+        System.out.println("--- Promedios ---");
+        System.out.println("Alumno 1: " + alumno1.promedioNotas());
+        System.out.println("Alumno 2: " + alumno2.promedioNotas());
+        System.out.println("Alumno 3: " + alumno3.promedioNotas());
+        System.out.println("Alumno 4: " + alumno4.promedioNotas());
+
+
+        ArrayList<String> listaDeContenidos2 = new ArrayList<String>();
+        ArrayList<String> listaDeContenidos3 = new ArrayList<String>();
+        listaDeContenidos2.add("Empresas");
+        listaDeContenidos2.add("Presupuesto");
+        listaDeContenidos2.add("Marketing");
+        listaDeContenidos2.add("Planeacion");
+
+        listaDeContenidos3.add("Vistas");
+        listaDeContenidos3.add("Funciones");
+        listaDeContenidos3.add("Procedimientos");
+        listaDeContenidos3.add("Cursores");
+        listaDeContenidos3.add("Triggers");
+
+        ArrayList <Alumno> alumnosInscriptos2 = new ArrayList <Alumno>();
+        ArrayList <Alumno> alumnosInscriptos3 = new ArrayList <Alumno>();
+        alumnosInscriptos2.add(alumno2);
+        alumnosInscriptos2.add(alumno4);
+        alumnosInscriptos2.add(alumno1);
+        alumnosInscriptos3.add(alumno3);
+        alumnosInscriptos3.add(alumno4);
+        alumnosInscriptos3.add(alumno1);
+        alumnosInscriptos3.add(alumno1);
+
+        Materia materia1 = new Materia();
+        Materia materia2 = new Materia("Economia", listaDeContenidos2, alumnosInscriptos2);
+        Materia materia3 = new Materia("Base de Datos", listaDeContenidos3, alumnosInscriptos3);
+
+        alumno1.agregarMateria(materia1);
+        alumno2.agregarMateria(materia3);
+        alumno3.agregarMateria(materia3);
+        alumno4.agregarMateria(materia2);
+        alumno4.agregarMateria(materia1);
+
+        System.out.println();
+        System.out.println("------Promedio EDADES--------");
+        System.out.println(materia1.getNombre() + ": " + materia1.promedioEdadAlumnos());
+        System.out.println(materia2.getNombre() + ": " + materia2.promedioEdadAlumnos());
+        System.out.println(materia3.getNombre() + ": " + materia3.promedioEdadAlumnos());
     }
 }
