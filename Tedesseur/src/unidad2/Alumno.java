@@ -1,19 +1,20 @@
 package unidad2;
 import unidad1.Fecha;
-import unidad2.Materia;
 import java.util.ArrayList;
 
 public class Alumno {
     private String nombre;
     private String apellido;
+    private int edad;
     private Fecha fechaNacimiento;
     private ArrayList<Float> listaDeNotas;
     private ArrayList<Materia> materias;
 
 
-    public Alumno(String nombre, String apellido, ArrayList<Float> listaDeNotas, Fecha fechaNacimiento, ArrayList <Materia> materias) {
+    public Alumno(String nombre, String apellido, int edad, ArrayList<Float> listaDeNotas, Fecha fechaNacimiento, ArrayList <Materia> materias) {
         this.nombre = nombre;
         this.apellido = apellido;
+        this.edad = edad;
         this.listaDeNotas = listaDeNotas;
         this.fechaNacimiento = fechaNacimiento;
         this.materias = materias;
@@ -22,6 +23,7 @@ public class Alumno {
     public Alumno() {
         this.nombre = "Carlos";
         this.apellido = "Gardel";
+        this.edad = 20;
         this.listaDeNotas = new ArrayList<Float>();
         listaDeNotas.add(3.7F);
         listaDeNotas.add(9.7F);
@@ -30,15 +32,13 @@ public class Alumno {
         listaDeNotas.add(6.0F);
         this.fechaNacimiento = new Fecha(19, 5, 1954);
         this.materias = new ArrayList<Materia>();
-        Materia materia = new Materia();
-        materias.add(materia);
     }
 
     public Alumno(String nombre, String apellido, Fecha fechaNacimiento) {
         this.nombre = nombre;
         this.apellido = apellido;
+        this.edad = 15;
         this.fechaNacimiento = fechaNacimiento;
-
         this.listaDeNotas = new ArrayList<Float>();
         listaDeNotas.add(4.7F);
         listaDeNotas.add(9.5F);
@@ -46,8 +46,6 @@ public class Alumno {
         listaDeNotas.add(3.9F);
         listaDeNotas.add(7.0F);
         this.materias = new ArrayList<Materia>();
-        Materia materia = new Materia();
-        materias.add(materia);
     }
 
 
@@ -90,13 +88,20 @@ public class Alumno {
     public void setMaterias(ArrayList<Materia> materias) {
         this.materias = materias;
     }
-
-    public void agregarNota(ArrayList<Float> listaDeNotas, float nota){
-        listaDeNotas.add(nota);
+    public int getEdad() {
+        return edad;
     }
 
-    public float menorNota(ArrayList<Float> listaDeNotas){
-        float menor_nota = 10;
+    public void setEdad(int edad) {
+        this.edad = edad;
+    }
+
+    public void agregarNota(float nota){
+        this.listaDeNotas.add(nota);
+    }
+
+    public float menorNota(){
+        float menor_nota = this.listaDeNotas.get(0);
         for(Float nota : listaDeNotas){
             if(nota < menor_nota){
                 menor_nota = nota;
@@ -105,9 +110,9 @@ public class Alumno {
         return menor_nota;
     }
 
-    public float mayorNota(ArrayList<Float> listaDeNotas){
-        float mayor_nota = 0;
-        for(Float nota : listaDeNotas){
+    public float mayorNota(){
+        float mayor_nota = this.listaDeNotas.get(0);;
+        for(Float nota : this.listaDeNotas){
             if(nota > mayor_nota){
                 mayor_nota = nota;
             }
@@ -115,15 +120,6 @@ public class Alumno {
         return mayor_nota;
     }
 
-    public double promedioEdadAlumnos(){
-
-    }
-
-    public void agregarAlumnos(ArrayList <Alumno> listaAlumnosCompleta){
-        for(Materia materia : materias){
-            listaAlumnosCompleta.addAll(materia.alumnosInscriptos);
-        }
-    }
 
     public static void main(String[] args) {
 
@@ -135,42 +131,39 @@ public class Alumno {
         ArrayList<Materia> materias2 = new ArrayList<Materia>();
         ArrayList<Materia> materias3 = new ArrayList<Materia>();
 
-        Alumno alumno1 = new Alumno("Victoria", "Tsai Liao", listaDeNotas1, new Fecha(), materias1 );
-        Alumno alumno2 = new Alumno("Clara", "Lesertesseur", listaDeNotas2, new Fecha(20, 3, 2008) , materias2 );
-        Alumno alumno3 = new Alumno("Francisco", "Esposito", listaDeNotas3, new Fecha(27, 8, 2007), materias3 );
+        Alumno alumno1 = new Alumno("Victoria", "Tsai Liao", 15, listaDeNotas1, new Fecha(), materias1 );
+        Alumno alumno2 = new Alumno("Clara", "Lesertesseur", 17, listaDeNotas2, new Fecha(20, 3, 2008) , materias2 );
+        Alumno alumno3 = new Alumno("Francisco", "Esposito", 19, listaDeNotas3, new Fecha(27, 8, 2007), materias3 );
+        Alumno alumno4 = new Alumno("Teo", "Gray", new Fecha(15, 10, 2010));
 
-        alumno1.agregarNota(listaDeNotas1, 9.0F);
-        alumno1.agregarNota(listaDeNotas1, 8.5F);
-        alumno1.agregarNota(listaDeNotas1, 9.2F);
-        alumno1.agregarNota(listaDeNotas1, 5.9F);
-        alumno1.agregarNota(listaDeNotas1, 6.8F);
+        alumno1.agregarNota(9.0F);
+        alumno1.agregarNota(8.5F);
+        alumno1.agregarNota(9.2F);
+        alumno1.agregarNota(5.9F);
+        alumno1.agregarNota(6.8F);
 
-        alumno2.agregarNota(listaDeNotas2, 7.0F);
-        alumno2.agregarNota(listaDeNotas2,9.5F);
-        alumno2.agregarNota(listaDeNotas2,8.2F);
-        alumno2.agregarNota(listaDeNotas2,9.9F);
-        alumno2.agregarNota(listaDeNotas2,7.8F);
+        alumno2.agregarNota( 7.0F);
+        alumno2.agregarNota(9.5F);
+        alumno2.agregarNota(8.2F);
+        alumno2.agregarNota(9.9F);
+        alumno2.agregarNota(7.8F);
 
-        alumno3.agregarNota(listaDeNotas3, 5.0F);
-        alumno3.agregarNota(listaDeNotas3,7.5F);
-        alumno3.agregarNota(listaDeNotas3,9.2F);
-        alumno3.agregarNota(listaDeNotas3,6.9F);
-        alumno3.agregarNota(listaDeNotas3,8.8F);
+        alumno3.agregarNota( 5.0F);
+        alumno3.agregarNota(7.5F);
+        alumno3.agregarNota(9.2F);
+        alumno3.agregarNota(6.9F);
+        alumno3.agregarNota(8.8F);
 
         System.out.println("--- Menores notas ---");
-        System.out.println("Alumno 1: " + alumno1.menorNota(listaDeNotas1));
-        System.out.println("Alumno 2: " + alumno2.menorNota(listaDeNotas2));
-        System.out.println("Alumno 3: " + alumno3.menorNota(listaDeNotas3));
+        System.out.println("Alumno 1: " + alumno1.menorNota());
+        System.out.println("Alumno 2: " + alumno2.menorNota());
+        System.out.println("Alumno 3: " + alumno3.menorNota());
+        System.out.println("Alumno 4: " + alumno4.menorNota());
 
         System.out.println("--- Mayores notas ---");
-        System.out.println("Alumno 1: " + alumno1.mayorNota(listaDeNotas1));
-        System.out.println("Alumno 2: " + alumno2.mayorNota(listaDeNotas2));
-        System.out.println("Alumno 3: " + alumno3.mayorNota(listaDeNotas3));
-
-        ArrayList <Alumno> listaAlumnosCompleta  = new ArrayList<>();
-        listaAlumnosCompleta.add(alumno1);
-        listaAlumnosCompleta.add(alumno2);
-        listaAlumnosCompleta.add(alumno3);
-        agregarAlumnos(listaAlumnosCompleta);
+        System.out.println("Alumno 1: " + alumno1.mayorNota());
+        System.out.println("Alumno 2: " + alumno2.mayorNota());
+        System.out.println("Alumno 3: " + alumno3.mayorNota());
+        System.out.println("Alumno 4: " + alumno4.mayorNota());
     }
 }

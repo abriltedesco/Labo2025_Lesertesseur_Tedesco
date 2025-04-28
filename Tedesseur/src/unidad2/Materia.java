@@ -1,7 +1,5 @@
 package unidad2;
-
 import unidad1.Fecha;
-
 import java.util.ArrayList;
 
 public class Materia {
@@ -25,7 +23,7 @@ public class Materia {
         listaDeContenidos.add("Polimorfismo");
         this.alumnosInscriptos =  new ArrayList <Alumno>();
         Alumno alumno1 = new Alumno();
-        Alumno alumno2 = new Alumno("Marcos", "Albarn", new Fecha(30, 06, 2023));
+        Alumno alumno2 = new Alumno("Marcos", "Albarn", new Fecha(30, 6, 2023));
         alumnosInscriptos.add(alumno1);
         alumnosInscriptos.add(alumno2);
     }
@@ -53,11 +51,26 @@ public class Materia {
     public void setAlumnosInscriptos(ArrayList<Alumno> alumnosInscriptos) {
         this.alumnosInscriptos = alumnosInscriptos;
     }
+    public void agregarMateria(){
 
+    }
+
+    public double promedioEdadAlumnos(){
+        double promedio = 0.0;
+        for(Alumno alumno : alumnosInscriptos){
+            promedio += alumno.getEdad();
+        }
+        return promedio;
+    }
+
+    public double promedioNotasAlumno(){
+        double promedio = 0.0;
+        return promedio;
+    }
 
     public static void main(String[] args) {
-        ArrayList<String> listaDeContenidos2 = new ArrayList<String>()
-        ArrayList<String> listaDeContenidos3 = new ArrayList<String>()
+        ArrayList<String> listaDeContenidos2 = new ArrayList<String>();
+        ArrayList<String> listaDeContenidos3 = new ArrayList<String>();
         listaDeContenidos2.add("Empresas");
         listaDeContenidos2.add("presupuesto");
         listaDeContenidos2.add("Marketing");
@@ -77,6 +90,7 @@ public class Materia {
         Alumno alumno4 = new Alumno("Amelia", "Cuello", new Fecha(5, 4, 2000));
         alumnosInscriptos2.add(alumno1);
         alumnosInscriptos2.add(alumno2);
+
         alumnosInscriptos3.add(alumno3);
         alumnosInscriptos3.add(alumno4);
         alumnosInscriptos3.add(alumno2);
@@ -85,5 +99,7 @@ public class Materia {
         Materia materia1 = new Materia();
         Materia materia2 = new Materia("Economia", listaDeContenidos2, alumnosInscriptos2);
         Materia materia3 = new Materia("Base de Datos", listaDeContenidos3, alumnosInscriptos3);
+        materia1.promedioEdadAlumnos();
+
     }
 }
