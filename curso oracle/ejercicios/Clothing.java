@@ -1,8 +1,10 @@
-package ejercicios;
+package ejercicios.ShopApp;
 public class Clothing {
     private String description;
-    private String size;
+    private int size;
     private double price;
+    private final double min_price = 10.0;
+    public final double tax = 0.2;
 
     public Clothing(String description, String size, double price) {
         this.description = description;
@@ -18,19 +20,24 @@ public class Clothing {
         this.description = description;
     }
 
-    public String getSize() {
+    public int getSize() {
         return size;
     }
 
-    public void setSize(String size) {
+    public void setSize(int size) {
         this.size = size;
     }
 
     public double getPrice() {
-        return price;
+        return price + (price * tax) ;
     }
 
     public void setPrice(double price) {
-        this.price = price;
+        if(this.price < min_price) {
+            this.price = min_price;
+        }
+        else{
+            this.price = price;
+        }
     }
 }
