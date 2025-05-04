@@ -5,7 +5,7 @@ import unidad1.Fecha;
 import java.util.ArrayList;
 
 public class Curling {
-    private ArrayList<Partido> partidos;
+    private ArrayList<Partido> partidos ;
 
     public Curling(ArrayList<Partido> partidos) {
         this.partidos = partidos;
@@ -19,9 +19,47 @@ public class Curling {
         this.partidos = partidos;
     }
 
+    public void agregarEquipos(ArrayList<Equipo> equipos, ArrayList<Equipo> equiposMañana, ArrayList<Equipo> equiposTarde, ArrayList<Equipo> equiposNoche) {
+        for(Equipo equipo : equipos) {
+            if(equipo.getDispHoraria() == "Mañana"){
+                equiposMañana.add(equipo);
+            }
+            else if(equipo.getDispHoraria() == "Tarde"){
+                equiposTarde.add(equipo);
+            }
+            else{
+                equiposNoche.add(equipo);
+            }
+        }
+    }
 
+    public void crearPartidos(ArrayList<Partido> partidos, ArrayList<Equipo> equiposMañana, ArrayList<Equipo> equiposTarde, ArrayList<Equipo> equiposNoche) {
+        for(int i = 0; i < equiposMañana.size() - 1; i++) {
+            Partido partido = new Partido();
+            partido.setEquipoLocal(equiposMañana.get(i));
+            partido.setEquipoVisitante(equiposMañana.get(i + 1));
+            partido.setFecha(new Fecha(30,4,2025));
+            partidos.add(partido);
+        }
+        for(int i = 0; i < equiposTarde.size() - 1; i++) {
+            Partido partido = new Partido();
+            partido.setEquipoLocal(equiposTarde.get(i));
+            partido.setEquipoVisitante(equiposTarde.get(i + 1));
+            partido.setFecha(new Fecha(30,4,2025));
+            partidos.add(partido);
+        }
+        for(int i = 0; i < equiposNoche.size() - 1; i++) {
+            Partido partido = new Partido();
+            partido.setEquipoLocal(equiposNoche.get(i));
+            partido.setEquipoVisitante(equiposNoche.get(i + 1));
+            partido.setFecha(new Fecha(30,4,2025));
+            partidos.add(partido);
+        }
+    }
 
     public static void main(String[] args) {
+        ArrayList<Partido> partidos = new ArrayList<Partido>();
+        Curling campeonato = new Curling(partidos);
 
         Jugador jugador1 = new Jugador();
         Jugador jugador2 = new Jugador("Leandro", "Nessi", 1, new Fecha(17, 6, 1999));
@@ -60,28 +98,29 @@ public class Curling {
         Equipo equipo8 = new Equipo("Everton", "Noche", "Liverpool", jugadores);
         Equipo equipo9 = new Equipo("Coventry", "Noche", "Coventry", jugadores);
 
+        ArrayList<Equipo> equipos = new ArrayList<>();
+        equipos.add(equipo1);
+        equipos.add(equipo2);
+        equipos.add(equipo3);
+        equipos.add(equipo4);
+        equipos.add(equipo5);
+        equipos.add(equipo6);
+        equipos.add(equipo7);
+        equipos.add(equipo8);
+        equipos.add(equipo9);
+
         ArrayList<Equipo> equiposMañana = new ArrayList<>();   // 3 equipos
         ArrayList<Equipo> equiposTarde = new ArrayList<>();   // 3 equipos
         ArrayList<Equipo> equiposNoche= new ArrayList<>();    // 3 equipos
-
-        equiposMañana.add(equipo1);
-        equiposMañana.add(equipo2);
-        equiposMañana.add(equipo3);
-
-        equiposTarde.add(equipo4);
-        equiposTarde.add(equipo5);
-        equiposTarde.add(equipo6);
-
-        equiposNoche.add(equipo7);
-        equiposNoche.add(equipo8);
-        equiposNoche.add(equipo9);
+        
+        campeonato.agregarEquipos(equipos, equiposMañana. equiposTarde, equiposNoche);
 
         // ---------------------------------------------------------------------------------------- //
-
-        Partido partido = new Partido();
-        Partido partido1 = new Partido();
-
-        partido.getEquipoLocal().getDispHoraria().equals(partido.getEquipoVisitante().getDispHoraria());
+        campeonato.crearPartidos(partidos, equiposMañana. equiposTarde, equiposNoche);
+        campeonato.setPartidos(partidos);
+        for(Partido partido :  partidos){
+           System.out.println(partido.getEquipoVisitante() + " VS " + partido.getEquipoVisitante());
+           System.out.println(partido.getFecha().getDia() + " / " + partido.getFecha().getMes() + " / " + partido.getFecha().getAnio());
+       }
     }
 }
-
