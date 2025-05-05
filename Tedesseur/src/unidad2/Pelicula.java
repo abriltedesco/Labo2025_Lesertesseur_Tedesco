@@ -1,25 +1,29 @@
 package unidad2;
 
+import unidad1.Persona;
+
 import java.util.ArrayList;
 
 public class Pelicula {
     private String titulo;
     private String genero;
     private int duracion;
-    private ArrayList<Cast> cast;
+    private ArrayList<Persona> directores;
+    private ArrayList<Persona> actores;
     private ArrayList<String> idiomas;
 
     public Pelicula(){
         this.titulo = "Before Sunrise";
         this.genero = "Romance";
         this.duracion = 90;
-        this.cast = new ArrayList<>();
-        Cast actriz = new Cast("Julie", false, "Delpy");
-        Cast actor = new Cast("Ethan", false, "Hawke");
-        Cast director = new Cast();
-        cast.add(actriz);
-        cast.add(actor);
-        cast.add(director);
+        this.directores = new ArrayList<>();
+        this.actores = new ArrayList<>();
+        Persona actriz = new Persona("Julie Delpy", 43, "Dhggfhgf");
+        Persona actor = new Persona("Ethan Hawke", 45, "Hawkgjfjgfe");
+        Persona director = new Persona();
+        actores.add(actriz);
+        actores.add(actor);
+        directores.add(director);
         this.idiomas = new ArrayList<>();
         idiomas.add("español");
         idiomas.add("ingles");
@@ -27,11 +31,12 @@ public class Pelicula {
         idiomas.add("aleman");
     }
 
-    public Pelicula(String titulo, String genero, int duracion, ArrayList<Cast> cast, ArrayList<String> idiomas) {
+    public Pelicula(String titulo, String genero, int duracion, ArrayList<Persona> directores, ArrayList<Persona> actores, ArrayList<String> idiomas) {
         this.titulo = titulo;
         this.genero = genero;
         this.duracion = duracion;
-        this.cast = cast;
+        this.directores = directores;
+        this.actores = actores;
         this.idiomas = idiomas;
     }
 
@@ -59,12 +64,20 @@ public class Pelicula {
         this.duracion = direccion;
     }
 
-    public ArrayList<Cast> getCast() {
-        return cast;
+    public ArrayList<Persona> getActores() {
+        return actores;
     }
 
-    public void setCast(ArrayList<Cast> cast) {
-        this.cast = cast;
+    public void setActores(ArrayList<Persona> actores) {
+        this.actores = actores;
+    }
+
+    public ArrayList<Persona> getDirectores() {
+        return directores;
+    }
+
+    public void setDirectores(ArrayList<Persona> directores) {
+        this.directores = directores;
     }
 
     public ArrayList<String> getIdiomas() {

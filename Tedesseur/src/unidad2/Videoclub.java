@@ -3,16 +3,18 @@ package unidad2;
 import java.util.ArrayList;
 
 public class Videoclub {
-    private ArrayList<ArrayList<Pelicula>> estanteria;
+    private ArrayList<Estante> estanteria;
     private String direccion;
     private int codigoPostal;
 
     public Videoclub(){
-        ArrayList<Pelicula> estante1 = new ArrayList<>();
-        ArrayList<Pelicula> estante2 = new ArrayList<>();
+        Estante estante1 = new Estante();
+        Estante estante2 = new Estante();
+        estante2.setNumero(2);
+        ArrayList<Pelicula> pelis= new ArrayList<>();
+        estante2.setPeliculas(pelis);
         this.estanteria = new ArrayList<>();
         estanteria.add(estante1);
-        estanteria.add(estante2);
         this.direccion = "constituyentes 2424";
         this.codigoPostal = 1419;
     }
