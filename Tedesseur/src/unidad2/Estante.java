@@ -46,4 +46,26 @@ public class Estante {
     public void setNumero(int numero) {
         this.numero = numero;
     }
+
+    // ABM
+    public void agregarPelicula(Pelicula p) {
+        peliculas.add(p);
+    }
+    public void eliminarPelicula(Pelicula p) {
+        peliculas.remove(p);
+    }
+    public void modificarPelicula(Pelicula p) {
+        agregarPelicula(p);
+        eliminarPelicula(p);
+    }
+
+    // C)
+    public void actoresMayores(Pelicula p){
+        for (Persona persona : p.getActores()) {
+            if(persona.getEdad() > 18){
+                System.out.println(persona.getNombre());
+            }
+        }
+    }
+
 }

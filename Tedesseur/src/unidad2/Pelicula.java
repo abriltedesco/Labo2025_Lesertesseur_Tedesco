@@ -12,6 +12,7 @@ public class Pelicula {
     private ArrayList<Persona> actores;
     private ArrayList<String> idiomas;
 
+    // constructores
     public Pelicula(){
         this.titulo = "Before Sunrise";
         this.genero = "Romance";
@@ -40,6 +41,7 @@ public class Pelicula {
         this.idiomas = idiomas;
     }
 
+    // getters y setters
     public String getTitulo() {
         return titulo;
     }
@@ -87,4 +89,43 @@ public class Pelicula {
     public void setIdiomas(ArrayList<String> idiomas) {
         this.idiomas = idiomas;
     }
+
+    // metodos pedidos
+
+        // a) ABM
+    public void bajaActor(Persona persona) {
+        this.actores.remove(persona);
+    }
+    public void bajaDirector(Persona persona) {
+        this.directores.remove(persona);
+    }
+    public void altaActor(Persona persona) {
+        this.actores.add(persona);
+    }
+    public void altaDirector(Persona persona) {
+        this.directores.add(persona);
+    }
+    public void altaIdiomas(String idioma) {
+        this.idiomas.add(idioma);
+    }
+    public void bajaIdiomas(String idioma) {
+        this.idiomas.remove(idioma);
+    }
+
+    public void modificarActor(Persona actorNuevo, Persona actorViejo){
+        altaActor(actorNuevo);
+        bajaActor(actorViejo);
+    }
+
+    public void modificarDirector(Persona directorNuevo, Persona directorViejo){
+        altaDirector(directorNuevo);
+        bajaDirector(directorViejo);
+    }
+
+    public void modificarIdiomas(String idiomasViejo, String idiomaNuevo){
+        altaIdiomas(idiomaNuevo);
+        bajaIdiomas(idiomaNuevo);
+    }
+
+
 }
