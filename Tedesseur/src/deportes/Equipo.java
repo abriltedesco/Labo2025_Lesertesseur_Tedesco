@@ -15,7 +15,7 @@ public class Equipo {
         this.jugadores = new ArrayList<Jugador>();
     }
 
-    public Equipo(String nombreEquipo, String dispHoraria, String barrio,   private ArrayList<Jugador> jugadores) {
+    public Equipo(String nombreEquipo, String dispHoraria, String barrio, ArrayList<Jugador> jugadores) {
         this.nombreEquipo = nombreEquipo;
         this.dispHoraria = dispHoraria;
         this.barrio = barrio;

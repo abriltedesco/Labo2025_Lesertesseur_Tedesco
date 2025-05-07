@@ -113,10 +113,10 @@ public class Curling {
         ArrayList<Equipo> equiposTarde = new ArrayList<>();   // 3 equipos
         ArrayList<Equipo> equiposNoche= new ArrayList<>();    // 3 equipos
         
-        campeonato.agregarEquipos(equipos, equiposManiana. equiposTarde, equiposNoche);
+        campeonato.agregarEquipos(equipos, equiposManiana, equiposTarde, equiposNoche);
 
         // ---------------------------------------------------------------------------------------- //
-        campeonato.crearPartidos(partidos, equiposManiana. equiposTarde, equiposNoche);
+        campeonato.crearPartidos(partidos, equiposManiana, equiposTarde, equiposNoche);
         campeonato.setPartidos(partidos);
         for(Partido partido :  partidos){
            System.out.println(partido.getEquipoVisitante() + " VS " + partido.getEquipoVisitante());
