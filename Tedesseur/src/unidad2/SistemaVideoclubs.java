@@ -1,5 +1,3 @@
-package unidad2;
-
 import java.util.ArrayList;
 
 public class SistemaVideoclubs {
@@ -67,6 +65,18 @@ public class SistemaVideoclubs {
                 }
             }
         }
+    }
+
+    //E
+    public ArrayList<String> direccionesPorComuna(int comuna){ 
+        ArrayList <String> direcciones = new ArrayList<>();
+
+        for (Videoclub videoclub : videoclubs) {
+            if (comuna == videoclub.getComuna()) {
+                direcciones.add(videoclub.getDireccion());                
+            }
+        }
+        return direcciones;
     }
 
     public static void main(String[] args) {
