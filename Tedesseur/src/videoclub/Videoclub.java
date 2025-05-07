@@ -1,4 +1,4 @@
-package unidad2;
+package videoclub;
 
 import unidad1.Persona;
 

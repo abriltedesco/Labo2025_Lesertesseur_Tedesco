@@ -1,4 +1,4 @@
-package unidad2;
+package videoclub;
 import java.util.ArrayList;
 
 public class SistemaVideoclubs {
