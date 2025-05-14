@@ -1,7 +1,6 @@
 package videoclub;
 
-import unidad1.Persona;
-
+import personas.Persona;
 import java.util.ArrayList;
 
 public class Videoclub {

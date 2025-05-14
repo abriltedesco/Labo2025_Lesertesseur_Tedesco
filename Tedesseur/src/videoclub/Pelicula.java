@@ -1,6 +1,6 @@
 package videoclub;
 
-import unidad1.Persona;
+import personas.Persona;
 
 import java.util.ArrayList;
 
@@ -19,8 +19,8 @@ public class Pelicula {
         this.duracion = 90;
         this.directores = new ArrayList<>();
         this.actores = new ArrayList<>();
-        Persona actriz = new Persona("Julie Delpy", 43, "Dhggfhgf");
-        Persona actor = new Persona("Ethan Hawke", 45, "Hawkgjfjgfe");
+        Persona actriz = new Persona("Julie", "Delpy", 43);
+        Persona actor = new Persona("Ethan", "Hawke", 45);
         Persona director = new Persona();
         actores.add(actriz);
         actores.add(actor);

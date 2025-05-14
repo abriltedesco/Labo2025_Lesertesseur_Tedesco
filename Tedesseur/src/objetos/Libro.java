@@ -1,7 +1,7 @@
 package objetos;
 
-import unidad1.Fecha;
-import unidad1.Persona;
+import personas.Persona;
+import fecha.Fecha;
 
 public class Libro {
     private String titulo;
@@ -22,7 +22,7 @@ public class Libro {
 
     public Libro(){
         this.titulo = "Orgullo y Prejuicio";
-        this.autor = new Persona ("Jane Austen", 30, "xxxx");
+        this.autor = new Persona ("Jane",  "Austen", 30);
         this.isbn = 1;
         this.paginas = 352;
         this.editorial = "pinguino";
@@ -85,11 +85,11 @@ public class Libro {
 
     public static void main(String[] args) {
         Libro libro1 = new Libro();
-        Libro libro2 = new Libro("Crepusculo",  new Persona ("Stephanie Meyer", 28, "xxxx"), 2, 230, "editorial",  new Fecha(20, 05, 2005));
+        Libro libro2 = new Libro("Crepusculo",  new Persona ("Stephanie", "Meyer", 28), 2, 230, "editorial",  new Fecha(20, 05, 2005));
         Libro libro3 = new Libro();
 
         libro3.setTitulo("The Hunger Games");
-        libro3.setAutor(new Persona("Suzanne Collins", 32, "zzzz"));
+        libro3.setAutor(new Persona("Suzanne", "Collins", 32));
         libro3.setEditorial("Molino");
         libro3.setISBN(3);
         libro3.setPaginas(376);

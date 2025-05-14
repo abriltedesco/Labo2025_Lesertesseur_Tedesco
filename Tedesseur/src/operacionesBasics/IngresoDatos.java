@@ -1,4 +1,4 @@
-package primerosEjercicios;
+package operacionesBasics;
 
 import java.util.Scanner;
 public class IngresoDatos {

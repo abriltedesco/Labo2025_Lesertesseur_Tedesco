@@ -3,7 +3,6 @@ package figurasGeometricas;
 public class Circulo {
     private double radio;
 
-
     /* constructor por defecto */
     public Circulo(){
         this.radio = 2 ;

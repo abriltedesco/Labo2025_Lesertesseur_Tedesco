@@ -1,4 +1,4 @@
-package primerosEjercicios;
+package operacionesBasics;
 
 public class Vocales {
     public static void main(String[] args) {

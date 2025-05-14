@@ -1,7 +1,9 @@
 package deportes;
 
-import unidad1.Fecha;
+import personas.Jugador;
+import fecha.Fecha;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class Curling {
@@ -62,16 +64,16 @@ public class Curling {
         Curling campeonato = new Curling(partidos);
 
         Jugador jugador1 = new Jugador();
-        Jugador jugador2 = new Jugador("Leandro", "Nessi", 1, new Fecha(17, 6, 1999));
-        Jugador jugador3 = new Jugador("Lionel", "Messi", 10, new Fecha(24, 6, 1989));
+        Jugador jugador2 = new Jugador("Leandro", "Nessi", 1, LocalDate.of( 1999,7, 6));
+        Jugador jugador3 = new Jugador("Lionel", "Messi", 10, LocalDate.of( 1989, 24, 6));
 
-        Jugador jugador4 = new Jugador("Fernando", "Gago", 9, new Fecha(9, 3, 1982));
-        Jugador jugador5 = new Jugador("Alphonso", "Davies", 19, new Fecha(2, 11, 2000));
-        Jugador jugador6 = new Jugador("Tiago", "Livaeres", 33, new Fecha(2, 3, 2001));
+        Jugador jugador4 = new Jugador("Fernando", "Gago", 9, LocalDate.of(1982, 9, 3 ));
+        Jugador jugador5 = new Jugador("Alphonso", "Davies", 19, LocalDate.of( 2000 , 2,11));
+        Jugador jugador6 = new Jugador("Tiago", "Livaeres", 33, LocalDate.of( 2001, 2, 3));
 
-        Jugador jugador7 = new Jugador("Lali", "Esposito", 12, new Fecha(10, 10, 1992));
-        Jugador jugador8 = new Jugador("Charli", "XCX", 4, new Fecha(15, 4, 1992));
-        Jugador jugador9 = new Jugador("Adam", "Yauch", 2, new Fecha(15, 4, 1982));
+        Jugador jugador7 = new Jugador("Lali", "Esposito", 12, LocalDate.of( 1992 , 10, 10 ));
+        Jugador jugador8 = new Jugador("Charli", "XCX", 4, LocalDate.of( 1992, 5, 4));
+        Jugador jugador9 = new Jugador("Adam", "Yauch", 2, LocalDate.of(1982, 15, 4));
 
         ArrayList<Jugador> jugadores = new ArrayList<>();
         jugadores.add(jugador1);

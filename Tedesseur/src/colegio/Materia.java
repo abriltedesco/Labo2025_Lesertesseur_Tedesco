@@ -1,5 +1,6 @@
 package colegio;
-import unidad1.Fecha;
+import personas.Alumno;
+import fecha.Fecha;
 
 import java.util.ArrayList;
 

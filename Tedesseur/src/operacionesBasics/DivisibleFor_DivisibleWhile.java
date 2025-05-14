@@ -1,4 +1,4 @@
-package primerosEjercicios;
+package operacionesBasics;
 
 public class DivisibleFor_DivisibleWhile {
     public static void main(String[] args) {

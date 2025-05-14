@@ -1,7 +1,6 @@
 package videoclub;
 
-import unidad1.Persona;
-
+import personas.Persona;
 import java.util.ArrayList;
 
 public class Estante {
@@ -20,10 +19,10 @@ public class Estante {
         ArrayList<Persona> directores = new ArrayList<>();
         ArrayList<Persona> actores = new ArrayList<>();
         ArrayList<String> idiomas = new ArrayList<>();
-        Persona d = new Persona("Ti west", 60, "xxxx");
+        Persona d = new Persona("Ti", "west", 40);
         directores.add(d);
-        Persona a = new Persona("mia goth", 26, "xxxx");
-        Persona a2 = new Persona("jenna ortega", 28, "xxxx");
+        Persona a = new Persona("mia", "goth", 26);
+        Persona a2 = new Persona("jenna", "ortega", 28);
         actores.add(a);
         actores.add(a2);
         idiomas.add("español");

@@ -1,6 +1,6 @@
 package deportes;
 
-import unidad1.Fecha;
+import fecha.Fecha;
 
 public class Partido {
     private Equipo equipoLocal;

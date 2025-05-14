@@ -1,4 +1,4 @@
-package unidad1;
+package fecha;
 
 public class Fecha {
     private int dia;

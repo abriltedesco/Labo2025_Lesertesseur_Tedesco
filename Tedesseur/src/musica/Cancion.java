@@ -1,6 +1,6 @@
 package musica;
 
-import unidad1.Persona;
+import fecha.Persona;
 
 public class Cancion {
     private String titulo;

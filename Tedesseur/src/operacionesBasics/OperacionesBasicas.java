@@ -1,6 +1,6 @@
-package unidad2;
+package operacionesBasics;
 
-import unidad1.Persona;
+import fecha.Persona;
 
 import java.util.ArrayList;
 
