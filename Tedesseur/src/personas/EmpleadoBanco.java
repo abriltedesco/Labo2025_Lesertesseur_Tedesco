@@ -69,9 +69,8 @@ public class EmpleadoBanco extends personas.Persona {
   //     this.fechaNacimiento = fechaNacimiento;
   // }
 
-  // public LocalDate getfechaIngreso() {
-  //     return fechaIngreso;
-  // }
+  public LocalDate getfechaIngreso() {
+      return fechaIngreso;}
 
     public void setfechaIngreso(LocalDate fechaIngreso) {
         this.fechaIngreso = fechaIngreso;

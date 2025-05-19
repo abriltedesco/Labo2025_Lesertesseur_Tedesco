@@ -1,6 +1,6 @@
 package musica;
 
-import fecha.Persona;
+import personas.Persona;
 
 public class Cancion {
     private String titulo;
@@ -14,7 +14,7 @@ public class Cancion {
 
     public Cancion() {
         this.titulo = "";
-        artista = new Persona("", 0, "");
+        artista = new Persona("", "", 0);
     }
 
     public String getTitulo() {
@@ -38,10 +38,10 @@ public class Cancion {
     }
 
     public static void main(String[] args) {
-        Cancion cancion1 = new Cancion("Vroom Vroom", new Persona("Charli XCX", 32, "xxxx"));
+        Cancion cancion1 = new Cancion("Vroom Vroom", new Persona("Charli" ,"XCX", 32));
         Cancion cancion2 = new Cancion();
         cancion2.setTitulo("Billie Bossa Nova");
-        cancion2.setArtista(new Persona ("Billie Eilish", 23, "california" ));
+        cancion2.setArtista(new Persona ("Billie", "Eilish", 23 ));
 
         System.out.println("Canciones: ");
         System.out.println(cancion1.getTitulo());

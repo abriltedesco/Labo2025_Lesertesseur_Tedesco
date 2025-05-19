@@ -1,9 +1,9 @@
-package operacionesBasics;
+/*package operacionesBasics;
 
 import fecha.Persona;
 
 import java.util.ArrayList;
-
+/*
 public class OperacionesBasicas {
     public static void main(String[] args) {
         int suma = 0;
@@ -52,3 +52,4 @@ public class OperacionesBasicas {
 
     }
 }
+*/

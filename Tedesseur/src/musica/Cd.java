@@ -1,6 +1,6 @@
 package musica;
 
-import fecha.Persona;
+import personas.Persona;
 
 import java.util.ArrayList;
 
