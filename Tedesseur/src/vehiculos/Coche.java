@@ -1,20 +1,11 @@
 package vehiculos;
 
-public class Coche extends Vehiculo{
-    private String patente;
+public class Coche extends Motorizado{
     private double velocidad;
     private boolean esDescapotable;
 
     public double getVelocidad(){
         return velocidad;
-    }
-
-    public String getPatente() {
-        return patente;
-    }
-
-    public void setPatente(String patente) {
-        this.patente = patente;
     }
 
     public boolean isEsDescapotable() {
@@ -30,16 +21,14 @@ public class Coche extends Vehiculo{
     }
 
     public Coche() {
-        super("Porsche", "Cayman", "Rosita", 4, 2015);
-        this.patente = "AD912EX";
+        super("DJSADJASDJ", "Porsche", "Cayman", "Rosita", 4, 2015);
         this.esDescapotable = true;
         this.velocidad = 37.4;
     }
 
     public Coche(String marca, String modelo, String color, double velocidad, String patente, boolean esDescapotable) {
-        super(marca, modelo, color);
+        super(patente, marca, modelo, color);
         this.velocidad = velocidad ;
-        this.patente = patente;
         this.esDescapotable = esDescapotable;
     }
 

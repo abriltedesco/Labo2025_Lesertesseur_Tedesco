@@ -3,47 +3,27 @@ package vehiculos;
 import java.util.ArrayList;
 
 public class SistemaVehiculo {
-    private ArrayList<Coche> coches;
-    private ArrayList<Bicicleta> bicicletas;
-    private ArrayList<Camioneta> camionetas;
+    private ArrayList<Vehiculo> vehiculos;
 
-    public ArrayList<Coche> getCoches() {
-        return coches;
+    public void setVehiculos(ArrayList<Vehiculo> vehiculos) {
+        this.vehiculos = vehiculos;
     }
-
-    public void setCoches(ArrayList<Coche> coches) {
-        this.coches = coches;
-    }
-
-    public ArrayList<Bicicleta> getBicicletas() {
-        return bicicletas;
-    }
-
-    public void setBicicletas(ArrayList<Bicicleta> bicicletas) {
-        this.bicicletas = bicicletas;
-    }
-
-    public ArrayList<Camioneta> getCamionetas() {
-        return camionetas;
-    }
-
-    public void setCamionetas(ArrayList<Camioneta> camionetas) {
-        this.camionetas = camionetas;
+    public ArrayList<Vehiculo> getVehiculos() {
+        return vehiculos;
     }
 
     public SistemaVehiculo() {
-        this.coches = new ArrayList<>();
-        this.bicicletas = new ArrayList<>();
-        this.camionetas = new ArrayList<>();
+        this.vehiculos = new ArrayList<>();
     }
 
     public SistemaVehiculo(ArrayList<Coche> coches, ArrayList<Bicicleta> bicicletas, ArrayList<Camioneta> camionetas) {
-        this.coches = coches;
-        this.bicicletas = bicicletas;
-        this.camionetas = camionetas;
+        this.vehiculos = new ArrayList<>();
+        this.vehiculos.addAll(coches);
+        this.vehiculos.addAll(bicicletas);  
+        this.vehiculos.addAll(camionetas);
     }
 
-    public void saberMayorCantidadDeTipoDeVehiculo(){
+   /* public void saberMayorCantidadDeTipoDeVehiculo(){
         int mayorCantidad = coches.size();
         String tipoVehiculo = "Coches";
         if(bicicletas.size() > mayorCantidad){
@@ -55,19 +35,48 @@ public class SistemaVehiculo {
             tipoVehiculo = "Camioneta";
         }
         System.out.println("Cantidad: " + mayorCantidad + " de tipo: " + tipoVehiculo);
+    } */
+    public void saberMayorCantidadDeTipoDeVehiculo(){
+       int mayorCantidad = 0;
+       String tipoVehiculo = "Coches";
+       for(Vehiculo vehiculo : vehiculos){
+           if(vehiculo instanceof Coche){
+               if(coches.size() > mayorCantidad){
+                   mayorCantidad = coches.size();
+                   tipoVehiculo = "Coches";
+               }
+           }
+           else if(vehiculo instanceof Bicicleta){
+               if(bicicletas.size() > mayorCantidad){
+                   mayorCantidad = bicicletas.size();
+                   tipoVehiculo = "Bicicleta";
+               }
+           }
+           else if(vehiculo instanceof Camioneta){
+               if(camionetas.size() > mayorCantidad){
+                   mayorCantidad = camionetas.size();
+                   tipoVehiculo = "Camioneta";
+               }
+           }
+       }
+       System.out.println("Cantidad: " + mayorCantidad + " de tipo: " + tipoVehiculo);}
     }
 
     public float porcentajeDescapotables(){
         float porcentaje = 0.0F;
         int cantDescapotables = 0;
+        int cantAutos = 0;
 
-        for(Coche coche : coches){
-            if(coche.isEsDescapotable()){
-                cantDescapotables ++;
+        for(Vehiculo coche : vehiculos){
+            if(coche instanceof Coche){
+                if(coche.isEsDescapotable()){
+                    cantDescapotables ++;
+                }
+                cantAutos ++;
             }
         }
 
-        porcentaje = (float) (cantDescapotables * 100) / coches.size();
+        porcentaje = (float) (cantDescapotables * 100) / cantAutos;
         return porcentaje;
     }
 
@@ -100,4 +109,4 @@ public class SistemaVehiculo {
 
         cam1.aniadirCarga(36.7F);
     }
-}
+
