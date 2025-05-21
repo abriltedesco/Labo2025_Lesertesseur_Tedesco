@@ -1,3 +1,5 @@
+package almuerzo;
+
 public class Plato {
     private String nombre;
     private double precio;
@@ -28,4 +30,6 @@ public class Plato {
     public void setPrecio(double precio) {
         this.precio = precio;
     }
+
+
 }

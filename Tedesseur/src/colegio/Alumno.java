@@ -1,5 +1,5 @@
-package personas;
-import colegio.Materia;
+package colegio;
+import personas.Persona;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -11,9 +11,17 @@ public class Alumno extends Persona {
     // private Fecha fechaNacimiento;
     private ArrayList<Float> listaDeNotas;
     private ArrayList<Materia> listaMaterias;
+    private int division;
 
+    public int getDivision() {
+        return division;
+    }
 
-    public Alumno(String nombre, String apellido, int edad, ArrayList<Float> listaDeNotas, LocalDate fechaNacimiento, ArrayList <Materia> listaMaterias) {
+    public void setDivision(int division) {
+        this.division = division;
+    }
+
+    public Alumno(String nombre, String apellido, int edad, ArrayList<Float> listaDeNotas, LocalDate fechaNacimiento, ArrayList <Materia> listaMaterias, int division) {
        // this.nombre = nombre;
         // this.apellido = apellido;
       //  this.edad = edad;
@@ -21,6 +29,7 @@ public class Alumno extends Persona {
         this.listaDeNotas = listaDeNotas;
        // this.fechaNacimiento = fechaNacimiento;
         this.listaMaterias = listaMaterias;
+        this.division = division;
     }
 
     public Alumno() {
@@ -36,9 +45,10 @@ public class Alumno extends Persona {
         listaDeNotas.add(6.0F);
      //   this.fechaNacimiento = new Fecha(19, 5, 1954);
         this.listaMaterias = new ArrayList<Materia>();
+        this.division = 1;
     }
 
-    public Alumno(String nombre, int edad, String apellido, LocalDate fechaNacimiento) {
+    public Alumno(String nombre, int edad, String apellido, LocalDate fechaNacimiento, int division) {
        // this.nombre = nombre;
       ////  this.apellido = apellido;
        // this.edad = 15;
@@ -51,6 +61,7 @@ public class Alumno extends Persona {
         listaDeNotas.add(3.9F);
         listaDeNotas.add(7.0F);
         this.listaMaterias = new ArrayList<Materia>();
+        this.division = division;
     }
 
 
@@ -148,10 +159,10 @@ public class Alumno extends Persona {
         ArrayList<Materia> listaMaterias2 = new ArrayList<Materia>();
         ArrayList<Materia> listaMaterias3 = new ArrayList<Materia>();
 
-        Alumno alumno1 = new Alumno("Victoria", "Tsai Liao", 15, listaDeNotas1, LocalDate.of(2005, 12, 29), listaMaterias1 );
-        Alumno alumno2 = new Alumno("Clara", "Lesertesseur", 17, listaDeNotas2, LocalDate.of(2008, 2, 3) , listaMaterias2 );
-        Alumno alumno3 = new Alumno("Francisco", "Esposito", 19, listaDeNotas3, LocalDate.of( 2007, 7, 8), listaMaterias3 );
-        Alumno alumno4 = new Alumno("Teo", 15, "Gray", LocalDate.of(2010, 10, 15));
+        Alumno alumno1 = new Alumno("Victoria", "Tsai Liao", 15, listaDeNotas1, LocalDate.of(2005, 12, 29), listaMaterias1 , 1);
+        Alumno alumno2 = new Alumno("Clara", "Lesertesseur", 17, listaDeNotas2, LocalDate.of(2008, 2, 3) , listaMaterias2 , 2);
+        Alumno alumno3 = new Alumno("Francisco", "Esposito", 19, listaDeNotas3, LocalDate.of( 2007, 7, 8), listaMaterias3 , 3);
+        Alumno alumno4 = new Alumno("Teo", 15, "Gray", LocalDate.of(2010, 10, 15), 4);
 
         alumno1.agregarNota(9.0F);
         alumno1.agregarNota(8.5F);

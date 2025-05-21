@@ -1,6 +1,4 @@
 package colegio;
-import personas.Alumno;
-import fecha.Fecha;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -27,7 +25,7 @@ public class Materia {
         listaDeContenidos.add("Polimorfismo");
         this.alumnosInscriptos =  new ArrayList <Alumno>();
         Alumno alumno1 = new Alumno();
-        Alumno alumno2 = new Alumno("Marcos", 8, "Albarn", LocalDate.of(2023, 6, 20));
+        Alumno alumno2 = new Alumno("Marcos", 8, "Albarn", LocalDate.of(2023, 6, 20), 2);
         alumnosInscriptos.add(alumno1);
         alumnosInscriptos.add(alumno2);
     }

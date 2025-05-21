@@ -1,3 +1,5 @@
+package almuerzo;
+
 import personas.Persona;
 
 import java.time.LocalDate;
@@ -19,7 +21,7 @@ public class Pedido {
 
     public Pedido() {
         this.fechaCreacion = LocalDate.now();
-        this.plato = new Plato ("Milanesas con pure", 12500);
+        this.plato = new Plato("Milanesas con pure", 12500);
         this.solicitante = new Persona("carlos", "vives");
         this.horaEntrega = 19;
         this.estadoEntrega = "Cancelado";
