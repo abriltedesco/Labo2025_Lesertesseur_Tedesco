@@ -1,5 +1,5 @@
 package dispositivos;
 
-public class Pantalla {
+public class Pantalla extends Salida{
 
 }

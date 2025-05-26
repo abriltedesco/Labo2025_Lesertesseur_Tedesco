@@ -69,6 +69,7 @@ public class SistemaAlmuerzo {
             }
         }
     }
+
     public void actualizarCantPedida(){
         for(Pedido pedido : pedidos){
             for(Plato plato : platos){
@@ -80,11 +81,18 @@ public class SistemaAlmuerzo {
     }
 
     public void platoMasPedidos(){
-        Plato platoMayorCantPedida = new Plato();
+        Plato plato1 = new Plato();
+        Plato plato2 = new Plato();
+        Plato plato3 = new Plato();
         ArrayList<Plato> platosMayorAMenorCantPedida = new ArrayList<>();
         for(Plato plato : platos){
-            if(plato.getCantPedida() > platoMayorCantPedida.getCantPedida()){
-                platoMayorCantPedida = plato;
+            if(plato.getCantPedida() > plato1.getCantPedida()){
+                plato1 = plato;
+                plato2 = plato1;
+                plato3 = plato2;
+            }
+            else if(plato.getCantPedida() > plato2.getCantPedida()){
+                plato = plato1;
             }
         }
     }
