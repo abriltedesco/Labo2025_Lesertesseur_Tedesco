@@ -33,13 +33,14 @@ public class SistemaAlmuerzo {
 
     public void mostrarPedidos() {
         for(Pedido pedido: pedidos){
-            System.out.println(pedido.getFechaCreacion() + " " + pedido.getPlato() + " " + pedido.getSolicitante() + " " + pedido.getHoraEntrega() + " " + pedido.getEstadoEntrega());
+            System.out.println(pedido.getFechaCreacion() + " " + pedido.getPlato().getNombre() + " " + pedido.getSolicitante().getNombre() + " " + pedido.getHoraEntrega() + " " + pedido.getEstadoEntrega());
         }
     }
+
     public boolean chequeoFechaPedido(LocalDate fecha){
         boolean esIgual = false;
         for(Pedido pedido: pedidos){
-            if(pedido.getFechaCreacion() == fecha){
+            if(pedido.getFechaCreacion().equals(fecha)){
                 System.out.println(pedido.getFechaCreacion());
                 System.out.println(fecha);
                 System.out.println("La fecha coincide");
@@ -52,5 +53,39 @@ public class SistemaAlmuerzo {
             }
         }
     return esIgual;
+    }
+
+    public void listarPlatosDelDia(LocalDate fecha){
+        for (Pedido pedido : pedidos){
+            if(pedido.getFechaCreacion().equals(fecha) && pedido.getEstadoEntrega().equals("A cocinar")){
+                if(pedido.isEsProfesor()) {
+                    double descuento = ( pedido.ConseguirPorcDescuento() * pedido.getPlato().getPrecio() ) / 100;
+                    double precioConDesc = pedido.getPlato().getPrecio() - descuento;
+                    System.out.println("Plato: " + pedido.getPlato().getNombre() + " | precio: " + precioConDesc);
+                }
+                else{
+                    System.out.println("Plato: " + pedido.getPlato().getNombre() + " | precio: " + pedido.getPlato().getPrecio());
+                }
+            }
+        }
+    }
+    public void actualizarCantPedida(){
+        for(Pedido pedido : pedidos){
+            for(Plato plato : platos){
+                if(pedido.getPlato().equals(plato)){
+                    plato.setCantPedida(plato.getCantPedida() + 1);
+                }
+            }
+        }
+    }
+
+    public void platoMasPedidos(){
+        Plato platoMayorCantPedida = new Plato();
+        ArrayList<Plato> platosMayorAMenorCantPedida = new ArrayList<>();
+        for(Plato plato : platos){
+            if(plato.getCantPedida() > platoMayorCantPedida.getCantPedida()){
+                platoMayorCantPedida = plato;
+            }
+        }
     }
 }
