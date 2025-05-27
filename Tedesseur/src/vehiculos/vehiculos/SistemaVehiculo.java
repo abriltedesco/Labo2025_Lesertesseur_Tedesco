@@ -1,4 +1,4 @@
-/*package vehiculos;
+package vehiculos;
 
 import java.util.ArrayList;
 
@@ -23,44 +23,33 @@ public class SistemaVehiculo {
         this.vehiculos.addAll(camionetas);
     }
 
-    /* public void saberMayorCantidadDeTipoDeVehiculo(){
-         int mayorCantidad = coches.size();
-         String tipoVehiculo = "Coches";
-         if(bicicletas.size() > mayorCantidad){
-             mayorCantidad = bicicletas.size();
-             tipoVehiculo = "Bicicleta";
-         }
-         else if(camionetas.size() > mayorCantidad){
-             mayorCantidad = camionetas.size();
-             tipoVehiculo = "Camioneta";
-         }
-         System.out.println("Cantidad: " + mayorCantidad + " de tipo: " + tipoVehiculo);
-     }
+
     public void saberMayorCantidadDeTipoDeVehiculo(){
         int mayorCantidad = 0;
         String tipoVehiculo = "Coches";
         for(Vehiculo vehiculo : vehiculos){
             if(vehiculo instanceof Coche){
-                if(coches.size() > mayorCantidad){
-                    mayorCantidad = coches.size();
+                if(vehiculos.size() > mayorCantidad){
+                    mayorCantidad = vehiculos.size();
                     tipoVehiculo = "Coches";
                 }
             }
             else if(vehiculo instanceof Bicicleta){
-                if(bicicletas.size() > mayorCantidad){
-                    mayorCantidad = bicicletas.size();
+                if(vehiculos.size() > mayorCantidad){
+                    mayorCantidad = vehiculos.size();
                     tipoVehiculo = "Bicicleta";
                 }
             }
             else if(vehiculo instanceof Camioneta){
-                if(camionetas.size() > mayorCantidad){
-                    mayorCantidad = camionetas.size();
+                if(vehiculos.size() > mayorCantidad){
+                    mayorCantidad = vehiculos.size();
                     tipoVehiculo = "Camioneta";
                 }
             }
         }
-        System.out.println("Cantidad: " + mayorCantidad + " de tipo: " + tipoVehiculo);}
-}
+        System.out.println("Cantidad: " + mayorCantidad + " de tipo: " + tipoVehiculo);
+    }
+    
 
 public float porcentajeDescapotables(){
     float porcentaje = 0.0F;
@@ -69,7 +58,7 @@ public float porcentajeDescapotables(){
 
     for(Vehiculo coche : vehiculos){
         if(coche instanceof Coche){
-            if(coche.isEsDescapotable()){
+            if(((Coche) coche).isEsDescapotable()){
                 cantDescapotables ++;
             }
             cantAutos ++;
@@ -100,6 +89,8 @@ public static void main(String[] args) {
     Camioneta cam3 = new Camioneta();
     ArrayList<Camioneta> camionetas= new ArrayList<>();
     camionetas.add(cam1);
+    camionetas.add(cam2);
+    camionetas.add(cam3);
 
     SistemaVehiculo sistema = new SistemaVehiculo(coches, bicicletas, camionetas);
     sistema.saberMayorCantidadDeTipoDeVehiculo();
@@ -109,4 +100,4 @@ public static void main(String[] args) {
 
     cam1.aniadirCarga(36.7F);
 }
-*/
+}

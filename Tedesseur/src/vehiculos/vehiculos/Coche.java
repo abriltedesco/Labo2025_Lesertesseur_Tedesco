@@ -21,7 +21,7 @@ public class Coche extends Motorizado{
     }
 
     public Coche() {
-        super("DJSADJASDJ", "Porsche", "Cayman", "Rosita", 4, 2015);
+        super("AD912DA", "Porsche", "Cayman", "Rosa", 4, 2015);
         this.esDescapotable = true;
         this.velocidad = 37.4;
     }
