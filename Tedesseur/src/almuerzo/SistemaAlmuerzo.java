@@ -80,20 +80,27 @@ public class SistemaAlmuerzo {
         }
     }
 
-    public void platoMasPedidos(){
-        Plato plato1 = new Plato();
-        Plato plato2 = new Plato();
-        Plato plato3 = new Plato();
-        ArrayList<Plato> platosMayorAMenorCantPedida = new ArrayList<>();
-        for(Plato plato : platos){
-            if(plato.getCantPedida() > plato1.getCantPedida()){
-                plato1 = plato;
-                plato2 = plato1;
+    public void topTresPlatosMasPedidos() {
+        Plato plato1 = null;
+        Plato plato2 = null;
+        Plato plato3 = null;
+
+        for (Plato plato : platos) {
+            if (plato1 == null || plato.getCantPedida() > plato1.getCantPedida()) {
                 plato3 = plato2;
-            }
-            else if(plato.getCantPedida() > plato2.getCantPedida()){
-                plato = plato1;
+                plato2 = plato1;
+                plato1 = plato;
+            } else if (plato2 == null || plato.getCantPedida() > plato2.getCantPedida()) {
+                plato3 = plato2;
+                plato2 = plato;
+            } else if (plato3 == null || plato.getCantPedida() > plato3.getCantPedida()) {
+                plato3 = plato;
             }
         }
+
+        System.out.println("Top 3 platos más pedidos:");
+        if (plato1 != null) System.out.println("1. " + plato1.getNombre() + " - Pedidos: " + plato1.getCantPedida());
+        if (plato2 != null) System.out.println("2. " + plato2.getNombre() + " - Pedidos: " + plato2.getCantPedida());
+        if (plato3 != null) System.out.println("3. " + plato3.getNombre() + " - Pedidos: " + plato3.getCantPedida());
     }
 }

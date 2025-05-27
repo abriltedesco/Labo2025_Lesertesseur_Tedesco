@@ -6,10 +6,10 @@ import java.time.LocalDate;
 
 public class Main {
     public static void main(String[] args) {
-        Plato p1 = new Plato("Fideos", 12000);
-        Plato p2 = new Plato("Nuggets", 20000);
-        Plato p3 = new Plato("Pizza", 12500);
-        Plato p4 = new Plato("Empanada", 4500);
+        Plato p1 = new Plato("Fideos", 12000, 3);
+        Plato p2 = new Plato("Nuggets", 20000, 2);
+        Plato p3 = new Plato("Pizza", 12500, 6);
+        Plato p4 = new Plato("Empanada", 4500, 5);
         Profesor prof1 = new Profesor("SFSFS", "sfsdfd", 15);
         Profesor prof2 = new Profesor("SFSFS", "sfsdfd", 25);
         SistemaAlmuerzo s1 = new SistemaAlmuerzo();
@@ -34,5 +34,8 @@ public class Main {
         System.out.println("--------------------------------------------------------------");
         s1.chequeoFechaPedido(LocalDate.of(2025, 2, 12));
         s1.listarPlatosDelDia(LocalDate.of(2025, 2, 12));
+        System.out.println("--------------------------------------------------------------");
+        s1.topTresPlatosMasPedidos();
+    
     }
 }
