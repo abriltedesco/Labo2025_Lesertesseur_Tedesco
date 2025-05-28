@@ -10,6 +10,11 @@ public class Impresora extends Salida{
         this.metodoImpresion = metodoImpresion;
     }
 
+    public Impresora(int puertos, String metodoImpresion) {
+        super();
+        this.puertos = 2;
+        this.metodoImpresion = "inyeccion";
+    }
     public int getPuertos() {
         return puertos;
     }

@@ -16,15 +16,26 @@ public class Main {
         Mouse mouse = new Mouse();
         Pantalla pantalla = new Pantalla();
 
-        ArrayList<Dispositivo> dispositivos1 = new ArrayList<>();
-        dispositivos1.add(cpu1);
-        dispositivos1.add(teclado1);
-        dispositivos1.add(impresora);
-        dispositivos1.add(mouse);
-        dispositivos1.add(pantalla);
-
         Cliente cliente1 = new Cliente();
-        SistemaVentaCompus svc = new SistemaVentaCompus(dispositivos1, cliente1);
+        Cliente cliente2 = new Cliente("juansito", "perez", "123456789", "tarjeta", "1234-5678-9876-5432");
+        Cliente cliente3 = new Cliente("mila", "lopez", "987654321", "tarjeta", "1234-1234-1234-1234");
+        Cliente cliente4 = new Cliente("pedro", "gomez", "456789123", "efectivo", "0000-0000-0000-0000");
+
+        ArrayList<Dispositivo> dispositivos1 = new ArrayList<>();
+        SistemaVentaCompus sist = new SistemaVentaCompus(cliente1);
+        sist.agregarDisp(cpu1, dispositivos1);
+        sist.agregarDisp(teclado1, dispositivos1);
+        sist.agregarDisp(impresora, dispositivos1);
+        sist.agregarDisp(mouse, dispositivos1);
+        sist.agregarDisp(pantalla, dispositivos1);
+ 
+        ArrayList<Dispositivo> dispositivos2 = new ArrayList<>();
+        SistemaVentaCompus sist2 = new SistemaVentaCompus(cliente1);
+        sist2.agregarDisp(cpu2, dispositivos2);
+        sist2.agregarDisp(teclado2, dispositivos2);
+        sist2.agregarDisp(impresora, dispositivos2);
+        sist2.agregarDisp(mouse, dispositivos2);
+        sist2.agregarDisp(pantalla, dispositivos2);
 
     }
 }

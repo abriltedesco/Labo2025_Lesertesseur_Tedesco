@@ -50,4 +50,20 @@ public class Dispositivo {
     public void setStock(int stock) {
         this.stock = stock;
     }
+
+     public void ajustarPorInflacion(double porcentaje) {
+        precio += precio * (porcentaje / 100);
+    }
+
+    public void reducirStock() {
+        if (stock > 0) stock--;
+    }
+
+    public boolean hayStock() {
+        return stock > 0;
+    }
+
+    public String getInfo() {
+        return fabricante + " " + modelo + " ($" + precio + ")";
+    }
 }

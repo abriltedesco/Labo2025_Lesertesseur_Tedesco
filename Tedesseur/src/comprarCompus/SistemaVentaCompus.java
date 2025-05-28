@@ -1,6 +1,6 @@
 package comprarCompus;
 
-import dispositivos.Dispositivo;
+import dispositivos.*;
 import personas.Cliente;
 
 import java.util.ArrayList;
@@ -33,5 +33,43 @@ public class SistemaVentaCompus {
     public SistemaVentaCompus() {
         this.dispositivos = new ArrayList<>();
         this.cliente = new Cliente();
+    }
+    public SistemaVentaCompus(Cliente cliente) {
+        this.cliente = cliente;
+    }
+    public void agregarDisp(Dispositivo dispositivo, ArrayList<Dispositivo> dispositivos) {
+        if (dispositivo.hayStock()) {
+            dispositivos.add(d);
+            dispositivo.reducirStock();
+        } else {
+            System.out.println("No hay stock");
+        }
+    }
+
+    public double calcularTotal(){
+        double total = 0.0;
+        for (Dispositivo dispositivo : dispositivos){
+            total += dispositivo.getPrecio();
+        }
+        if (cliente.getMetodoPago().equals("tarjeta")) {
+            total *= 1.05; // 5% recargo
+        }
+        return total;
+    }
+
+    public int contarEntrada() {
+        int contador = 0;
+        for (Dispositivo dispositivo : dispositivos) {
+            if (dispositivo instanceof Entrada) contador++;
+        }
+        return contador;
+    }
+
+    public int contarSalida() {
+        int contador = 0;
+        for (Dispositivo dispositivo : dispositivos) {
+            if (dispositivo instanceof Salida) contador++;
+        }
+        return contador;
     }
 }
