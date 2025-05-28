@@ -1,8 +1,8 @@
 package dispositivos;
 
 public class Salida extends Dispositivo {
-    public Salida(String fabricante, String modelo, double precio, int stock, String puerto) {
-        super(fabricante, modelo, precio, stock, puerto);
+    public Salida(String fabricante, String modelo, double precio, int stock) {
+        super(fabricante, modelo, precio, stock);
     }
 
     public Salida() {

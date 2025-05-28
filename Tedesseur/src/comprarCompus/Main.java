@@ -1,6 +1,7 @@
 package comprarCompus;
 
 import dispositivos.*;
+import dispositivos.Cpu;
 import personas.Cliente;
 
 import java.util.ArrayList;
@@ -10,9 +11,9 @@ public class Main {
         Teclado teclado1 = new Teclado("hdhd", "modelo", 123500, 5, "tipito", 2);
         Teclado teclado2 = new Teclado("lenovo", "a32o", 220000, 10, "tipito", 3);
         Impresora impresora  = new Impresora(5, "inyeccion");
-        Cpu cpu1 = new Dispositivo("dsfdsfds", "A2323", 560000, 100);
-        Cpu cpu2 = new Dispositivo("fabri", "A2343", 485000, 87);
-        Cpu cpu3 = new Dispositivo("cante", "A2344", 497000, 75);
+        Cpu cpu1 = new Cpu("dsfdsfds", "A2323", 560000, 100);
+        Cpu cpu2 = new Cpu("fabri", "A2343", 485000, 87);
+        Cpu cpu3 = new Cpu("cante", "A2344", 497000, 75);
         Mouse mouse = new Mouse();
         Pantalla pantalla = new Pantalla();
 
@@ -21,8 +22,8 @@ public class Main {
         Cliente cliente3 = new Cliente("pedro", "gomez", "456789123", "efectivo", "0000-0000-0000-0000");
 
         ArrayList<Dispositivo> dispositivos1 = new ArrayList<>();
-        SistemaVentaCompus sist = new SistemaVentaCompus(cliente4);
-        sist.agregarDisp(cpu1, dispositivos1);
+        dispositivos1.add(cpu1);
+        SistemaVentaCompus sist = new SistemaVentaCompus(dispositivos1, cliente3);
         sist.agregarDisp(teclado1, dispositivos1);
         sist.agregarDisp(impresora, dispositivos1);
         sist.agregarDisp(mouse, dispositivos1);
@@ -33,7 +34,8 @@ public class Main {
         } 
 
         ArrayList<Dispositivo> dispositivos2 = new ArrayList<>();
-        SistemaVentaCompus sist2 = new SistemaVentaCompus(cliente2);
+        dispositivos2.add(cpu3);
+        SistemaVentaCompus sist2 = new SistemaVentaCompus(dispositivos2, cliente2);
         sist2.agregarDisp(teclado2, dispositivos2);
         sist2.agregarDisp(impresora, dispositivos2);
         sist2.agregarDisp(mouse, dispositivos2);

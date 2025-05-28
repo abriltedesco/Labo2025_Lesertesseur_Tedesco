@@ -25,14 +25,16 @@ public class SistemaVentaCompus {
         this.cliente = cliente;
     }
 
+    public SistemaVentaCompus() {
+        this.dispositivos = new ArrayList<>();
+        Cpu cpu = new Cpu();
+        dispositivos.add(cpu);
+        this.cliente = new Cliente();
+    }
+
     public SistemaVentaCompus(ArrayList<Dispositivo> dispositivos, Cliente cliente) {
         this.dispositivos = dispositivos;
         this.cliente = cliente;
-    }
-
-    public SistemaVentaCompus() {
-        this.dispositivos = new ArrayList<>();
-        this.cliente = new Cliente();
     }
 
     public SistemaVentaCompus(Cliente cliente) {

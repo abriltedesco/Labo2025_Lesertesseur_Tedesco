@@ -12,6 +12,13 @@ public class Dispositivo {
         this.precio = precio;
         this.stock = stock;
     }
+
+    public Dispositivo(String fabricante, String modelo, double precio) {
+        this.fabricante = fabricante;
+        this.modelo = modelo;
+        this.precio = precio;
+    }
+
     public Dispositivo() {
         this.fabricante = "SADDADDFD";
         this.modelo = "modelito";
