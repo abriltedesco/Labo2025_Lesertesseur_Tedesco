@@ -33,15 +33,16 @@ public class SistemaAlarmas {
     }
 
     public void chequearMedidas(){
-        for(DispositivoAlarma dispositivo : this.dispositivos){
-            if(dispositivo instanceof DetectorHumo){
-                ((DetectorHumo) dispositivo).llamarBomberos();
+        for(DispositivoAlarma disp : dispositivos){
+            if(disp.isEstaConectado()) {
+                if (disp.getMedida() > disp.getUmbralInicial()) {
+                    disp.alarma();
+                } else {
+                    System.out.println("Esta todo bien,, ok. its ok im ok diria tate");
+                }
             }
-            else if(dispositivo instanceof SensorTemperatura){
-                ((SensorTemperatura) dispositivo).comoEstaLaTemperatura();
-            }
-            else if(dispositivo instanceof SensorPresion){
-                ((SensorPresion) dispositivo).estaActivadoOno();
+            else{
+                System.out.println("Dispositivo esta desconectado");
             }
         }
     }

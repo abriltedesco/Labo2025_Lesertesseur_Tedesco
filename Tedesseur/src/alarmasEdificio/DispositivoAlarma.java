@@ -51,4 +51,7 @@ public class DispositivoAlarma {
     public void setAnioAdquisicion(int anioAdquisicion) {
         this.anioAdquisicion = anioAdquisicion;
     }
+
+
+    public void alarma(){}
 }
