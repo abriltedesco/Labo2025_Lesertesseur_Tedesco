@@ -1,20 +1,17 @@
-package personas;
-
-import telefonica.Telefono;
+package telefonica;
 
 public class EmpleadoTelefonica {
     private String nombre;
     private String apellido;
     private String dni;
     private String pais;
-    private Telefono telefono;
 
-    public EmpleadoTelefonica(String nombre, String apellido, String dni, String pais, String telefono) {
+    public EmpleadoTelefonica(String nombre, String apellido, String dni, String pais) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.dni = dni;
         this.pais = pais;
-        this.telefono = new Telefono();
+
     }
 
     public EmpleadoTelefonica() {
@@ -22,7 +19,6 @@ public class EmpleadoTelefonica {
         this.apellido = "benjamin";
         this.dni = "4848484848";
         this.pais = "argentina";
-        this.telefono = new Telefono("4343535567");
     }
 
     public String getNombre() {
@@ -56,12 +52,5 @@ public class EmpleadoTelefonica {
     public void setPais(String pais) {
         this.pais = pais;
     }
-
-    public Telefono getTelefono() {
-        return telefono;
-    }
-
-    public void setTelefono(Telefono telefono) {
-        this.telefono = telefono;
-    }
+    
 }
