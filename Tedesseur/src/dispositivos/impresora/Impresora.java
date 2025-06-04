@@ -1,16 +1,18 @@
-package dispositivos;
+package dispositivos.impresora;
 
-public class Impresora extends Salida{
+import dispositivos.Salida;
+
+public class Impresora extends Salida {
     private int puertos;
-    private String metodoImpresion;
+    private MetodoImpresion metodoImpresion;
 
-    public Impresora(int puertos, String metodoImpresion) {
+    public Impresora(int puertos, MetodoImpresion metodoImpresion) {
         super();
         this.puertos = puertos;
         this.metodoImpresion = metodoImpresion;
     }
 
-    public Impresora(String fabricante, String modelo, double precio, int stock, int puertos, String metodoImpresion) {
+    public Impresora(String fabricante, String modelo, double precio, int stock, int puertos, MetodoImpresion metodoImpresion) {
         super(fabricante, modelo, precio, stock);
         this.puertos = puertos;
         this.metodoImpresion = metodoImpresion;
@@ -19,7 +21,7 @@ public class Impresora extends Salida{
     public Impresora() {
         super();
         this.puertos = 2;
-        this.metodoImpresion = "inyeccion";
+        this.metodoImpresion = MetodoImpresion.INYECCION;
     }
 
     public int getPuertos() {
@@ -30,11 +32,11 @@ public class Impresora extends Salida{
         this.puertos = puertos;
     }
 
-    public String getMetodoImpresion() {
+    public MetodoImpresion getMetodoImpresion() {
         return metodoImpresion;
     }
 
-    public void setMetodoImpresion(String metodoImpresion) {
+    public void setMetodoImpresion(MetodoImpresion metodoImpresion) {
         this.metodoImpresion = metodoImpresion;
     }
 }

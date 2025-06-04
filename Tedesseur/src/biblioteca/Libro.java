@@ -1,4 +1,4 @@
-package objetos;
+package biblioteca;
 
 import personas.Persona;
 import fecha.Fecha;
@@ -8,10 +8,10 @@ public class Libro {
     private Persona autor;
     private int isbn ;
     private int paginas;
-    private String editorial;
+    private Editorial editorial;
     private Fecha fechaPublicacion;
 
-    public Libro(String titulo, Persona autor, int isbn, int paginas, String editorial, Fecha fecha){
+    public Libro(String titulo, Persona autor, int isbn, int paginas, Editorial editorial, Fecha fecha){
         this.titulo = titulo;
         this.autor = autor;
         this.isbn = isbn;
@@ -25,7 +25,7 @@ public class Libro {
         this.autor = new Persona ("Jane",  "Austen", 30);
         this.isbn = 1;
         this.paginas = 352;
-        this.editorial = "pinguino";
+        this.editorial = Editorial.KAPELUSZ;
         this.fechaPublicacion = new Fecha(28, 1, 1813);
     }
 
@@ -54,10 +54,10 @@ public class Libro {
     public int getpaginas()
     { return paginas; }
 
-    public void setEditorial(String editorial){
+    public void setEditorial(Editorial editorial){
         this.editorial = editorial;
     }
-    public String getEditorial()
+    public Editorial getEditorial()
     { return editorial; }
 
     public void setFechaPublicacion(Fecha fecha){
@@ -85,12 +85,12 @@ public class Libro {
 
     public static void main(String[] args) {
         Libro libro1 = new Libro();
-        Libro libro2 = new Libro("Crepusculo",  new Persona ("Stephanie", "Meyer", 28), 2, 230, "editorial",  new Fecha(20, 05, 2005));
+        Libro libro2 = new Libro("Crepusculo",  new Persona ("Stephanie", "Meyer", 28), 2, 230, Editorial.SUDAMERICANA,  new Fecha(20, 05, 2005));
         Libro libro3 = new Libro();
 
         libro3.setTitulo("The Hunger Games");
         libro3.setAutor(new Persona("Suzanne", "Collins", 32));
-        libro3.setEditorial("Molino");
+        libro3.setEditorial(Editorial.EL_ATENEO);
         libro3.setISBN(3);
         libro3.setPaginas(376);
         libro3.setFechaPublicacion(new Fecha(14, 9, 2008));

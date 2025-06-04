@@ -1,21 +1,23 @@
 package vehiculos;
 
+import objetos.Color;
+
 public class Vehiculo {
     private String marca;
     private String modelo;
-    private String color;
+    private Color color;
     private int cantRuedas;
     private int anioFabricacion;
 
     public Vehiculo() {
         this.marca = "BMC";
         this.modelo = "Speedmachine";
-        this.color = "negro";
+        this.color = Color.NEGRO;
         this.cantRuedas = 2;
         this.anioFabricacion = 2020;
     }
 
-    public Vehiculo(String marca, String modelo, String color, int cantRuedas, int anioFabricacion) {
+    public Vehiculo(String marca, String modelo, Color color, int cantRuedas, int anioFabricacion) {
         this.marca = marca;
         this.modelo = modelo;
         this.color = color;
@@ -23,7 +25,7 @@ public class Vehiculo {
         this.anioFabricacion = anioFabricacion;
     }
 
-    public Vehiculo(String marca, String modelo, String color) {
+    public Vehiculo(String marca, String modelo, Color color) {
         this.marca = marca;
         this.modelo = modelo;
         this.color = color;
@@ -37,11 +39,11 @@ public class Vehiculo {
         this.marca = marca;
     }
 
-    public String getColor() {
+    public Color getColor() {
         return color;
     }
 
-    public void setColor(String color) {
+    public void setColor(Color color) {
         this.color = color;
     }
 

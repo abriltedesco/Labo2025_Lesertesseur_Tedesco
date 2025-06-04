@@ -44,7 +44,7 @@ public class SistemaVideoclubs {
         for(Videoclub v : videoclubs){
             for(Estante e : v.getEstanteria()){
                 for (Pelicula p : e.getPeliculas()) {
-                    if(p.getGenero().equals(genero)){
+                    if(p.getGenero().name().equals(genero)){
                         System.out.println("Pelis del genero: " + genero + "en el videoclub de: " + v.getDireccion());
                         System.out.println(p.getTitulo());
                         System.out.println("----------");
@@ -90,7 +90,7 @@ public class SistemaVideoclubs {
 
 
         s.videoclubMasPelis();
-        s.mostrarPelisGenero("romance");
+        s.mostrarPelisGenero("ROMANCE");
         s.pelisMenos90min();
     }
 }

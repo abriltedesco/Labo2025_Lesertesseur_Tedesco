@@ -2,6 +2,8 @@ package comprarCompus;
 
 import dispositivos.*;
 import dispositivos.Cpu;
+import dispositivos.impresora.Impresora;
+import dispositivos.impresora.MetodoImpresion;
 import personas.Cliente;
 
 import java.util.ArrayList;
@@ -10,7 +12,7 @@ public class Main {
     public static void main(String[] args) {
         Teclado teclado1 = new Teclado("hdhd", "modelo", 123500, 5, "tipito", 2);
         Teclado teclado2 = new Teclado("lenovo", "a32o", 220000, 10, "tipito", 3);
-        Impresora impresora  = new Impresora(5, "inyeccion");
+        Impresora impresora  = new Impresora(5, MetodoImpresion.INYECCION);
         Cpu cpu1 = new Cpu("dsfdsfds", "A2323", 560000, 100);
         Cpu cpu2 = new Cpu("fabri", "A2343", 485000, 87);
         Cpu cpu3 = new Cpu("cante", "A2344", 497000, 75);
