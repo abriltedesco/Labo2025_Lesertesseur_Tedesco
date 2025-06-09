@@ -8,7 +8,8 @@ public class DetectorHumo extends DispositivoAlarma {
         super(estaConectado, medida, umbralInicial, anioAdquisicion);
     }
 
-    public void alarma(){
-        System.out.println("Llamada a bomberosssssssssssssssssssssssssss");
+    @Override
+    public void alarma() {
+        System.out.println("Llamada a bomberos");
     }
 }

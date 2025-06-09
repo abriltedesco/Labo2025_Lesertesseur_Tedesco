@@ -8,7 +8,8 @@ public class SensorTemperatura extends DispositivoAlarma {
         super(estaConectado, medida, umbralInicial, anioAdquisicion);
     }
 
-    public void alarma(){
+    @Override
+    void Alarma() {
         System.out.println("¡Cuidado! La temperatura sube");
     }
 }

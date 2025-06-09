@@ -1,6 +1,6 @@
 package alarmasEdificio;
 
-public class DispositivoAlarma {
+public abstract class DispositivoAlarma {
     private boolean estaConectado;
     private double medida;
     private double umbralInicial;
@@ -52,6 +52,6 @@ public class DispositivoAlarma {
         this.anioAdquisicion = anioAdquisicion;
     }
 
+    abstract void Alarma();
 
-    public void alarma(){}
 }

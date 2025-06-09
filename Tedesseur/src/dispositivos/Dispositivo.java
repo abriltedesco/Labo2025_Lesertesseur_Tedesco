@@ -1,6 +1,6 @@
 package dispositivos;
 
-public class Dispositivo {
+public abstract class Dispositivo {
     private String fabricante;
     private String modelo;
     private double precio;

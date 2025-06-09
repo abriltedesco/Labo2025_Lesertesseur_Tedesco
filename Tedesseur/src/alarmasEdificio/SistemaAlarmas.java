@@ -36,7 +36,7 @@ public class SistemaAlarmas {
         for(DispositivoAlarma disp : dispositivos){
             if(disp.isEstaConectado()) {
                 if (disp.getMedida() > disp.getUmbralInicial()) {
-                    disp.alarma();
+                    disp.Alarma();
                 } else {
                     System.out.println("Esta todo bien,, ok. its ok im ok diria tate");
                 }
@@ -63,4 +63,7 @@ public class SistemaAlarmas {
             System.out.println("toodo okkkk");
         }
     }
+
+
+
 }
