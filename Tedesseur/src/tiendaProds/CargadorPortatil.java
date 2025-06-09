@@ -15,4 +15,6 @@ public class CargadorPortatil extends Producto{
         super(nombre, precio, stock, Seccion.CARGADORES);
         this.cantCargas = cantCargas;
     }
+
+
 }

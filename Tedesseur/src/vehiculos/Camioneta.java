@@ -1,5 +1,7 @@
 package vehiculos;
 
+import objetos.Color;
+
 public class Camioneta extends Motorizado{
     private float capacidadCargaTotal;
     private float capacidadCargaActual;
@@ -10,7 +12,7 @@ public class Camioneta extends Motorizado{
         this.capacidadCargaActual = 5.5F;
     }
 
-    public Camioneta(String marca, String modelo, String color,String patente, float capacidadCargaTotal, float capacidadCargaActual) {
+    public Camioneta(String marca, String modelo, Color color, String patente, float capacidadCargaTotal, float capacidadCargaActual) {
         super(patente, marca, modelo, color);
         this.capacidadCargaTotal = capacidadCargaTotal;
         this.capacidadCargaActual = capacidadCargaActual;
