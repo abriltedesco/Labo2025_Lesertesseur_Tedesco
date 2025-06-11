@@ -11,4 +11,16 @@ public class Principal extends Plato{
         this.tiempoCoccion = tiempoCoccion;
         this.cantComensales = cantComensales;
     }
+
+    @Override
+    void mostrarPasos() {
+        for(int i = 0 ; i < this.getPasos().size(); i ++ ) {
+            System.out.println("Paso " + (i+1) + getPasos().get(i));
+        }
+    }
+
+    @Override
+    void recordatorio() {
+        System.out.println("");
+    }
 }

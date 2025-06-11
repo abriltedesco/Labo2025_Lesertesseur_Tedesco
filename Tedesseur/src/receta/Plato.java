@@ -13,6 +13,14 @@ public abstract class Plato {
         this.tipo = tipo;
     }
 
+    public Tipo getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(Tipo tipo) {
+        this.tipo = tipo;
+    }
+
     public String getNombre() {
         return nombre;
     }
@@ -33,5 +41,6 @@ public abstract class Plato {
     // METODO ABSTRACTO //
 // Para los platos principales habrá que mostrar:
 // “Esta receta tarda en cocinarse + tiempo de cocción y los pasos son: lista pasos”.
-
+    abstract void mostrarPasos();
+    abstract void recordatorio();
 }
