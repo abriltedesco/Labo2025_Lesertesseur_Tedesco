@@ -1,11 +1,19 @@
-package duke.choice;
+package Labo2025_Lesertesseur_Tedesco.Curso_Java.ShopApp;
 
 public class Clothing {
     private String description;
     private double price;
     private String size;
-    private final double minPrice = 10;
-    private final double tax = 0.2;
+    private static double minPrice = 10;
+    private static double tax = 0.2;
+    
+    public static double getMinPrice(){
+        return minPrice;
+    }
+    
+    public static double getTax(){
+        return tax;
+    }
 
     public Clothing (String description, double price, String size){
         this.description = description;
@@ -44,5 +52,8 @@ public class Clothing {
         return size;
     }
 
-
+    @Override
+    public String toString(){
+        return getDescription() + " " + getSize() + " " + getPrice();
+    }
 }

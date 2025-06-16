@@ -1,9 +1,9 @@
-package duke.choice;
+package Labo2025_Lesertesseur_Tedesco.Curso_Java.ShopApp;
 
 import java.util.ArrayList;
 
 public class ShopApp {
-    customer cliente;
+    Customer cliente;
 
     public static void main(String[] args) {
         //double tax = 0.2; 
@@ -11,8 +11,11 @@ public class ShopApp {
         //double totalImpuesto = 0;
         int measurement = 3;
 
-        customer c1 = new customer("Pinky", "S");
+        System.out.println("Precio mínimo: " + Clothing.getMinPrice() + ", Impuesto: " + Clothing.getTax());
 
+        
+        Customer c1 = new Customer("Pinky", "S");
+        
         System.out.println("Bienvenido " + c1.getNombre());
 
         Clothing item1 = new Clothing("Blue jacket", 20.9, "M");
@@ -41,18 +44,19 @@ public class ShopApp {
          */
 
         for (Clothing item : items) {
-
-            if (c1.getSize() == item.getSize()) {
+            System.out.println("Item: " + item);
+           //  if (c1.getSize() == item.getSize()) {
+                
                 //total += item.getPrice();
                 //totalImpuesto = (total * tax) + total;
                 
-                System.out.println(item.getDescription() + " - " + item.getPrice() + " - " + item.getSize());
+                // System.out.println(item.getDescription() + " - " + item.getPrice() + " - " + item.getSize());
                 /*               
                 if (total > 15) {
                     break;
                 }
                 */
-            }
+            // }
             
         }
        

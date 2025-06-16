@@ -1,13 +1,13 @@
-package duke.choice;
+package Labo2025_Lesertesseur_Tedesco.Curso_Java.ShopApp;
 
 import java.util.ArrayList;
 
-public class customer {
+public class Customer {
     private String name;
     private String size;
     private ArrayList<Clothing> items;
 
-    public customer(String name, String size) {
+    public Customer(String name, String size) {
         this.name = name;
         this.size = size;
     }
@@ -87,5 +87,7 @@ public class customer {
         System.out.println("Total de compra con impuesto: " + totalImpuesto);
         return total;
     }
+
+    
 
 }
