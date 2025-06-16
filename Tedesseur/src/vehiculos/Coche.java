@@ -1,5 +1,7 @@
 package vehiculos;
 
+import objetos.Color;
+
 public class Coche extends Motorizado{
     private double velocidad;
     private boolean esDescapotable;
@@ -21,12 +23,12 @@ public class Coche extends Motorizado{
     }
 
     public Coche() {
-        super("AD912DA", "Porsche", "Cayman", "Rosa", 4, 2015);
+        super("AD912DA", "Porsche", "Cayman", Color.ROSA, 4, 2015);
         this.esDescapotable = true;
         this.velocidad = 37.4;
     }
 
-    public Coche(String marca, String modelo, String color, double velocidad, String patente, boolean esDescapotable) {
+    public Coche(String marca, String modelo, Color color, double velocidad, String patente, boolean esDescapotable) {
         super(patente, marca, modelo, color);
         this.velocidad = velocidad ;
         this.esDescapotable = esDescapotable;
@@ -44,12 +46,12 @@ public class Coche extends Motorizado{
 
     public static void main(String[] args) {
         Coche c1 = new Coche();
-        Coche c2 = new Coche("Mazda", "RX7", "Blanco", 23.3, "JAJ4JAJ4", true);
+        Coche c2 = new Coche("Mazda", "RX7", Color.BLANCO, 23.3, "JAJ4JAJ4", true);
 
         c1.setVelocidad(76);
         c1.setModelo("Fiesta");
         c1.setMarca("Ford");
-        c1.setColor("Rojo");
+        c1.setColor(Color.ROJO);
 
         System.out.println("C1 " + c1.acelerar());
         System.out.println("C2 " + c2.acelerar());

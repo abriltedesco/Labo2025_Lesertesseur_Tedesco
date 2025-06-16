@@ -27,7 +27,7 @@ public class Estante {
         actores.add(a2);
         idiomas.add("español");
         idiomas.add("ingles");
-        peliculas.add(new Pelicula("X", "thriller", 105, directores,actores, idiomas));
+        peliculas.add(new Pelicula("X", Genero.TERROR, 105, directores,actores, idiomas));
     }
 
     public ArrayList<Pelicula> getPeliculas() {

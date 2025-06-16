@@ -23,10 +23,10 @@ public class Curling {
 
     public void agregarEquipos(ArrayList<Equipo> equipos, ArrayList<Equipo> equiposMañana, ArrayList<Equipo> equiposTarde, ArrayList<Equipo> equiposNoche) {
         for(Equipo equipo : equipos) {
-            if(equipo.getDispHoraria() == "Mañana"){
+            if(equipo.getDispHoraria() == Turno.MAÑANA){
                 equiposMañana.add(equipo);
             }
-            else if(equipo.getDispHoraria() == "Tarde"){
+            else if(equipo.getDispHoraria() == Turno.TARDE){
                 equiposTarde.add(equipo);
             }
             else{
@@ -89,16 +89,16 @@ public class Curling {
         // ----------------------------------------------------------------------------------------- //
 
         Equipo equipo1 = new Equipo();
-        Equipo equipo2 = new Equipo("All boys", "Tarde", "La Boca", jugadores);
-        Equipo equipo3 = new Equipo("Tigre", "Tarde", "Tigre", jugadores);
+        Equipo equipo2 = new Equipo("All boys", Turno.TARDE, "La Boca", jugadores);
+        Equipo equipo3 = new Equipo("Tigre",  Turno.TARDE, "Tigre", jugadores);
 
-        Equipo equipo4 = new Equipo("Coquimbo Unido", "Mañana", "Coquimbo", jugadores);
-        Equipo equipo5 = new Equipo("Alianza Lima", "Mañana", "Lima", jugadores);
-        Equipo equipo6 = new Equipo("Huachipato", "Mañana", "SANTIAGO", jugadores);
+        Equipo equipo4 = new Equipo("Coquimbo Unido",  Turno.MAÑANA, "Coquimbo", jugadores);
+        Equipo equipo5 = new Equipo("Alianza Lima",  Turno.MAÑANA, "Lima", jugadores);
+        Equipo equipo6 = new Equipo("Huachipato",  Turno.MAÑANA, "SANTIAGO", jugadores);
 
-        Equipo equipo7 = new Equipo("GangWong", "Noche", "Corea", jugadores);
-        Equipo equipo8 = new Equipo("Everton", "Noche", "Liverpool", jugadores);
-        Equipo equipo9 = new Equipo("Coventry", "Noche", "Coventry", jugadores);
+        Equipo equipo7 = new Equipo("GangWong",  Turno.NOCHE, "Corea", jugadores);
+        Equipo equipo8 = new Equipo("Everton", Turno.NOCHE, "Liverpool", jugadores);
+        Equipo equipo9 = new Equipo("Coventry", Turno.NOCHE, "Coventry", jugadores);
 
         ArrayList<Equipo> equipos = new ArrayList<>();
         equipos.add(equipo1);

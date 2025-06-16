@@ -7,17 +7,17 @@ import java.util.ArrayList;
 public class Equipo {
     private String nombreEquipo;
     private String barrio;
-    private String dispHoraria;
+    private Turno dispHoraria;
     private ArrayList<Jugador> jugadores;
 
-    public Equipo(String nombreEquipo, String dispHoraria, String barrio) {
+    public Equipo(String nombreEquipo, Turno dispHoraria, String barrio) {
         this.nombreEquipo = nombreEquipo;
         this.dispHoraria = dispHoraria;
         this.barrio = barrio;
         this.jugadores = new ArrayList<Jugador>();
     }
 
-    public Equipo(String nombreEquipo, String dispHoraria, String barrio, ArrayList<Jugador> jugadores) {
+    public Equipo(String nombreEquipo, Turno dispHoraria, String barrio, ArrayList<Jugador> jugadores) {
         this.nombreEquipo = nombreEquipo;
         this.dispHoraria = dispHoraria;
         this.barrio = barrio;
@@ -26,7 +26,7 @@ public class Equipo {
 
     public Equipo(){
         this.nombreEquipo = "River";
-        this.dispHoraria = "Tarde";
+        this.dispHoraria = Turno.TARDE;
         this.barrio = "Nuñez";
         this.jugadores = new ArrayList<Jugador>();
     }
@@ -39,11 +39,11 @@ public class Equipo {
         this.nombreEquipo = nombreEquipo;
     }
 
-    public String getDispHoraria() {
+    public Turno getDispHoraria() {
         return dispHoraria;
     }
 
-    public void setDispHoraria(String dispHoraria) {
+    public void setDispHoraria(Turno dispHoraria) {
         this.dispHoraria = dispHoraria;
     }
 

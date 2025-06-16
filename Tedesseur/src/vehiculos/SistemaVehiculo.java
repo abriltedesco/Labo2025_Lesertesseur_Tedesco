@@ -1,5 +1,7 @@
 package vehiculos;
 
+import objetos.Color;
+
 import java.util.ArrayList;
 
 public class SistemaVehiculo {
@@ -71,8 +73,8 @@ public float porcentajeDescapotables(){
 
 public static void main(String[] args) {
     Bicicleta b1 = new Bicicleta();
-    Bicicleta b2 = new Bicicleta("BMC", "Speeddrive", "rosa", 2, 2018);
-    Bicicleta b3 = new Bicicleta("DSDAD", "California", "blanco", 2, 1999);
+    Bicicleta b2 = new Bicicleta("BMC", "Speeddrive", Color.ROSA, 2, 2018);
+    Bicicleta b3 = new Bicicleta("DSDAD", "California", Color.NEGRO, 2, 1999);
     ArrayList<Bicicleta> bicicletas = new ArrayList<>();
     bicicletas.add(b1);
     bicicletas.add(b2);

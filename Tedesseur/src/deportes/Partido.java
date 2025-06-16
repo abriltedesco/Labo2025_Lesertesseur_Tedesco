@@ -14,8 +14,8 @@ public class Partido {
     }
 
     public Partido(){
-        this.equipoLocal = new Equipo("Boca", "Tarde", "La Boca");
-        this.equipoVisitante = new Equipo("Racing", "Tarde", "Avellaneda");
+        this.equipoLocal = new Equipo("Boca", Turno.TARDE, "La Boca");
+        this.equipoVisitante = new Equipo("Racing", Turno.TARDE, "Avellaneda");
         this.fecha = new Fecha(28,4,2025);
     }
 

@@ -15,4 +15,17 @@ public class Entrada extends Dispositivo{
         this.tipoConector = tipoConector;
         this.puertos = puertos;
     }
+
+    public String getTipoConector() {
+        return tipoConector;
+    }
+    public void setTipoConector(String tipoConector) {
+        this.tipoConector = tipoConector;
+    }
+    public int getPuertos() {
+        return puertos;
+    }
+    public void setPuertos(int puertos) {
+        this.puertos = puertos;
+    }
 }
