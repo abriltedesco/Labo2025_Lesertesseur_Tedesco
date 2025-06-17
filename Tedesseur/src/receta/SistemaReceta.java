@@ -112,17 +112,17 @@ public class SistemaReceta {
         System.out.println("Receta con más pasos: " + sistema.recetaConMasCantPasos().getPlato().getNombre());
         System.out.println(" ");
         System.out.println("--- ENTRADAS ---");
-        for (Plato plato : sistema.filtrarPorTipo(TipoPlato.ENTRADA)) {
+        for (Plato plato : sistema.listaPorTipo(TipoPlato.ENTRADA)) {
             plato.mostrarPasos();
             System.out.println();
         }
         System.out.println("--- PRINCIPALES ---");
-        for (Plato plato : sistema.filtrarPorTipo(TipoPlato.PRINCIPAL)) {
+        for (Plato plato : sistema.listaPorTipo(TipoPlato.PRINCIPAL)) {
             plato.mostrarPasos();
             System.out.println();
         }
         System.out.println("--- POSTRES ---");
-        for (Plato plato : sistema.filtrarPorTipo(TipoPlato.POSTRE)) {
+        for (Plato plato : sistema.listaPorTipo(TipoPlato.POSTRE)) {
             plato.mostrarPasos();
             System.out.println();
         }
