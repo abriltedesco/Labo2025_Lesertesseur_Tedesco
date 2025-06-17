@@ -100,9 +100,11 @@ public class SistemaReceta {
         ArrayList<String> pasosPrincipal = new ArrayList<>(Arrays.asList("Preparar carne", "Cocinar", "Servir"));
         ArrayList<String> pasosPostre = new ArrayList<>(Arrays.asList("Acomodar galltetitas", "Batir queso crema y ddl", "Hechar la mezcla sobre las galletitas", "Dejar por 3 horas en la heladera"));
 
-        Receta entrada = new Receta(new Entrada("Ensalada Caesar", Dificultad.FACIL, pasosEntrada, Temperatura.FRIA));
-        Receta principal = new Receta(new PlatoPrincipal("Asado", Dificultad.AVANZADO, pasosPrincipal, 120, 6));
-        Receta postre = new Receta(new Postre("Chocotorta", Dificultad.MEDIO, pasosPostre, 180, true));
+        Receta entrada = new Receta(new Entrada("Ensalada Caesar", pasosEntrada,Tipo.ENTRADA, Temperatura.FRIA),  Dificultad.FACIL);
+        Receta principal = new Receta(new Principal("Asado", pasosPrincipal, Tipo.PRINCIPAL, 120, 6),  Dificultad.AVANZADO);
+        Receta postre = new Receta(new Postre("Chocotorta", pasosPostre, Tipo.POSTRE, 0, false), Dificultad.MEDIO);
+        Receta postre1 = new Receta(new Postre("Tarta de frutas", pasosPostre1, Tipo.POSTRE, 0, true), Dificultad.AVANZADO);
+        Receta postre2 = new Receta(new Postre("Rogel", pasosPostre2, Tipo.POSTRE, 160, false), Dificultad.AVANZADO);
 
         sistema.agregarReceta(entrada);
         sistema.agregarReceta(principal);

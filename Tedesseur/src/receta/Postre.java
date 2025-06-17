@@ -6,7 +6,7 @@ public class Postre extends Plato{
     private double tempHorno;
     private boolean aptoDiabetico;
 
-    public Postre(double tempHorno, boolean aptoDiabetico, String nombre, ArrayList<String> pasos, Tipo tipo) {
+    public Postre(String nombre, ArrayList<String> pasos, Tipo tipo, double tempHorno, boolean aptoDiabetico) {
         super(nombre, pasos, tipo);
         this.tempHorno = tempHorno;
         this.aptoDiabetico = aptoDiabetico;
