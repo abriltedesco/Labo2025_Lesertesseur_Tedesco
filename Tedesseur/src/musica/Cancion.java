@@ -4,7 +4,7 @@ import personas.Persona;
 
 public class Cancion {
     private String titulo;
-    private static Persona artista; /* autor */
+    private Persona artista; /* autor */
 
 
     public Cancion(String titulo, Persona artista) {

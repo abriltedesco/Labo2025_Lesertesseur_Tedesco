@@ -1,6 +1,6 @@
 package figurasGeometricas;
 
-public class Circulo {
+public class Circulo extends FiguraGeometrica {
     private double radio;
 
     /* constructor por defecto */
