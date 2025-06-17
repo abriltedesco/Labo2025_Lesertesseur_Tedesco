@@ -3,7 +3,7 @@ public class Clothing {
     private String description;
     private int size;
     private double price;
-    
+
     public final static double min_price = 10.0;
     public final static double tax = 0.2;
 
@@ -40,5 +40,10 @@ public class Clothing {
         else{
             this.price = price;
         }
+    }
+
+    @Override
+    public String toString() {
+        return this.getDescription() + ", size: " + this.getSize() + ", price: " + this.getPrice(); +
     }
 }

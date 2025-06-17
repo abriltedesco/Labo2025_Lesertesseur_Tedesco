@@ -39,7 +39,7 @@ public class ShopApp{
 
 
         for(Clothing item : c1.getItems()){
-            System.out.println("items: " + item.getDescription() + ", size: " + item.getSize() + ", price: " + item.getPrice());
+            System.out.println("items: " + item);
         }
 
         System.out.println("Total: " + total);
