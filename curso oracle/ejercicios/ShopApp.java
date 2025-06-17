@@ -3,6 +3,7 @@ package ejercicios.ShopApp;
 public class ShopApp{
     private Customer cliente;
 
+
     public Customer getCliente(){
         return cliente;
     }
@@ -14,6 +15,8 @@ public class ShopApp{
     public static void main (String[] args) {
         double tax = 0.2, total = 0.0;
 
+        System.out.println("Min price: " + Clothing.min_price);
+        System.out.println("Tax: " + tax);
         ShopApp shopApp = new ShopApp();
         Customer c1 = new Customer("pinky", 3);
         Clothing item1 = new Clothing("Blue jacket", "M", 20.9);
