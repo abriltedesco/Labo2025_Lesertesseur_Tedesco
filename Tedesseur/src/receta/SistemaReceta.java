@@ -179,5 +179,18 @@ public class SistemaReceta {
             System.out.println();
         }
 
+        System.out.println("Recetas de dificultad fácil:");
+        for (Receta receta : sistema.recetasPorDificultad(Dificultad.FACIL)) {
+            System.out.println(receta.getPlato().getNombre());
+        }
+        System.out.println("Recetas de dificultad media:");
+        for (Receta receta : sistema.recetasPorDificultad(Dificultad.MEDIO)) {
+            System.out.println(receta.getPlato().getNombre());
+        }
+        System.out.println("Recetas de dificultad avanzada:");
+        for (Receta receta : sistema.recetasPorDificultad(Dificultad.AVANZADO)) {
+            System.out.println(receta.getPlato().getNombre());
+        }
+
     }
 }

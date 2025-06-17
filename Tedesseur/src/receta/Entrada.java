@@ -45,7 +45,7 @@ public class Entrada extends Plato{
     }
 
     @Override
-    public boolean esDelTipo(Tipo tipo) {
+    boolean esDelTipo(Tipo tipo) {
         return tipo == Tipo.ENTRADA;
     }
 }

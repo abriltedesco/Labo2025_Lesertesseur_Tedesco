@@ -13,15 +13,16 @@ public class Principal extends Plato{
     }
 
     @Override
-    void mostrarPasos() {
-        for(int i = 0 ; i < this.getPasos().size(); i ++ ) {
-            System.out.println("Paso " + (i+1) + getPasos().get(i));
-        }
+    void recordatorio() {
+        System.out.println("Esta receta tarda en cocinarse " + this.tiempoCoccion);
     }
 
     @Override
-    void recordatorio() {
-        System.out.println("");
+    void mostrarPasos() {
+        recordatorio();
+        for(int i = 0 ; i < this.getPasos().size(); i ++ ) {
+            System.out.println("Paso " + (i+1) + getPasos().get(i));
+        }
     }
 
     @Override
