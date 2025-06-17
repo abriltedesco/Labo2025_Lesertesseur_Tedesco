@@ -38,9 +38,8 @@ public abstract class Plato {
         this.pasos = pasos;
     }
 
-    // METODO ABSTRACTO //
-// Para los platos principales habrá que mostrar:
-// “Esta receta tarda en cocinarse + tiempo de cocción y los pasos son: lista pasos”.
+    // METODOS ABSTRACTO //
     abstract void mostrarPasos();
     abstract void recordatorio();
+    abstract boolean esDelTipo(TipoPlato tipo);
 }

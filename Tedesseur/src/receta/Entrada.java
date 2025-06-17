@@ -10,6 +10,13 @@ public class Entrada extends Plato{
         this.temperatura = temperatura;
     }
 
+    public Temperatura getTemperatura() {
+        return temperatura;
+    }
+
+    public void setTemperatura(Temperatura temperatura) {
+        this.temperatura = temperatura;
+    }
 
     @Override
     void recordatorio() {
@@ -35,5 +42,10 @@ public class Entrada extends Plato{
                 System.out.println("Paso " + (i+1) + getPasos().get(i));
             }
         }
+    }
+
+    @Override
+    public boolean esDelTipo(Tipo tipo) {
+        return tipo == Tipo.ENTRADA;
     }
 }

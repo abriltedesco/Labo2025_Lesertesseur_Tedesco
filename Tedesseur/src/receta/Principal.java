@@ -23,4 +23,9 @@ public class Principal extends Plato{
     void recordatorio() {
         System.out.println("");
     }
+
+    @Override
+    public boolean esDelTipo(Tipo tipo) {
+        return tipo == Tipo.PRINCIPAL;
+    }
 }

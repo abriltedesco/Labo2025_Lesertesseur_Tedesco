@@ -26,5 +26,8 @@ public class Postre extends Plato{
         }
     }
 
-
+    @Override
+    public boolean esDelTipo(Tipo tipo) {
+        return tipo == Tipo.POSTRE;
+    }
 }

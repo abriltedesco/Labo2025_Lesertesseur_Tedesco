@@ -4,24 +4,13 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class SistemaReceta {
-    private ArrayList<Plato> platos;
     private ArrayList<Receta> recetas;
 
-    public SistemaReceta(ArrayList<Plato> platos, ArrayList<Receta> recetas) {
-        this.platos = platos;
+    public SistemaReceta(ArrayList<Receta> recetas) {
         this.recetas = recetas;
     }
     public SistemaReceta() {
-        this.platos = new ArrayList<>();
         this.recetas = new ArrayList<>();
-    }
-
-    public ArrayList<Plato> getPlatos() {
-        return platos;
-    }
-
-    public void setPlatos(ArrayList<Plato> platos) {
-        this.platos = platos;
     }
 
     public ArrayList<Receta> getRecetas() {
@@ -32,6 +21,7 @@ public class SistemaReceta {
         this.recetas = recetas;
     }
 
+    // abm recetas
     public void agregarReceta (Receta receta){
         this.recetas.add(receta);
     }
@@ -39,11 +29,13 @@ public class SistemaReceta {
     public void bajarReceta (Receta receta){
         this.recetas.remove(receta);
     }
+
     public void modificarReceta(Receta nueva, Receta vieja){
         this.agregarReceta(nueva);
         this.bajarReceta(vieja);
     }
 
+    // cant
     public int cantRecetasCargadas(){
         return this.recetas.size();
     }
@@ -51,9 +43,7 @@ public class SistemaReceta {
     public Receta recetaConMasCantPasos (){
         Receta masLarga = new Receta();
         for(Receta receta: this.recetas){
-            if(receta.cantPasosReceta() > masLarga.cantPasosReceta()){
-                masLarga = receta;
-            }
+            receta.cantPasosReceta() > masLarga.cantPasosReceta()? masLarga = receta;
         }
         return masLarga;
     }
@@ -68,40 +58,74 @@ public class SistemaReceta {
         return recetitas;
     }
 
-    public ArrayList<Receta> devolverListaConTipo(Tipo tipo, ArrayList<Receta> entradas, ArrayList<Receta> postres, ArrayList<Receta> principales){
-        ArrayList<Receta> lista ;
-
-        if (tipo == Tipo.ENTRADA) {
-            lista = entradas;
+    // con un solo if
+    public ArrayList<Receta> listaPorTipo(Tipo tipo){
+        ArrayList<Receta> lista = new ArrayList<>();
+        for(Receta receta : this.recetas) {
+            Plato plato = receta.getPlato();
+            if (plato.esDelTipo(tipo)) {
+                lista.add(p);
+            }
         }
-        else if(tipo == Tipo.POSTRE){
-           lista = postres;
-        }
-        else{
-            lista = principales;
-        }
-
         return lista;
     }
 
+    // con varios if (por si se quiere tener lista de cada uno)
+    /* 
     public void filtrarRecetasPorTipo (Tipo tipo){
         ArrayList<Receta> entradas = new ArrayList<>();
         ArrayList<Receta> postres = new ArrayList<>();
         ArrayList<Receta> principales = new ArrayList<>();
 
         for(Receta receta : this.recetas) {
-            if (receta.getPlato().getTipo() == Tipo.ENTRADA) {
+            Plato plato = receta.getPlato();
+            if (plato.esDelTipo(Tipo.ENTRADA)) {
                 entradas.add(receta);
-            }
-            else if(receta.getPlato().getTipo() == Tipo.POSTRE){
+            } 
+            else if (plato.esDelTipo(Tipo.POSTRE)) {
                 postres.add(receta);
-            }
-            else{
+            } 
+            else {
                 principales.add(receta);
             }
         }
 
-        devolverListaConTipo(tipo, entradas, postres, principales);
     }
+    */
 
+    public static void main(String[] args) {
+        SistemaReceta sistema = new SistemaReceta();
+
+        ArrayList<String> pasosEntrada = new ArrayList<>(Arrays.asList("Cortar ingredientes", "Mezclar", "Servir"));
+        ArrayList<String> pasosPrincipal = new ArrayList<>(Arrays.asList("Preparar carne", "Cocinar", "Servir"));
+        ArrayList<String> pasosPostre = new ArrayList<>(Arrays.asList("Acomodar galltetitas", "Batir queso crema y ddl", "Hechar la mezcla sobre las galletitas", "Dejar por 3 horas en la heladera"));
+
+        Receta entrada = new Receta(new Entrada("Ensalada Caesar", Dificultad.FACIL, pasosEntrada, Temperatura.FRIA));
+        Receta principal = new Receta(new PlatoPrincipal("Asado", Dificultad.AVANZADO, pasosPrincipal, 120, 6));
+        Receta postre = new Receta(new Postre("Chocotorta", Dificultad.MEDIO, pasosPostre, 180, true));
+
+        sistema.agregarReceta(entrada);
+        sistema.agregarReceta(principal);
+        sistema.agregarReceta(postre);
+
+        System.out.println("Total de recetas: " + sistema.cantRecetasCargadas());
+        System.out.println("Receta con más pasos: " + sistema.recetaConMasCantPasos().getPlato().getNombre());
+        System.out.println(" ");
+        System.out.println("--- ENTRADAS ---");
+        for (Plato plato : sistema.filtrarPorTipo(TipoPlato.ENTRADA)) {
+            plato.mostrarPasos();
+            System.out.println();
+        }
+        System.out.println("--- PRINCIPALES ---");
+        for (Plato plato : sistema.filtrarPorTipo(TipoPlato.PRINCIPAL)) {
+            plato.mostrarPasos();
+            System.out.println();
+        }
+        System.out.println("--- POSTRES ---");
+        for (Plato plato : sistema.filtrarPorTipo(TipoPlato.POSTRE)) {
+            plato.mostrarPasos();
+            System.out.println();
+        }
+
+    }
 }
