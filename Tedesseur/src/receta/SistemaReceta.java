@@ -96,18 +96,68 @@ public class SistemaReceta {
     public static void main(String[] args) {
         SistemaReceta sistema = new SistemaReceta();
 
-        ArrayList<String> pasosEntrada = new ArrayList<>(Arrays.asList("Cortar ingredientes", "Mezclar", "Servir"));
-        ArrayList<String> pasosPrincipal = new ArrayList<>(Arrays.asList("Preparar carne", "Cocinar", "Servir"));
-        ArrayList<String> pasosPostre = new ArrayList<>(Arrays.asList("Acomodar galltetitas", "Batir queso crema y ddl", "Hechar la mezcla sobre las galletitas", "Dejar por 3 horas en la heladera"));
+        ArrayList<String> pasosEntrada = new ArrayList<>();
+        pasosEntrada.add("Lavar lechuga");
+        pasosEntrada.add("Cortar tomate");
+        pasosEntrada.add("Agregar aderezo");
+        pasosEntrada.add("Mezclar ingredientes");
+        pasosEntrada.add("Servir en plato hondo");
 
+        ArrayList<String> pasosPrincipal = new ArrayList<>();
+        pasosPrincipal.add("Preparar la parrilla");
+        pasosPrincipal.add("Colocar la carne en la parrilla");
+        pasosPrincipal.add("Cocinar durante 1 hora");
+        pasosPrincipal.add("Servir con ensalada");
+
+        ArrayList<String> pasosPostre = new ArrayList<>();
+        pasosPostre.add("Acomodar galltetitas");
+        pasosPostre.add("Batir queso crema y ddl");
+        pasosPostre.add("Hechar la mezcla sobre las galletitas");
+        pasosPostre.add("Dejar por 3 horas en la heladera");
+
+        ArrayList<String> pasosEntrada2 = new ArrayList<>();
+        pasosEntrada2.add("Cortar salmón");
+        pasosEntrada2.add("Preparar salsa");
+        pasosEntrada2.add("Servir con limón");
+
+        ArrayList<String> pasosPrincipal1 = new ArrayList<>();
+        pasosPrincipal1.add("Salpimentar pollo");
+        pasosPrincipal1.add("Cocinar al horno");
+        pasosPrincipal1.add("Servir caliente");
+
+        ArrayList<String> pasosPrincipal2 = new ArrayList<>();
+        pasosPrincipal2.add("Hervir fideos");
+        pasosPrincipal2.add("Preparar salsa bolognesa");
+        pasosPrincipal2.add("Mezclar y servir");
+
+        ArrayList<String> pasosPostre1 = new ArrayList<>();
+        pasosPostre1.add("Batir huevos y azúcar");
+        pasosPostre1.add("Hornear"); 
+        pasosPostre1.add("Decorar con frutas");
+
+        ArrayList<String> pasosPostre2 = new ArrayList<>();
+        pasosPostre2.add("Preparar masa");
+        pasosPostre2.add("Agregar dulce de leche");
+        pasosPostre2.add("Hornear"); 
+        pasosPostre2.add("Espolvorear azúcar impalpable");
+
+
+        Receta entrada2 = new Entrada("Salmón Gravlax", Dificultad.MEDIO, pasosEntrada2, Temperatura.FRIA);
         Receta entrada = new Receta(new Entrada("Ensalada Caesar", pasosEntrada,Tipo.ENTRADA, Temperatura.FRIA),  Dificultad.FACIL);
         Receta principal = new Receta(new Principal("Asado", pasosPrincipal, Tipo.PRINCIPAL, 120, 6),  Dificultad.AVANZADO);
+        Receta principal1 = new Receta(new Principal("Pollo al horno", pasosPrincipal1, Tipo.PRINCIPAL, 90, 4), Dificultad.FACIL);
+        Receta principal2 = new Receta(new Principal("Spaghetti Bolognesa", pasosPrincipal2, Tipo.PRINCIPAL, 45, 6), Dificultad.MEDIO);    
         Receta postre = new Receta(new Postre("Chocotorta", pasosPostre, Tipo.POSTRE, 0, false), Dificultad.MEDIO);
         Receta postre1 = new Receta(new Postre("Tarta de frutas", pasosPostre1, Tipo.POSTRE, 0, true), Dificultad.AVANZADO);
         Receta postre2 = new Receta(new Postre("Rogel", pasosPostre2, Tipo.POSTRE, 160, false), Dificultad.AVANZADO);
 
         sistema.agregarReceta(entrada);
+        sistema.agregarReceta(entrada2);
+        sistema.agregarReceta(principal1);
         sistema.agregarReceta(principal);
+        sistema.agregarReceta(principal2);
+        sistema.agregarReceta(postre1);
+        sistema.agregarReceta(postre2);
         sistema.agregarReceta(postre);
 
         System.out.println("Total de recetas: " + sistema.cantRecetasCargadas());
