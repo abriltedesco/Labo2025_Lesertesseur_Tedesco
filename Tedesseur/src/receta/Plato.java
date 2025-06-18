@@ -41,5 +41,5 @@ public abstract class Plato {
     // METODOS ABSTRACTO //
     public abstract void mostrarPasos();
     public abstract void recordatorio();
-    public abstract boolean esDelTipo(TipoPlato tipo);
+    public abstract boolean esDelTipo(Tipo tipo);
 }

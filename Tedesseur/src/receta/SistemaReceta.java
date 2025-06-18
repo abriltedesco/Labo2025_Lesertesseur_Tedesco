@@ -142,7 +142,7 @@ public class SistemaReceta {
         pasosPostre2.add("Espolvorear azúcar impalpable");
 
 
-        Receta entrada2 = new Entrada("Salmón Gravlax", Dificultad.MEDIO, pasosEntrada2, Temperatura.FRIA);
+        Receta entrada2 = new Receta( new Entrada("Salmón Gravlax", pasosEntrada2, Tipo.ENTRADA, Temperatura.FRIA), Dificultad.FACIL );
         Receta entrada = new Receta(new Entrada("Ensalada Caesar", pasosEntrada,Tipo.ENTRADA, Temperatura.FRIA),  Dificultad.FACIL);
         Receta principal = new Receta(new Principal("Asado", pasosPrincipal, Tipo.PRINCIPAL, 120, 6),  Dificultad.AVANZADO);
         Receta principal1 = new Receta(new Principal("Pollo al horno", pasosPrincipal1, Tipo.PRINCIPAL, 90, 4), Dificultad.FACIL);

@@ -6,6 +6,22 @@ public class Principal extends Plato{
     int tiempoCoccion;
     int cantComensales;
 
+    public int getTiempoCoccion() {
+        return tiempoCoccion;
+    }
+
+    public void setTiempoCoccion(int tiempoCoccion) {
+        this.tiempoCoccion = tiempoCoccion;
+    }
+
+    public int getCantComensales() {
+        return cantComensales;
+    }
+
+    public void setCantComensales(int cantComensales) {
+        this.cantComensales = cantComensales;
+    }
+
     public Principal(String nombre, ArrayList<String> pasos, Tipo tipo, int tiempoCoccion, int cantComensales) {
         super(nombre, pasos, tipo);
         this.tiempoCoccion = tiempoCoccion;

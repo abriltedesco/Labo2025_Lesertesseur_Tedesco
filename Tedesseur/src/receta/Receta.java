@@ -11,7 +11,7 @@ public class Receta {
         pasos.add("paso 1");
         pasos.add("paso 2");
         pasos.add("paso 3");
-        this.plato = new Entrada(45, 2, "rabas", pasos, Tipo.ENTRADA,Temperatura.CALIENTE);
+        this.plato = new Entrada("rabas", pasos, Tipo.ENTRADA,Temperatura.CALIENTE);
         this.dificultad = Dificultad.MEDIO;
     }
 
