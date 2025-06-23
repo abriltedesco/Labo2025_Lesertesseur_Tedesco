@@ -1,4 +1,4 @@
-public class Mascota {
+/* public class Mascota {
     private String nombre;
     private Dueño dueño;
     private Tipo tipo;
@@ -13,3 +13,5 @@ public class Mascota {
 
     abstract void saludo();
 }
+*/
+

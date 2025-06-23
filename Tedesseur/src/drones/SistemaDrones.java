@@ -41,6 +41,13 @@ public class SistemaDrones {
         return this.drones.size();
     }
 
+    public void mostrarDrones(){
+        for(int i = 0; i < this.drones.size(); i++){
+            Dron dron = drones.get(i);
+            System.out.println("Dron" + (i+1) + " | nombre: " + dron.getNombreModelo() + " de tipo: " + dron.getTipo());
+        }
+    }
+
     public static void main(String[] args) {
         Vigilancia dron1 = new Vigilancia();
         Vigilancia dron2 = new Vigilancia("nombre", LocalDate.now(), 100, Estado.OPERATIVO, -34.34503, -58.29502, new SD(90));
@@ -61,6 +68,8 @@ public class SistemaDrones {
         sistema.agregarAlistaDeDrones(dron7);
         sistema.agregarAlistaDeDrones(dron8);
 
+        sistema.mostrarDrones();
+        System.out.println( "cantidad de drones: "  + sistema.cantDrones());
         sistema.setContador(sistema.cantDrones());
 
         dron8.ejecutarMision();

@@ -1,5 +1,5 @@
 package receta;
-
+/*
 import java.util.ArrayList;
 
 public class Entrada extends Plato{

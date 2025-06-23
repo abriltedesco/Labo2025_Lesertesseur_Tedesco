@@ -124,5 +124,5 @@ public abstract class Dron {
 
     // metodos abstractos
     abstract void ejecutarMision();
-
+    abstract String getTipo();
 }

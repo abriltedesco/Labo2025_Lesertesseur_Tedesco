@@ -38,4 +38,9 @@ public class Carga extends Dron{
             }
         }
     }
+
+    @Override
+    public String getTipo(){
+        return "Carga";
+    }
 }

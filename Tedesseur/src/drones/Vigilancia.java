@@ -40,10 +40,11 @@ public class Vigilancia extends Dron{
     @Override
     public void ejecutarMision(){
         // asumimos que se queda sin bateria al realizar la misionn : setBateria(0);
-
-        if (chequearAntesDeMision()){
             System.out.println("Mision exitosa");
-        }
 
+    }
+    @Override
+    public String getTipo(){
+        return "Vigilancia";
     }
 }

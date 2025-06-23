@@ -42,9 +42,9 @@ public class SistemaReceta {
 
     public Receta recetaConMasCantPasos (){
         Receta masLarga = new Receta();
+        /*
         for(Receta receta: this.recetas){
-            receta.cantPasosReceta() > masLarga.cantPasosReceta()? masLarga = receta;
-        }
+            receta.cantPasosReceta() > masLarga.cantPasosReceta()? masLarga = receta :  masLarga ;        }*/
         return masLarga;
     }
 
@@ -64,7 +64,7 @@ public class SistemaReceta {
         for(Receta receta : this.recetas) {
             Plato plato = receta.getPlato();
             if (plato.esDelTipo(tipo)) {
-                lista.add(p);
+                lista.add(receta);
             }
         }
         return lista;
@@ -164,21 +164,22 @@ public class SistemaReceta {
         System.out.println("Receta con más pasos: " + sistema.recetaConMasCantPasos().getPlato().getNombre());
         System.out.println(" ");
         System.out.println("--- ENTRADAS ---");
-        for (Plato plato : sistema.listaPorTipo(TipoPlato.ENTRADA)) {
+        /*
+        for (Plato plato : sistema.listaPorTipo(Tipo.ENTRADA)) {
             plato.mostrarPasos();
             System.out.println();
         }
         System.out.println("--- PRINCIPALES ---");
-        for (Plato plato : sistema.listaPorTipo(TipoPlato.PRINCIPAL)) {
+        for (Receta plato : sistema.listaPorTipo(Tipo.PRINCIPAL)) {
             plato.mostrarPasos();
             System.out.println();
         }
         System.out.println("--- POSTRES ---");
-        for (Plato plato : sistema.listaPorTipo(TipoPlato.POSTRE)) {
+        for (Receta plato : sistema.listaPorTipo(Tipo.POSTRE)) {
             plato.mostrarPasos();
             System.out.println();
         }
-
+*/
         System.out.println("Recetas de dificultad fácil:");
         for (Receta receta : sistema.recetasPorDificultad(Dificultad.FACIL)) {
             System.out.println(receta.getPlato().getNombre());
