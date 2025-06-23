@@ -1,7 +1,9 @@
-/* public class Mascota {
+package mascotas;
+public abstract class Mascota {
     private String nombre;
     private Dueño dueño;
     private Tipo tipo;
+    private int puntosAlegria;
 
     public String getNombre() {
         return nombre;
@@ -12,6 +14,7 @@
     }
 
     abstract void saludo();
+    abstract void alimentar();
 }
-*/
+
 
