@@ -3,6 +3,14 @@ package mascotas;
 public class Pez extends Mascota{
     private static int vidas = 10;
 
+    public Pez() {
+        super();
+    }
+
+    public Pez(String nombre, Dueño dueño, Tipo tipo, int puntosAlegria) {
+        super(nombre, dueño, tipo, puntosAlegria);
+    }
+
     public static int getVidas() {
         return vidas;
     }
@@ -11,12 +19,22 @@ public class Pez extends Mascota{
         Pez.vidas = vidas;
     }
 
-    public void saludo(){
-        if(saludoUnDueño()) {
-            setVidas(getVidas() - 1);
+    public String mascotaEsDelTipo(){
+        return Tipo.PEZ.name();
+    }
+
+    @Override
+    public void saludo(boolean alDueño){
+        if(alDueño) {
+            this.setVidas(getVidas() - 1);
         }
         else{
-            setVidas(0);
+            this.setVidas(0);
         }
+    }
+
+    @Override
+    void alimentar() {
+
     }
 }
