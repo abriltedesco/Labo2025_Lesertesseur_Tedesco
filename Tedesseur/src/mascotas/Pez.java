@@ -35,6 +35,6 @@ public class Pez extends Mascota{
 
     @Override
     void alimentar() {
-
+        this.setVidas(this.getVidas() +1);
     }
 }

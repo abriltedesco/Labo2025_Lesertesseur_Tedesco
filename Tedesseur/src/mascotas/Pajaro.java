@@ -19,21 +19,21 @@ public class Pajaro extends Mascota{
 
     @Override
     public void saludo(boolean alDueño){
-        for(int i = getPuntosAlegria() ; i > 0 ; i--) {
+        int alegriaActual = this.getPuntosAlegria();
+        for (int i = 0; i < alegriaActual; i++) {
             if (this.esCantor && alDueño) {
                 System.out.print("piopiopiopiooo ");
-                i++;
             }
             else if (!alDueño) {
                 System.out.println(" - ");
-                i++;
             }
             else {
                 System.out.print("pio ");
-                i++;
             }
         }
-
+        if (alegriaActual > 0) {
+            this.setPuntosAlegria(alegriaActual - 1);
+        }
     }
 
     @Override

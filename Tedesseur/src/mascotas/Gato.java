@@ -15,15 +15,20 @@ public class Gato extends Mascota{
 
     @Override
     public void saludo(boolean alDueño){
-        if (alDueño) {
-            System.out.println("miau");
+        int alegriaActual = this.getPuntosAlegria();
+        for (int i = 0; i < alegriaActual; i++) {
+            if (alDueño) {
+                System.out.println("miau ");
+            } else {
+                System.out.println("MIAU! ");
+            }
         }
-        else{
-            System.out.println("MIAU!");
+        if (alegriaActual > 0) {
+            this.setPuntosAlegria(alegriaActual - 1);
         }
     }
     @Override
     public void alimentar(){
-        this.setPuntosAlegria(getPuntosAlegria() + 1);
+        this.setPuntosAlegria(this.getPuntosAlegria() + 1);
     }
 }

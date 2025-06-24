@@ -1,7 +1,4 @@
 package mascotas;
-
-import receta.Main;
-
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -33,7 +30,7 @@ public class AppMascotas {
    public boolean estaDisponibleNombre(String nombreNuevaMascota){
         for(Mascota mascota : mascotas){
             if(mascota.getNombre() == nombreNuevaMascota){
-                System.out.println("no puede ingresar ese nombre intente con uno nuevo: ");
+                System.out.println("no puede ingresar ese nombre intente con uno nuevo");
                 return false;
             }
         }
@@ -49,10 +46,25 @@ public class AppMascotas {
         return null;
     }
 
+    public boolean existeDueñoConEseUsername(String userBuscado){
+        for(Mascota mascota : this.mascotas){
+            if (mascota.getDueño().getNombreUsuario() == userBuscado){
+                return true;
+            }
+        }
+        return false;
+    }
+
 
     public void saludarMascota(String nombreUsuario, String nombreMascota){
         if(mascotaConEseNombre(nombreMascota).getDueño().getNombreUsuario() == nombreUsuario){
             mascotaConEseNombre(nombreMascota).saludo(true);
+        }
+        else if (mascotaConEseNombre(nombreMascota) == null){
+            System.out.println("no existe registro de mascotas con ese nombre, volver a intentar");
+        }
+        else if(!existeDueñoConEseUsername(nombreUsuario)){
+            System.out.println("no se encontro ese nombre de usuario");
         }
         else{
             mascotaConEseNombre(nombreMascota).saludo(false);
@@ -76,5 +88,11 @@ public class AppMascotas {
         aplicacion.agregarMascota(pajaro1);
         aplicacion.agregarMascota(pajaro2);
         aplicacion.agregarMascota(pez);
+
+       aplicacion.saludarMascota("patrickS", "dory");
+       aplicacion.saludarMascota("ezeTenna123", "dory");
+       aplicacion.saludarMascota("eilishMia", "paquito");
+       aplicacion.saludarMascota("la_real_shaki", "lulu");
+       aplicacion.saludarMascota("nose12345", "stitch");
     }
 }
