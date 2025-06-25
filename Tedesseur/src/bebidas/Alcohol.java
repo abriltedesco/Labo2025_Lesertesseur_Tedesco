@@ -21,4 +21,6 @@ public class Alcohol extends Bebida{
         setCoeficienteNegatividad(this.getCantAlcohol() * 20);
     }
 
+
+
 }
