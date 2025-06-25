@@ -49,3 +49,4 @@ public class Entrada extends Plato{
         return tipo == Tipo.ENTRADA;
     }
 }
+*/

@@ -27,11 +27,15 @@ public class Pez extends Mascota{
     public void saludo(boolean alDueño){
         if(alDueño) {
             this.setVidas(getVidas() - 1);
+
         }
         else{
             this.setVidas(0);
         }
+        System.out.println("Vidas restantes: " + getVidas());
     }
+
+
 
     @Override
     void alimentar() {

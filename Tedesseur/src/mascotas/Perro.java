@@ -15,12 +15,13 @@ public class Perro extends Mascota{
 
     @Override
     public void saludo(boolean alDueño){
+        String saludoPredeterminado = "guau ";
         int alegriaActual = getPuntosAlegria();
         for (int i = 0; i < alegriaActual; i++) {
             if (alDueño) {
-                System.out.println("guau ");
+                System.out.print(saludoPredeterminado);
             } else {
-                System.out.println("GUAU! ");
+                System.out.print(saludoPredeterminado.toUpperCase());
             }
         }
         if (alegriaActual > 0) {

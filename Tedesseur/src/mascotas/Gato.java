@@ -15,12 +15,13 @@ public class Gato extends Mascota{
 
     @Override
     public void saludo(boolean alDueño){
+        String saludoPredeterminado = "miau ";
         int alegriaActual = this.getPuntosAlegria();
         for (int i = 0; i < alegriaActual; i++) {
             if (alDueño) {
-                System.out.println("miau ");
+                System.out.print(saludoPredeterminado);
             } else {
-                System.out.println("MIAU! ");
+                System.out.print(saludoPredeterminado.toUpperCase() + "! ");
             }
         }
         if (alegriaActual > 0) {

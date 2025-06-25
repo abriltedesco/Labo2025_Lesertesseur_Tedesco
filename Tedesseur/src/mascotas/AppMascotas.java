@@ -1,13 +1,31 @@
 package mascotas;
 import java.util.ArrayList;
+import java.util.Objects;
 import java.util.Scanner;
 
 public class AppMascotas {
     private ArrayList<Mascota> mascotas;
 
+    public AppMascotas(ArrayList<Mascota> mascotas) {
+        this.mascotas = mascotas;
+    }
+
+    public AppMascotas(){
+        this.mascotas = new ArrayList<>();
+    }
+
+    public ArrayList<Mascota> getMascotas() {
+        return mascotas;
+    }
+
+    public void setMascotas(ArrayList<Mascota> mascotas) {
+        this.mascotas = mascotas;
+    }
+
     public void agregarMascota(Mascota mascota){
         if(estaDisponibleNombre(mascota.getNombre())){
             mascotas.add(mascota);
+            System.out.println("Se ha agregado correctamente a " + mascota.getNombre());
         }
         else{
             Scanner entrada = new Scanner(System.in);
@@ -22,6 +40,7 @@ public class AppMascotas {
         mascotas.remove(mascota);
     }
 
+
     public void modificarMascota(Mascota mascotaNueva, Mascota mascotaVieja){
         agregarMascota(mascotaNueva);
         borrarMascota(mascotaVieja);
@@ -29,8 +48,8 @@ public class AppMascotas {
 
    public boolean estaDisponibleNombre(String nombreNuevaMascota){
         for(Mascota mascota : mascotas){
-            if(mascota.getNombre() == nombreNuevaMascota){
-                System.out.println("no puede ingresar ese nombre intente con uno nuevo");
+            if(Objects.equals(mascota.getNombre(), nombreNuevaMascota)){
+                System.out.println("no puede ingresar con " + mascota.getNombre() + " intente con uno nuevo");
                 return false;
             }
         }
@@ -55,6 +74,12 @@ public class AppMascotas {
         return false;
     }
 
+    public boolean esPez(Tipo tipo){
+        if(tipo.toString() == "PEZ"){
+            return true;
+        }
+        return false;
+    }
 
     public void saludarMascota(String nombreUsuario, String nombreMascota){
         if(mascotaConEseNombre(nombreMascota).getDueño().getNombreUsuario() == nombreUsuario){
@@ -69,6 +94,14 @@ public class AppMascotas {
         else{
             mascotaConEseNombre(nombreMascota).saludo(false);
         }
+
+        if( esPez(mascotaConEseNombre(nombreMascota).getTipo()) ){
+           Pez pez = (Pez) mascotaConEseNombre(nombreMascota);
+           if(pez.getVidas()== 0){
+               borrarMascota(mascotaConEseNombre(nombreMascota));
+               System.out.println("El pez " + pez.getNombre() + " ha muerto :(");
+           }
+        }
     }
 
     public static void main(String[] args) {
@@ -80,8 +113,10 @@ public class AppMascotas {
         Pajaro pajaro2 = new Pajaro("stitch", new Dueño("florencia peña", "flor_peña_222"), Tipo.PAJARO, 1, false);
         Pez pez = new Pez("dory", new Dueño("patrick smith", "patrickS"), Tipo.PEZ, 3);
 
-        AppMascotas aplicacion = new AppMascotas();
-        aplicacion.agregarMascota(perro1);
+        ArrayList<Mascota> mascotas = new ArrayList<>();
+        mascotas.add(perro1);
+
+        AppMascotas aplicacion = new AppMascotas(mascotas);
         aplicacion.agregarMascota(perro2);
         aplicacion.agregarMascota(gato1);
         aplicacion.agregarMascota(gato2);
@@ -89,10 +124,18 @@ public class AppMascotas {
         aplicacion.agregarMascota(pajaro2);
         aplicacion.agregarMascota(pez);
 
+        System.out.println("saludo 1: ");
        aplicacion.saludarMascota("patrickS", "dory");
+        System.out.println("saludo 2: ");
        aplicacion.saludarMascota("ezeTenna123", "dory");
+        System.out.println("saludo 3: ");
        aplicacion.saludarMascota("eilishMia", "paquito");
+        System.out.println();
+        System.out.println("saludo 4: ");
        aplicacion.saludarMascota("la_real_shaki", "lulu");
+        System.out.println();
+        System.out.println("saludo 5: ");
        aplicacion.saludarMascota("nose12345", "stitch");
+
     }
 }
