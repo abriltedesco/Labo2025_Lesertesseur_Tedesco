@@ -10,8 +10,8 @@ public class Carga extends Dron{
         this.pesoCarga = 57;
     }
 
-    public Carga(String nombreModelo, LocalDate fechaAdquisicion, double bateria, Estado estado, double latitudDestino, double longitudDestino, double pesoCarga) {
-        super(nombreModelo, fechaAdquisicion, bateria, estado, latitudDestino, longitudDestino);
+    public Carga(String nombreModelo, LocalDate fechaAdquisicion, Bateria bateria, Estado estado, double pesoCarga) {
+        super(nombreModelo, fechaAdquisicion, bateria, estado);
         this.pesoCarga = pesoCarga;
     }
 
@@ -24,13 +24,13 @@ public class Carga extends Dron{
     }
 
     @Override
-    public void ejecutarMision (){
-        double distancia = this.calcularDistanciaEnKm();
+    public void ejecutarMision(double latitud, double longitud){
+        double distancia = Distancia.calcularDistanciaAKm(this.getLatitudOrigen(), this.getLongitudOrigen(), latitud, longitud);
         if(distancia <= 30){
-            if(this.getBateria() < 20){
+            if(this.getBateria().getValor() < 20){
                 recargarBateria();
             }
-            else if(this.getBateria() >= 50){
+            else if(this.getBateria().getValor() >= 50){
                 System.out.println("La misión fue exitosa.");
             }
             else{
