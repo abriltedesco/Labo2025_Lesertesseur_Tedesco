@@ -8,6 +8,22 @@ public class SistemaAlmuerzo {
     private ArrayList<Plato> platos = new ArrayList<>();
     private ArrayList<Pedido> pedidos = new ArrayList<>();
 
+    public ArrayList<Plato> getPlatos() {
+        return platos;
+    }
+
+    public void setPlatos(ArrayList<Plato> platos) {
+        this.platos = platos;
+    }
+
+    public ArrayList<Pedido> getPedidos() {
+        return pedidos;
+    }
+
+    public void setPedidos(ArrayList<Pedido> pedidos) {
+        this.pedidos = pedidos;
+    }
+
     public void agregarPlato(Plato platoaAgregar){
         platos.add(platoaAgregar);
     }
