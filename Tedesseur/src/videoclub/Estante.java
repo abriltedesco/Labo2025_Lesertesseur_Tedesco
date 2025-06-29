@@ -19,12 +19,12 @@ public class Estante {
         ArrayList<Persona> directores = new ArrayList<>();
         ArrayList<Persona> actores = new ArrayList<>();
         ArrayList<String> idiomas = new ArrayList<>();
-        Persona d = new Persona("Ti", "west", 40);
-        directores.add(d);
-        Persona a = new Persona("mia", "goth", 26);
-        Persona a2 = new Persona("jenna", "ortega", 28);
-        actores.add(a);
-        actores.add(a2);
+       // Persona d = new Persona("Ti", "west", 40);
+       // directores.add(d);
+       // Persona a = new Persona("mia", "goth", 26);
+       // Persona a2 = new Persona("jenna", "ortega", 28);
+        //actores.add(a);
+        //actores.add(a2);
         idiomas.add("español");
         idiomas.add("ingles");
         peliculas.add(new Pelicula("X", Genero.TERROR, 105, directores,actores, idiomas));

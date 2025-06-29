@@ -1,5 +1,10 @@
 package dispositivos;
 
+import receta.Temperatura;
+import receta.Tipo;
+
+import java.util.ArrayList;
+
 public class Entrada extends Dispositivo{
     private String tipoConector;
     private int puertos;
@@ -14,6 +19,9 @@ public class Entrada extends Dispositivo{
         super(fabricante, modelo, precio, stock);
         this.tipoConector = tipoConector;
         this.puertos = puertos;
+    }
+
+    public Entrada(String ensaladaCaesar, ArrayList<String> pasosEntrada, Tipo tipo, Temperatura temperatura) {
     }
 
     public String getTipoConector() {

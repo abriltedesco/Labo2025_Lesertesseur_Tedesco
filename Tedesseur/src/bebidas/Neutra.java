@@ -3,8 +3,9 @@ package bebidas;
 import java.util.Scanner;
 
 public class Neutra extends Bebida{
-    public Neutra(String nombre, int coeficienteNegatividad, Tipo tipo) {
-        super(nombre, coeficienteNegatividad, tipo);
+    public Neutra(String nombre, Tipo tipo) {
+        super(nombre, tipo);
+        setCoeficienteNegatividad(10);
     }
 
     public void calcularCoeficiente(){

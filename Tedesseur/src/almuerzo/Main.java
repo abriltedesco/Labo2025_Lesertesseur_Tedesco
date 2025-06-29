@@ -1,5 +1,5 @@
 package almuerzo;
-
+/*
 import colegio.Profesor;
 import personas.Persona;
 import java.time.LocalDate;
@@ -39,3 +39,4 @@ public class Main {
     
     }
 }
+*/

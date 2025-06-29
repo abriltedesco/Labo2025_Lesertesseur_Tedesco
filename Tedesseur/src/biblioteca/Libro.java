@@ -22,7 +22,7 @@ public class Libro {
 
     public Libro(){
         this.titulo = "Orgullo y Prejuicio";
-        this.autor = new Persona ("Jane",  "Austen", 30);
+     //   this.autor = new Persona ("Jane",  "Austen", 30);
         this.isbn = 1;
         this.paginas = 352;
         this.editorial = Editorial.KAPELUSZ;
@@ -85,11 +85,11 @@ public class Libro {
 
     public static void main(String[] args) {
         Libro libro1 = new Libro();
-        Libro libro2 = new Libro("Crepusculo",  new Persona ("Stephanie", "Meyer", 28), 2, 230, Editorial.SUDAMERICANA,  new Fecha(20, 05, 2005));
+     //   Libro libro2 = new Libro("Crepusculo",  new Persona ("Stephanie", "Meyer", 28), 2, 230, Editorial.SUDAMERICANA,  new Fecha(20, 05, 2005));
         Libro libro3 = new Libro();
 
         libro3.setTitulo("The Hunger Games");
-        libro3.setAutor(new Persona("Suzanne", "Collins", 32));
+       // libro3.setAutor(new Persona("Suzanne", "Collins", 32));
         libro3.setEditorial(Editorial.EL_ATENEO);
         libro3.setISBN(3);
         libro3.setPaginas(376);
@@ -98,12 +98,12 @@ public class Libro {
         System.out.println("INFO DEL LIBRO 1" ) ;
         libro1.mostrarInfo();
         System.out.println("INFO DEL LIBRO 2" ) ;
-        libro2.mostrarInfo();
+     //   libro2.mostrarInfo();
         System.out.println("INFO DEL LIBRO 3" ) ;
         libro3.mostrarInfo();
 
         libro1.compararFechas(libro3.getFechaPublicacion());
-        libro2.compararFechas(libro1.getFechaPublicacion());
+      //  libro2.compararFechas(libro1.getFechaPublicacion());
 
     }
 }

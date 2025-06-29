@@ -1,5 +1,5 @@
 package receta;
-/*
+
 import java.util.ArrayList;
 
 public class Entrada extends Plato{
@@ -49,4 +49,3 @@ public class Entrada extends Plato{
         return tipo == Tipo.ENTRADA;
     }
 }
-*/

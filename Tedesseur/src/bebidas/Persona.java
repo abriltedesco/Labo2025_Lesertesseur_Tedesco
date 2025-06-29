@@ -6,43 +6,49 @@ import personas.PersonaPadre;
 
 public class Persona extends PersonaPadre {
     private String dni;
-    private ArrayList<Bebida> bebidas;
-   // private int cantBebidas = setCantBebidas(bebidas.size());
+    private ArrayList<Consumicion> bebidas;
 
-    public Persona(String nombre, String apellido, String dni, ArrayList bebidas /*int cantBebidas*/) {
+
+    public Persona(String nombre, String apellido, String dni, ArrayList<Consumicion> bebidas) {
         super(nombre, apellido);
         this.dni = dni;
         this.bebidas = bebidas;
-        //this.cantBebidas = cantBebidas;
     }
 
-
     public String getDni() {
+
         return dni;
     }
 
     public void setDni(String dni) {
+
         this.dni = dni;
     }
 
-    public ArrayList<Bebida> getBebidas() {
+    public ArrayList<Consumicion> getBebidas() {
         return bebidas;
     }
 
-    public void setBebidas(ArrayList<Bebida> bebidas) {
+    public void setBebidas(ArrayList<Consumicion> bebidas) {
+
         this.bebidas = bebidas;
     }
 
+    public int cantBebidas() {
+        return bebidas.size();
+    }
 
-  /*   public int getCantBebidas() {
-        return cantBebidas;
+    public double getCoeficiente(){
+        double coeficiente = 0;
+        for(Consumicion bebida : bebidas){
+            coeficiente += bebida.calcularImpacto();
+        }
+        return coeficiente;
+    }
+
+    public void agregarConsumicion(Bebida bebida, int cant){
+        this.bebidas.add(new Consumicion(bebida,cant));
     }
 
 
-    public int setCantBebidas(int cantBebidas) {
-        this.cantBebidas = cantBebidas;
-        return cantBebidas;
-    }
-   
-*/
 }

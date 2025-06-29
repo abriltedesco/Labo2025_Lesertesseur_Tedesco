@@ -7,14 +7,17 @@ public abstract class Bebida {
     private Tipo tipo;
 
     public String getNombre() {
+
         return nombre;
     }
 
     public void setNombre(String nombre) {
+
         this.nombre = nombre;
     }
 
     public int getCoeficientePositividad() {
+
         return coeficientePositividad;
     }
 
@@ -23,6 +26,7 @@ public abstract class Bebida {
     }
 
     public int getCoeficienteNegatividad() {
+
         return coeficienteNegatividad;
     }
 
@@ -39,6 +43,12 @@ public abstract class Bebida {
     }
 
     public Bebida(String nombre, int coeficienteNegatividad, Tipo tipo) {
+        this.nombre = nombre;
+        this.coeficienteNegatividad = coeficienteNegatividad;
+        this.tipo = tipo;
+    }
+
+    public Bebida(String nombre, Tipo tipo) {
         this.nombre = nombre;
         this.coeficienteNegatividad = coeficienteNegatividad;
         this.tipo = tipo;

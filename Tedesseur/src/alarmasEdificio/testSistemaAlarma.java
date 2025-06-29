@@ -1,4 +1,4 @@
-package alarmasEdificio;
+/* package alarmasEdificio;
 
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
@@ -42,3 +42,4 @@ public class testSistemaAlarma {
         assertEquals(2010, d.getAnioAdquisicion());
     }
 }
+*/

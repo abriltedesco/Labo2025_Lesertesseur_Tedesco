@@ -23,7 +23,7 @@ public class Pedido {
     public Pedido() {
         this.fechaCreacion = LocalDate.now();
         this.plato = new Plato("Milanesas con pure", 12500,0);
-        this.solicitante = new Persona("carlos", "vives");
+      //  this.solicitante = new Persona("carlos", "vives");
         this.horaEntrega = 19;
         this.estadoEntrega = "Cancelado";
     }
