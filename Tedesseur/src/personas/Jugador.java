@@ -1,28 +1,23 @@
 package personas;
 
+import fecha.Fecha;
+
 import java.time.LocalDate;
 
 public class Jugador extends Persona {
-   //private String nombre;
-   //private String apellido;
-   //private Fecha fechaNacimiento;
-    private int numeroCamiseta;
+   private String nombre;
+   private String apellido;
+   private Fecha fechaNacimiento;
+   private int numeroCamiseta;
 
     public Jugador(String nombre, String apellido, int numeroCamiseta, LocalDate fechaNacimiento) {
-      //  this.nombre = nombre;
-      //  this.apellido = apellido;
-        super(nombre, apellido, fechaNacimiento);
-        this.numeroCamiseta = numeroCamiseta;
-      //  this.fechaNacimiento = fechaNacimiento;
+      super(nombre, apellido, fechaNacimiento);
+      this.numeroCamiseta = numeroCamiseta;
     }
 
     public Jugador() {
-       // this.nombre = "Julian";
-       // this.apellido = "Alvarez";
-        super();
+        super("julian", "alvarez", LocalDate.of(2001, 31, 1));
         this.numeroCamiseta = 10 ;
-
-// this.fechaNacimiento = new Fecha(31, 1, 2000);
     }
 
     public int getNumeroCamiseta() {

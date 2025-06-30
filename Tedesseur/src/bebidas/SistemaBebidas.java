@@ -91,7 +91,7 @@ public class SistemaBebidas {
 
     public Persona personaConDni(String dniUser){
        for(Persona persona : personas) {
-           if(persona.getDni() == dniUser){
+           if(persona.getDni().equalsIgnoreCase(dniUser)){
                return persona;
            }
        }

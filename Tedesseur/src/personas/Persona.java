@@ -2,57 +2,34 @@ package personas;
 
 import java.time.LocalDate;
 
-public abstract class Persona {
-    private String nombre;
-    private String apellido;
+public class Persona extends PersonaPadre{
     private int edad;
     private LocalDate fechaNacimiento;
 
     public Persona(){
-        this.nombre = "Carlos";
+        super();
         this.edad = 20;
-        this.apellido = "Gardel";
         this.fechaNacimiento = LocalDate.of(1914,9,5);
     }
 
     public Persona(String nombre, int edad, String apellido, LocalDate fechaNacimiento) {
-        this.nombre = nombre;
+        super(nombre, apellido);
         this.edad = edad;
-        this.apellido = apellido;
         this.fechaNacimiento = fechaNacimiento;
     }
 
     public Persona(String nombre, String apellido, LocalDate fechaNacimiento) {
-        this.nombre = nombre;
-        this.apellido = apellido;
+        super(nombre, apellido);
         this.fechaNacimiento = fechaNacimiento;
     }
 
     public Persona(String nombre, String apellido, int edad) {
-        this.nombre = nombre;
-        this.apellido = apellido;
+        super(nombre, apellido);
         this.edad = edad;
     }
 
     public Persona(String nombre, String apellido) {
-        this.nombre = nombre;
-        this.apellido = apellido;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public String getApellido() {
-        return apellido;
-    }
-
-    public void setApellido(String apellido) {
-        this.apellido = apellido;
+        super(nombre, apellido);
     }
 
     public int getEdad() {

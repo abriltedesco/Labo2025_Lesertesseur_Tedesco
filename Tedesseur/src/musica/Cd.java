@@ -1,5 +1,6 @@
 package musica;
 
+import personas.ArtistaSolista;
 import personas.Persona;
 
 import java.util.ArrayList;
@@ -11,11 +12,11 @@ public class Cd {
     public Cd() {
         this.nombre = "BRAT";
         this.canciones =  new ArrayList<Cancion>();
-      // canciones.add(new Cancion( "Von Dutch", new Persona() ));
-      // canciones.add(new Cancion( "B2b", new Persona() ));
-      // canciones.add(new Cancion( "Guess", new Persona() ));
-      // canciones.add(new Cancion( "Club Classics", new Persona() ));
-      // canciones.add(new Cancion( "Talk Talk", new Persona() ));
+       canciones.add(new Cancion( "Von Dutch", new ArtistaSolista() ));
+       canciones.add(new Cancion( "B2b", new ArtistaSolista() ));
+       canciones.add(new Cancion( "Guess", new ArtistaSolista() ));
+       canciones.add(new Cancion( "Club Classics", new ArtistaSolista() ));
+       canciones.add(new Cancion( "Talk Talk", new ArtistaSolista() ));
     }
 
     public String getNombre() {
@@ -61,20 +62,20 @@ public class Cd {
 
     public static void main(String[] args) {
         Cd cd = new Cd();
-        //Persona persona = new Persona ();
+        ArtistaSolista persona = new ArtistaSolista ();
         ArrayList <Cancion> canciones =  new ArrayList<Cancion> ();
 
-       //cd.agrega(new Cancion( "360", persona));
-       //cd.agrega(new Cancion( "365", persona));
-       //cd.agrega(new Cancion( "Sympathy is a knife", persona));
-       //cd.agrega(new Cancion( "Girl, so confusing", persona));
-       //cd.agrega(new Cancion( "Everything is romantic", persona));
-       //cd.agrega(new Cancion( "Spring breakers", persona));
+       cd.agrega(new Cancion( "360", persona));
+       cd.agrega(new Cancion( "365", persona));
+       cd.agrega(new Cancion( "Sympathy is a knife", persona));
+       cd.agrega(new Cancion( "Girl, so confusing", persona));
+       cd.agrega(new Cancion( "Everything is romantic", persona));
+       cd.agrega(new Cancion( "Spring breakers", persona));
 
-       //System.out.println("Numero de canciones: " + cd.numeroCanciones());
-       //cd.verCancion(3);
-       //cd.grabaCancion(3, new Cancion("Apple", persona));
-       //cd.elimina(11);
+       System.out.println("Numero de canciones: " + cd.numeroCanciones());
+       cd.verCancion(3);
+       cd.grabaCancion(3, new Cancion("Apple", persona));
+       cd.elimina(11);
 
     }
 

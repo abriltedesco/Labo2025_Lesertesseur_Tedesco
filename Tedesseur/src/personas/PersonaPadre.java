@@ -24,4 +24,9 @@ public abstract class PersonaPadre {
         this.nombre = nombre;
         this.apellido = apellido;
     }
+
+    public PersonaPadre() {
+        this.nombre = "carlos";
+        this.apellido = "gardel";
+    }
 }
