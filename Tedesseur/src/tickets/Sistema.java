@@ -22,7 +22,7 @@ public class Sistema {
     public Ticket masAntiguo(){
         Ticket mas_antiguo = tickets.get(0);
         for(Ticket ticket : this.tickets){
-            if(ticket.noAgarradoPorDesarrollador() && ticket.getFinalizacion().isBefore(mas_antiguo.getFinalizacion()) ){
+            if(ticket.noAgarradoPorDesarrollador() && ticket.getCreacion().isBefore(mas_antiguo.getCreacion()) ){
                 mas_antiguo = ticket;
             }
         }
@@ -44,17 +44,16 @@ public class Sistema {
         return cant;
     }
 
-    public Ticket ticketsDesarrolladosPor(Desarrollador desarrollador){
-        Ticket ticketsito = this.tickets.get(0);
+    public ArrayList<Ticket> ticketsDesarrolladosPor(Desarrollador desarrollador){
+        ArrayList<Ticket> tickets = new ArrayList<>();
         for(Ticket ticket : this.tickets) {
             for (Comentario comentario : ticket.getComentarios()) {
                 if (comentario.getDesarrollador() == desarrollador) {
-                    ticketsito = ticket;
-                    return ticketsito;
+                    tickets.add(ticket);
                 }
             }
         }
-        return ticketsito;
+        return tickets;
     }
 
     // no entiendo
@@ -71,10 +70,20 @@ public class Sistema {
     }
 
 
+    public void chequearQueNoSeRepitanDesarolladores (ArrayList<Desarrollador> desarrolladores){
+        for(int i = 0; i < desarrolladores.size() - 1; i++){
+            if(desarrolladores.get(i) == desarrolladores.get(i + 1)){
+                desarrolladores.remove(i);
+            }
+        }
+    }
+
     public ArrayList<Desarrollador> desarrolladoresDelTicket(Ticket ticket){
         ArrayList<Desarrollador> desarrolladores = new ArrayList<>();
         for(Comentario comentario : ticket.getComentarios()){
             desarrolladores.add(comentario.getDesarrollador());
+            // solo para q no devuelva dos veces el mismo nombre
+            chequearQueNoSeRepitanDesarolladores(desarrolladores);
         }
         return desarrolladores;
     }
@@ -91,13 +100,22 @@ public class Sistema {
 
     public long promedioResolucion(){
         long horasTotal = 0;
+        int ticket_validos = 0;
+
         for (Ticket ticket : tickets){
-            horasTotal += ticket.tiempoResolucion().toHours();
+            Duration duracion = ticket.tiempoResolucion();
+            if (!duracion.isZero()) {
+                horasTotal += duracion.toHours();
+                ticket_validos++;
+            }
         }
 
-        return horasTotal / cantTicketsTotal();
+        return ticket_validos > 0 ? horasTotal / ticket_validos : 0;
     }
 
+
+
+/*
 
     public static void main(String[] args) {
         Software ticket1 = new Software();
@@ -149,5 +167,5 @@ public class Sistema {
         sistema.ticketsDesarrolladosPor(d3);
         sistema.ticketsDesarrolladosPor(d1);
         sistema.ticketsDesarrolladosPor(d2);
-    }
+    } */
 }

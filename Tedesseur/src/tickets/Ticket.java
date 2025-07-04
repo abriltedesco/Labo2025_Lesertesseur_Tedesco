@@ -86,6 +86,7 @@ public abstract class Ticket {
     }
 
     public Duration tiempoResolucion(){
+        if (this.finalizacion == null) return Duration.ZERO;
         return Duration.between(this.creacion, this.finalizacion);
     }
 
