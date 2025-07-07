@@ -56,7 +56,7 @@ public class Sistema {
         return tickets;
     }
 
-    // no entiendo
+
     public Desarrollador desarrolladorQueMasResuelve(){
         Desarrollador desarrolladorsito = new Desarrollador("x", "y");
         for(Ticket ticket : this.tickets) {
