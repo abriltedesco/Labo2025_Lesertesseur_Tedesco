@@ -1,4 +1,4 @@
-package vacunatorio;
+package Vacunatorio;
 
 import personas.PersonaPadre;
 

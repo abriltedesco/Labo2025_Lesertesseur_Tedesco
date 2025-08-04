@@ -1,4 +1,4 @@
-package vacunatorio;
+package Vacunatorio;
 
 import java.util.HashMap;
 import java.util.HashSet;
@@ -44,9 +44,5 @@ public class Vacunatorio {
         }
     }
 
-    /*
-    public void ciudadanosConVacuna(Vacuna vacuna){
-
-    }*/
 
 }
