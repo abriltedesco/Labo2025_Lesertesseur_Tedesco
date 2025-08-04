@@ -1,6 +1,7 @@
-package Vacunatorio;
+package personas;
 
-import personas.PersonaPadre;
+import vacunatorio.Provincia;
+import vacunatorio.Vacuna;
 
 import java.util.HashSet;
 

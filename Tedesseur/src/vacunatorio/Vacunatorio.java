@@ -1,8 +1,9 @@
-package Vacunatorio;
+package vacunatorio;
+
+import personas.Ciudadano;
 
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.Map;
 
 public class Vacunatorio {
     private HashMap<String, HashSet<Vacuna>> historialVacunas;

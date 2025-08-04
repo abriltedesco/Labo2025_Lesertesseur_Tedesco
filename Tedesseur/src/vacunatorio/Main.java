@@ -1,4 +1,6 @@
-package Vacunatorio;
+package vacunatorio;
+
+import personas.Ciudadano;
 
 import java.time.LocalDate;
 import java.util.HashMap;

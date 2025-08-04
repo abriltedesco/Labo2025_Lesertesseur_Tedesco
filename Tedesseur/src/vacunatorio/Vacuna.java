@@ -1,4 +1,4 @@
-package Vacunatorio;
+package vacunatorio;
 
 import java.time.LocalDate;
 
