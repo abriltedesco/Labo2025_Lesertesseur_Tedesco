@@ -9,5 +9,4 @@ public abstract class Ticket {
     private LocalDateTime creacion;
     private LocalDateTime finalizacion;
     private ArrayList<Comentario> comentarios;
-
 }
