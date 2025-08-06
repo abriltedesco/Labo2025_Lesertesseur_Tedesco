@@ -1,6 +1,6 @@
 package BancoNacion;
 
-import personas.EmpleadoBanco;
+import empleados.EmpleadoBanco;
 
 
 import java.time.LocalDate;

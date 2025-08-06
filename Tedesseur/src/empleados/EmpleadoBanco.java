@@ -1,4 +1,4 @@
-package personas;
+package empleados;
 
 import java.time.Period;
 
