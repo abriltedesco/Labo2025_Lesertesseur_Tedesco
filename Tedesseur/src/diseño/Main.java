@@ -10,6 +10,7 @@ public class Main {
             Proyecto p3 = new Proyecto("Quordle", "Juego de palabrasas", 50000);
             Proyecto p4 = new Proyecto("Harmonies", "aaaaa", 35700);
             Proyecto p5= new Proyecto("Gran Turismo", "de autos, no?", 239898);
+            Proyecto p = new Proyecto("spotify", "reproductor musica", 600000);
             HashSet<Proyecto> proyectos1 = new HashSet<>();
             HashSet<Proyecto> proyectos2 = new HashSet<>();
             proyectos1.add(p1);
@@ -17,8 +18,8 @@ public class Main {
             proyectos1.add(p3);
             proyectos2.add(p4);
             proyectos2.add(p5);
-            Diseñador d1 = new Diseñador(new HashMap<>(), proyectos1, Tipo.UI, Comision.UI, 3000000 );
-            Diseñador d2 = new Diseñador(new HashMap<>(), proyectos2, Tipo.IT, Comision.IT, 5000000);
+            Diseñador d1 = new Diseñador(new HashMap<>(), Tipo.UI, 3000000 );
+            Diseñador d2 = new Diseñador(new HashMap<>(), Tipo.IT, 5000000);
             Diseñador d3 = new Diseñador();
 
 
