@@ -1,4 +1,4 @@
-package empleados;
+package diseño;
 
 import java.util.HashMap;
 import java.util.HashSet;
@@ -14,6 +14,8 @@ public class Diseñador {
     public Diseñador() {
         this.proyectosConTotal = new HashMap<>();
         this.proyectos = new HashSet<>();
+        Proyecto p = new Proyecto("spotify", "reproductor musica", 600000);
+        proyectos.add(p);
         this.tipo = Tipo.UX;
         this.comision = Comision.UX;
         this.sueldo = 500000;
@@ -72,20 +74,64 @@ public class Diseñador {
         proyectosConTotal.put(proyecto, total);
     }
 
+
     public void calcularTotalRecaudado(){
         for(Proyecto proyecto : this.proyectos){
-            double total = proyecto.getDineroRecaudado() * comision.getComision();
+            double total = proyecto.getDineroRecaudado() + (proyecto.getDineroRecaudado() * comision.getComision());
             agregarAlMapa(proyecto, total);
         }
     }
 
-    public int cantProyectos(){}
+    public int cantProyectos(){
+        return this.proyectos.size();
+    }
+
 
     public void mostrarProyectosConTotalRecaudado(){
         for(Map.Entry<Proyecto, Double> mapa : proyectosConTotal.entrySet() ){
             Proyecto proyecto = mapa.getKey();
             Double totalRecaudado = mapa.getValue();
-            System.out.println("Proyecto: " + proyecto.getNombre() + " - Total");
+            System.out.println("Proyecto: " + proyecto.getNombre() + " - Total:" + totalRecaudado);
         }
     }
+
+    public double conocerComision(Proyecto proyecto, double totalRecaudado){
+        double comision = 0;
+        for(Proyecto p : this.proyectos){
+            if (p.getNombre().equalsIgnoreCase(proyecto.getNombre())) {
+                comision = totalRecaudado - p.getDineroRecaudado();
+            }
+        }
+        return comision;
+    }
+
+    public void calcularSueldoConComision(){
+        double sueldoConComision = 0;
+        for(Map.Entry<Proyecto, Double> mapa : proyectosConTotal.entrySet() ){
+            Proyecto proyecto = mapa.getKey();
+            Double totalRecaudado = mapa.getValue();
+            sueldoConComision += conocerComision(proyecto, totalRecaudado);
+        }
+        this.setSueldo(getSueldo() + sueldoConComision);
+    }
+
+    // sin comision
+    public double cuantoGano(String nombreProyecto){
+        double total = 0;
+        for(Proyecto proyecto : this.proyectos){
+            if (proyecto.getNombre().equalsIgnoreCase(nombreProyecto)) {
+                total = proyecto.getDineroRecaudado();
+            }
+        }
+        return total;
+    }
+
+    public void mostrarDetalleProyecto(){
+        for(Map.Entry<Proyecto, Double> mapa : proyectosConTotal.entrySet() ){
+            Proyecto proyecto = mapa.getKey();
+            Double totalRecaudado = mapa.getValue();
+            System.out.println("Proyecto: " + proyecto.getNombre() + " - Total: " + totalRecaudado + " - Comisión: " + totalRecaudado * comision.getComision());
+        }
+    }
+
 }

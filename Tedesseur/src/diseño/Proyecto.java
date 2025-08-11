@@ -1,4 +1,4 @@
-package empleados;
+package diseño;
 
 public class Proyecto {
     private String nombre;

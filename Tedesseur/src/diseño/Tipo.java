@@ -1,4 +1,4 @@
-package empleados;
+package diseño;
 
 public enum Tipo {
     UX, UI, IT;

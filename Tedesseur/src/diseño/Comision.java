@@ -1,4 +1,4 @@
-package empleados;
+package diseño;
 
 public enum Comision {
     UX(0.08), UI(0.07), IT(0.12);
