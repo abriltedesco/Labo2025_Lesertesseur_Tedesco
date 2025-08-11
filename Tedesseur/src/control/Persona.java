@@ -16,10 +16,15 @@ public class Persona extends PersonaPadre {
         this.fechaNacimiento = fechaNacimiento;
         this.registros = registros;
     }
+
     public Persona() {
         super("juansito", "pepito");
         this.fechaNacimiento = LocalDate.of(2003,4, 8);
+        Registro r1 = new Registro(1.60f, 65f);
+        Registro r2 = new Registro(1.61f, 65f);
         this.registros = new HashMap<>();
+        registros.put(LocalDate.of(2024,3,4), r1);
+        registros.put(LocalDate.of(2025,3,4), r2);
     }
 
     public LocalDate getFechaNacimiento() {
@@ -69,5 +74,7 @@ public class Persona extends PersonaPadre {
         System.out.println("Peso: " + promPeso + "Altura: " + promAltura);
     }
 
-
+    public float porcentajeCrecimiento(LocalDate fechaInicial, LocalDate fechaFinal){
+        return (registros.get(fechaFinal).getAltura() - registros.get(fechaInicial).getAltura() ) / registros.get(fechaInicial).getAltura();
+    }
 }
