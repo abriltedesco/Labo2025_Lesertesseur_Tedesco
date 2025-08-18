@@ -1,38 +1,38 @@
 package poblacion;
 
-import java.util.HashSet;
+import java.util.HashMap;
 
 public class Pais extends Lugar{
-    private HashSet<Provincia> provincias;
+    private HashMap<String, Provincia> provincias;
 
-    public Pais(String nombre, String codigo, HashSet<Provincia> provincias) {
-        super(nombre, codigo);
+    public Pais(String nombre, HashMap<String, Provincia> provincias) {
+        super(nombre);
         this.provincias = provincias;
     }
 
-    public Pais(String nombre, String codigo) {
-        super(nombre, codigo);
+    public Pais(String nombre) {
+        super(nombre);
     }
 
-    public HashSet<Provincia> getProvincias() {
+    public HashMap<String, Provincia> getProvincias() {
         return provincias;
     }
 
-    public void setProvincias(HashSet<Provincia> provincias) {
+    public void setProvincias(HashMap<String, Provincia> provincias) {
         this.provincias = provincias;
     }
-    
-    public void agregarprovincia(Provincia provincia) { provincias.add(provincia); }
-    public void borrarprovincia(Provincia provincia) { provincias.remove(provincia); }
-    public void modificarprovincia(Provincia provinciaNuevo, Provincia provinciaViejo) {
-        borrarprovincia(provinciaViejo);
-        agregarprovincia(provinciaNuevo);
+
+    public void agregarprovincia(String codigo, Provincia provincia) { provincias.put(codigo, provincia); }
+    public void borrarprovincia(String codigo) { provincias.remove(codigo); }
+    public void modificarprovincia(String codNueva, Provincia provinciaNuevo, String codViejo) {
+        borrarprovincia(codViejo);
+        agregarprovincia(codNueva, provinciaNuevo);
     }
 
     @Override
     public int obtenerPoblacion() {
         int total = 0;
-        for (Provincia provincia : this.provincias) {
+        for (Provincia provincia : this.provincias.values()) {
             total += provincia.obtenerPoblacion();
         }
         return total;

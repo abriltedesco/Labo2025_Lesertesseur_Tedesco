@@ -3,17 +3,22 @@ package poblacion;
 import java.util.HashSet;
 
 public abstract class Lugar {
+<<<<<<< Updated upstream
     private String nombre;
     private String codigo;
     private HashSet<Coordenada> contorno;
     
     public Lugar(String nombre, String codigo) {
+=======
+    private String nombre;;
+    private HashSet<Coordenada> contorno; // Representa el contorno
+
+    public Lugar(String nombre) {
+>>>>>>> Stashed changes
         this.nombre = nombre;
-        this.codigo = codigo;
         this.contorno = new HashSet<>();
     }
 
-    public String getCodigo() { return codigo; }
     public String getNombre() { return nombre; }
     public HashSet<Coordenada> getContorno() { return contorno; }
 
