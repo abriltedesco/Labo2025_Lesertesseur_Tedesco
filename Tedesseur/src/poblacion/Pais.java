@@ -1,40 +1,40 @@
 package poblacion;
 
-import java.util.HashMap;
+import java.util.HashSet;
 
 public class Pais extends Lugar{
-    private HashMap<String, Provincia> provincias;
+        private HashSet<Provincia> provincias;
 
-    public Pais(String nombre, HashMap<String, Provincia> provincias) {
-        super(nombre);
-        this.provincias = provincias;
-    }
-
-    public Pais(String nombre) {
-        super(nombre);
-    }
-
-    public HashMap<String, Provincia> getProvincias() {
-        return provincias;
-    }
-
-    public void setProvincias(HashMap<String, Provincia> provincias) {
-        this.provincias = provincias;
-    }
-
-    public void agregarprovincia(String codigo, Provincia provincia) { provincias.put(codigo, provincia); }
-    public void borrarprovincia(String codigo) { provincias.remove(codigo); }
-    public void modificarprovincia(String codNueva, Provincia provinciaNuevo, String codViejo) {
-        borrarprovincia(codViejo);
-        agregarprovincia(codNueva, provinciaNuevo);
-    }
-
-    @Override
-    public int obtenerPoblacion() {
-        int total = 0;
-        for (Provincia provincia : this.provincias.values()) {
-            total += provincia.obtenerPoblacion();
+        public Pais(String nombre, String codigo, HashSet<Provincia> provincias) {
+            super(nombre, codigo);
+            this.provincias = provincias;
         }
-        return total;
+
+        public Pais(String nombre, String codigo) {
+            super(nombre, codigo);
+        }
+
+        public HashSet<Provincia> getProvincias() {
+            return provincias;
+        }
+
+        public void setProvincias(HashSet<Provincia> provincias) {
+            this.provincias = provincias;
+        }
+
+        public void agregarprovincia(Provincia provincia) { provincias.add(provincia); }
+        public void borrarprovincia(Provincia provincia) { provincias.remove(provincia); }
+        public void modificarprovincia(Provincia provinciaNuevo, Provincia provinciaViejo) {
+            borrarprovincia(provinciaViejo);
+            agregarprovincia(provinciaNuevo);
+        }
+
+        @Override
+        public int obtenerPoblacion() {
+            int total = 0;
+            for (Provincia provincia : this.provincias) {
+                total += provincia.obtenerPoblacion();
+            }
+            return total;
+        }
     }
-}

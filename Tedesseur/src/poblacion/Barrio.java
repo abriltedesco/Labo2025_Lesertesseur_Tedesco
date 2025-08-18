@@ -2,9 +2,8 @@ package poblacion;
 
 public class Barrio extends Lugar{
     private int poblacion;
-
-    public Barrio(String nombre, int poblacion) {
-        super(nombre);
+    public Barrio(String nombre, String codigo, int poblacion) {
+        super(nombre, codigo);
         this.poblacion = poblacion;
     }
 

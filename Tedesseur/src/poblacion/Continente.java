@@ -1,42 +1,40 @@
 package poblacion;
 
-import java.util.HashMap;
 import java.util.HashSet;
 
 public class Continente extends Lugar {
-    HashMap<String, Pais> paises;
+        HashSet<Pais> paises;
 
-    public Continente(String nombre, HashMap<String, Pais> paises) {
-        super(nombre);
-        this.paises = paises;
-    }
-
-    public Continente(String nombre) {
-        super(nombre);
-    }
-
-    public HashMap<String, Pais> getPaises() {
-        return paises;
-    }
-
-    public void setPaises(HashMap<String, Pais> paises) {
-        this.paises = paises;
-    }
-
-    public void agregarPais(String codigo, Pais pais) { paises.put(codigo, pais); }
-    public void borrarPais(String codigo) { paises.remove(codigo); }
-    public void modificarPais(String codigoNuevo, String codigoViejo, Pais paisNuevo) {
-        borrarPais(codigoViejo);
-        agregarPais(codigoNuevo, paisNuevo);
-    }
-
-
-    @Override
-    public int obtenerPoblacion() {
-        int total = 0;
-        for (Pais pais : this.paises.values()) {
-            total += pais.obtenerPoblacion();
+        public Continente(String nombre, String codigo, HashSet<Pais> paises) {
+            super(nombre, codigo);
+            this.paises = paises;
         }
-        return total;
+
+        public Continente(String nombre, String codigo) {
+            super(nombre, codigo);
+        }
+
+        public HashSet<Pais> getPaises() {
+            return paises;
+        }
+
+        public void setPaises(HashSet<Pais> paises) {
+            this.paises = paises;
+        }
+
+        public void agregarPais(Pais pais) { paises.add(pais); }
+        public void borrarPais(Pais pais) { paises.remove(pais); }
+        public void modificarPais(Pais paisNuevo, Pais paisViejo) {
+            borrarPais(paisViejo);
+            agregarPais(paisNuevo);
+        }
+
+        @Override
+        public int obtenerPoblacion() {
+            int total = 0;
+            for (Pais pais : this.paises) {
+                total += pais.obtenerPoblacion();
+            }
+            return total;
+        }
     }
-}
