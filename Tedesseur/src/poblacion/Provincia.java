@@ -1,7 +1,6 @@
 package poblacion;
 
 import java.util.HashMap;
-import java.util.HashSet;
 
 public class Provincia extends Lugar {
     private HashMap<String, Ciudad> ciudades;

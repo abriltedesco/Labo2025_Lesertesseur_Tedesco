@@ -10,101 +10,60 @@ import java.util.Map;
 
 public class Sistema {
     private HashSet<Familia> familias;
-    //Calorias por persona
-    public int caloriasPorPersona(Persona persona){
-        int totalCalorias = 0;
-        for(Familia flia : this.familias) {
-            if(flia.getRegistro().containsKey(persona)) {
-                for (Map.Entry<Persona, HashSet<Plato>> mapa : flia.getRegistro().entrySet()) {
-                    HashSet<Plato> platos = mapa.getValue();
-                    for (Plato plato : platos) {
-                        totalCalorias += plato.getCalorias();
-                    }
-                }
-            }
-        }
-        return totalCalorias;
-    }
-
-    //promedio calorias por familia
-    public double promedioCalorias(Familia familia){
-        double totalCaloriasPorFamilia = 0;
-        double promedioCaloriasPorFamilia = 0;
-        for(Map.Entry<Persona, HashSet<Plato>> mapa : familia.getRegistro().entrySet() ) {
-            Persona personaFlia = mapa.getKey();
-            HashSet<Plato> platos = mapa.getValue();
-            totalCaloriasPorFamilia += caloriasPorPersona(personaFlia);
-        }
-        promedioCaloriasPorFamilia = totalCaloriasPorFamilia / familia.getRegistro().size();
-        return promedioCaloriasPorFamilia;
-    }
-
-    public Persona personaMasCalorias(Familia familia){
-        Persona personaMasCalorias = new Persona();
-        int caloriasPorPersona = 0;
-
-        for (Map.Entry<Persona, HashSet<Plato>> mapa : familia.getRegistro().entrySet()) {
-             Persona personaFlia = mapa.getKey();
-             HashSet<Plato> platos = mapa.getValue();
-             if (caloriasPorPersona(personaFlia) > caloriasPorPersona) {
-                 personaMasCalorias = personaFlia;
-                 caloriasPorPersona = caloriasPorPersona(personaFlia);
-             }
-        }
-        return personaMasCalorias;
-    }
-
-    public Persona personaMenosCalorias(Familia familia){
-        Persona personaMenosCalorias = new Persona();
-        int caloriasPorPersona = caloriasPorPersona(personaMasCalorias(familia));
-
-        for (Map.Entry<Persona, HashSet<Plato>> mapa : familia.getRegistro().entrySet()) {
-             Persona personaFlia = mapa.getKey();
-             HashSet<Plato> platos = mapa.getValue();
-             if (caloriasPorPersona(personaFlia) > caloriasPorPersona) {
-                 personaMenosCalorias = personaFlia;
-                 caloriasPorPersona = caloriasPorPersona(personaFlia);
-             }
-        }
-        return personaMenosCalorias;
-    }
-
 
     public static void main(String[] args) {
-        HashSet<String> ingred1 = new HashSet<>();
-        ingred1.add("fideos");
-        ingred1.add("tuco");
+        Ingrediente paqFideos = new Ingrediente("fideos", 380);
+        Ingrediente paqTuco = new Ingrediente("tuco", 160);
+        HashMap<Ingrediente, Integer> platoFideos = new HashMap<>();
+        platoFideos.put(paqFideos, 1);
+        platoFideos.put(paqTuco, 2);
 
-        HashSet<String> ingred2 = new HashSet<>();
-        ingred2.add("noiquis");
-        ingred2.add("queso");
-        ingred2.add("bolognesa");
+        HashMap<Ingrediente, Integer> platoNioquis = new HashMap<>();
+        Ingrediente paqNioquis = new Ingrediente("noiquis", 450);
+        Ingrediente paqQueso = new Ingrediente("queso", 65);
+        Ingrediente paqTuco2 = new Ingrediente("bolognesa", 100);
+        platoNioquis.put(paqNioquis, 1);
+        platoNioquis.put(paqQueso, 5);
+        platoNioquis.put(paqTuco2, 2);
 
-        Plato p1 = new Plato("fideos con tuco", ingred1,100);
-        Plato p2 = new Plato("nioquis", ingred2,150);
-        HashSet<Plato> platos1 = new HashSet<>();
-        platos1.add(p1);
-        platos1.add(p2);
 
-        HashSet<String> ingred3 = new HashSet<>();
-        ingred1.add("chocolinas");
-        ingred1.add("dulce de leche");
-        ingred1.add("queso crema");
+        Plato p1 = new Plato("fideos con tuco", platoFideos);
+        Plato p2 = new Plato("nioquis", platoNioquis);
+        HashMap<Plato, Integer> platos1 = new HashMap<>();
+        HashMap<Plato, Integer> platos2 = new HashMap<>();
+        platos1.put(p1, 50);
+        platos1.put(p2, 65);
 
-        HashSet<String> ingred4 = new HashSet<>();
-        ingred2.add("masa");
-        ingred2.add("carne");
+        HashMap<Ingrediente, Integer> chocotortaelamordeaby = new HashMap<>();
+        Ingrediente paqChocolinas = new Ingrediente("chocolinas", 103);
+        Ingrediente paqDDL = new Ingrediente("dulce de leche", 250);
+        Ingrediente paqQuesoCrema = new Ingrediente("queso crema", 80);
+        chocotortaelamordeaby.put(paqChocolinas, 4);
+        chocotortaelamordeaby.put(paqDDL, 2);
+        chocotortaelamordeaby.put(paqQuesoCrema, 2);
+        Plato p3 = new Plato("Chocotorta", chocotortaelamordeaby);
+        platos1.put(p3, 5);
+        platos2.put(p3, 7);
 
-        Plato p3 = new Plato("chocotorta", ingred3,200);
-        Plato p4 = new Plato("empanada", ingred4,90);
-        HashSet<Plato> platos2 = new HashSet<>();
-        platos2.add(p3);
-        platos2.add(p4);
+        Ingrediente paqMasa = new Ingrediente("masa", 150);
+        Ingrediente churrasco = new Ingrediente("carne", 320);
+        HashMap<Ingrediente, Integer> platoEmpanada = new HashMap<>();
+        platoEmpanada.put(paqMasa, 1);
+        platoEmpanada.put(churrasco, 2);
 
-        HashMap<Persona, HashSet<Plato>>flia = new HashMap<>();
-        Persona pe1 = new Persona("Pit", 41, "Bull", LocalDate.of(1981, 1, 15 ));
-        Persona pe2 = new Persona("Sha", 48, "Kira", LocalDate.of(1977, 2, 2 ));
-        flia.put(pe1, platos1);
-        flia.put(pe2, platos2);
+        Plato p4 = new Plato("empanada", platoEmpanada);
+        platos2.put(p1, 5);
+        platos2.put(p4, 9);
+
+        HashSet<Familia> flias = new HashSet<>();
+        HashSet<Familiar> fliaLista = new HashSet<>();
+        Familiar f1 = new Familiar("Pit", "Bull", LocalDate.of(1981, 1, 15), platos1);
+        Familiar f2 = new Familiar("Sha", "Kira", LocalDate.of(1977, 2, 2), platos2);
+        Familiar f3 = new Familiar();
+        fliaLista.add(f1);
+        fliaLista.add(f2);
+        fliaLista.add(f3);
+        Familia flia = new Familia(fliaLista);
+        flias.add(flia);
     }
 }
