@@ -5,8 +5,8 @@ import java.util.HashSet;
 public abstract class Lugar {
     private String nombre;
     private String codigo;
-    private HashSet<Coordenada> contorno; // Representa el contorno
-
+    private HashSet<Coordenada> contorno;
+    
     public Lugar(String nombre, String codigo) {
         this.nombre = nombre;
         this.codigo = codigo;
