@@ -6,8 +6,12 @@ public class Main_Throw {
             String nombre = null;
             System.out.println("El largo del nombre es:" + nombre.length());
             if(nombre == null){
-                throw new excepcionNull("El nombre es nulo.");
+                throw new NullPointerException("El nombre es nulo.");
             }
         }
-        catch (excepcionNull){
+        catch (NullPointerException exc){
+            System.err.println(exc);
+            System.err.println(exc.getMessage());
         }
+    }
+}

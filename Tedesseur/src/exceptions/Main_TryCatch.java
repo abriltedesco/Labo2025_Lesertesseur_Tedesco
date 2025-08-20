@@ -11,6 +11,5 @@ public class Main_TryCatch {
             System.err.println("Está null");
             excNull.printStackTrace();
         }
-
     }
 }
