@@ -32,6 +32,22 @@ public class SistemaAlarmas {
         this.umbral = umbral;
     }
 
+    public void mostrarDispositivos(){
+        for(DispositivoAlarma disp : dispositivos){
+            System.out.println(dispositivos.size());
+            System.out.println(disp.getClass() + " " + disp.getMedida() + " " + disp.getAnioAdquisicion() + " " + disp.getUmbralInicial());
+        }
+    }
+
+    public DispositivoAlarma elegirDispositivo(int numero){
+        for(int i = 0; i< dispositivos.size() ; i++ ){
+            if(i == numero){
+                ;
+            }
+        }
+
+    }
+
     public void chequearMedidas(){
         for(DispositivoAlarma disp : dispositivos){
             if(disp.isEstaConectado()) {

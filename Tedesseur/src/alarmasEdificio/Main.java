@@ -22,5 +22,7 @@ public class Main {
 
         SistemaAlarmas sistema = new SistemaAlarmas(disp1, 0);
         sistema.chequearMedidas();
+
+        sistema.elegirDispositivo(1);
     }
 }
