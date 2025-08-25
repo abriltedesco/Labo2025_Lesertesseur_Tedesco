@@ -39,13 +39,14 @@ public class SistemaAlarmas {
         }
     }
 
-    public DispositivoAlarma elegirDispositivo(int numero){
+    public DispositivoAlarma elegirDispositivo(int numero) throws ArrayIndexOutOfBoundsException{
+       DispositivoAlarma disp = null;
         for(int i = 0; i< dispositivos.size() ; i++ ){
             if(i == numero){
-                ;
+                disp = dispositivos.get(i);
             }
         }
-
+        return disp;
     }
 
     public void chequearMedidas(){

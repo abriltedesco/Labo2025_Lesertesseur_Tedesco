@@ -23,6 +23,11 @@ public class Main {
         SistemaAlarmas sistema = new SistemaAlarmas(disp1, 0);
         sistema.chequearMedidas();
 
-        sistema.elegirDispositivo(1);
+
+        try{System.out.println(sistema.elegirDispositivo(3).getMedida());
+        }
+        catch(ArrayIndexOutOfBoundsException exc){
+            System.err.println("error " + exc);
+        }
     }
 }
