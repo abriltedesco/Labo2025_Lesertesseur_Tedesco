@@ -1,4 +1,4 @@
-package diseño;
+/*package diseño;
 
 import java.util.HashMap;
 import java.util.HashSet;
@@ -53,4 +53,4 @@ public class Main {
             d2.mostrarDetalleProyecto();
             d3.mostrarDetalleProyecto();
     }
-}
+}*/

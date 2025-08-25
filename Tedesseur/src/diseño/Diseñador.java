@@ -1,19 +1,17 @@
-package diseño;
+/* package diseño;
 
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 
-public class Diseñador {
+        public class Diseñador {
     private static HashMap<Proyecto, Double> proyectosConTotal ;
     private Tipo tipo;
     private double sueldo ;
-
-    public Diseñador() {
-        this.proyectosConTotal = new HashMap<>();;
-        Proyecto p = new Proyecto("spotify", "reproductor musica", 600000);
-        this.tipo = Tipo.UX;
-        this.sueldo = 500000;
+         public Diseñador() {
+             this.proyectosConTotal = new HashMap<>();;
+             Proyecto p = new Proyecto("spotify", "reproductor musica", 600000);
+             this.tipo = Tipo.UX;
     }
 
     public Diseñador(HashMap<Proyecto, Double> proyectosConTotal, HashSet<Proyecto> proyectos, Tipo tipo, Comision comision, double sueldo) {
@@ -51,19 +49,17 @@ public class Diseñador {
         proyectosConTotal.put(proyecto, calcularComision());
     }
 
-    public calcularComision(){
-
-    }
+//    public calcularComision(){}
 
     public void calcularTotalRecaudado(){
-        for(Proyecto proyecto : this.proyectos){
+        for(Proyecto proyecto : this.proyectosConTotal){
             double total = proyecto.getDineroRecaudado() + (proyecto.getDineroRecaudado() * comision.getComision());
             agregarAlMapa(proyecto, total);
         }
     }
 
     public int cantProyectos(){
-        return this.proyectos.size();
+        return this.proyectosConTotal.size();
     }
 
 
@@ -114,4 +110,4 @@ public class Diseñador {
         }
     }
 
-}
+}*/

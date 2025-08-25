@@ -1,12 +1,12 @@
 package biblioteca.actual;
 
-import personas.Persona;
+import biblioteca.actual.personas.Persona;
 
 import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.HashSet;
 
-public class Autor extends Persona{
+public class Autor extends Persona {
     private String dni;
     private HashMap<String, LibroVirtual> libros;
 

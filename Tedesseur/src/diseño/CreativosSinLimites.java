@@ -1,4 +1,4 @@
-package diseño;
+/*package diseño;
 
 import java.util.HashMap;
 import java.util.HashSet;
@@ -50,3 +50,4 @@ public class CreativosSinLimites {
         CreativosSinLimites.comisiones = comisiones;
     }
 }
+*/
