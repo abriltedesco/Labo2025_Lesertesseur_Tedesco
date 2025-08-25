@@ -24,7 +24,8 @@ public class Main {
         sistema.chequearMedidas();
 
 
-        try{System.out.println(sistema.elegirDispositivo(3).getMedida());
+        try{
+            System.out.println(sistema.elegirDispositivo(3).getMedida());
         }
         catch(ArrayIndexOutOfBoundsException exc){
             System.err.println("error " + exc);
