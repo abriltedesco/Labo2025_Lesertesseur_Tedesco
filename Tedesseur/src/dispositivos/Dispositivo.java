@@ -58,12 +58,12 @@ public abstract class Dispositivo {
         this.stock = stock;
     }
 
-     public void ajustarPorInflacion(double porcentaje) {
+    public void ajustarPorInflacion(double porcentaje) {
         precio += precio * (porcentaje / 100);
     }
 
-    public void reducirStock() {
-        if (stock > 0) stock--;
+    public void reducirStock() throws NoHayStockException {
+        if (chequearStock()) stock--;
     }
 
     public boolean hayStock() {
@@ -72,5 +72,12 @@ public abstract class Dispositivo {
 
     public String getInfo() {
         return fabricante + " " + modelo + " ($" + precio + ")";
+    }
+
+    public boolean chequearStock() throws NoHayStockException {
+        if(!hayStock()){
+            throw new NoHayStockException("no es posible realizar la accion ya que no hay stock");
+        }
+        return true;
     }
 }
