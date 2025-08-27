@@ -1,0 +1,3 @@
+public enum BarriosMiembros {
+    MONTSERRAT, NUEVA_POMPEYA, NUNIEZ, BELGRANO, CONSTITUCION;
+}
