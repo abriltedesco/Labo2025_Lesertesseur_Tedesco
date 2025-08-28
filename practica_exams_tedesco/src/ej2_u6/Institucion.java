@@ -1,3 +1,5 @@
+package ej2_u6;
+
 public class Institucion {
     private String nombre;
     private String direccion;

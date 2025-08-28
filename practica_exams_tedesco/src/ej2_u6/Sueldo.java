@@ -1,3 +1,5 @@
+package ej2_u6;
+
 public class Sueldo {
     private double monto;
     private Banco banco;
