@@ -34,10 +34,11 @@ public class SistemaBebidas {
         return false;
     }
 
-    public void agregarPersona(ArrayList<Persona> personasMain){
+    public void agregarPersona(ArrayList<Persona> personasMain) throws dniYaExisteException{
         for(Persona persona : personasMain) {
+
             if (this.dniExiste(persona.getDni())) {
-                System.out.println("dni ya existe, no se puede agregar");
+                throw new dniYaExisteException("dni ya existe, no se puede agregar");
             }
             else {
                 this.personas.add(persona);
