@@ -1,3 +1,0 @@
-public enum BarriosExternos {
-    COGHLAN, PALERMO, BARRACAS, PARQUE_PATRICIOS, RETIRO, SAAVEDRA;
-}
