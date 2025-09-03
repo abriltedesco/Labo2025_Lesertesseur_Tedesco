@@ -1,53 +1,19 @@
 package dispositivos;
 
-public abstract class Dispositivo {
-    private String fabricante;
-    private String modelo;
-    private double precio;
+public abstract class Dispositivo extends DispositivoPadre {
     private int stock;
+    private double precio;
 
     public Dispositivo(String fabricante, String modelo, double precio, int stock) {
-        this.fabricante = fabricante;
-        this.modelo = modelo;
-        this.precio = precio;
+        super(fabricante, modelo);
         this.stock = stock;
-    }
-
-    public Dispositivo(String fabricante, String modelo, double precio) {
-        this.fabricante = fabricante;
-        this.modelo = modelo;
         this.precio = precio;
     }
 
     public Dispositivo() {
-        this.fabricante = "SADDADDFD";
-        this.modelo = "modelito";
-        this.precio = 5;
+        super("fab", "model");
         this.stock = 5;
-    }
-
-    public String getFabricante() {
-        return fabricante;
-    }
-
-    public void setFabricante(String fabricante) {
-        this.fabricante = fabricante;
-    }
-
-    public String getModelo() {
-        return modelo;
-    }
-
-    public void setModelo(String modelo) {
-        this.modelo = modelo;
-    }
-
-    public double getPrecio() {
-        return precio;
-    }
-
-    public void setPrecio(double precio) {
-        this.precio = precio;
+        this.precio = 0.5;
     }
 
     public int getStock() {
@@ -58,10 +24,6 @@ public abstract class Dispositivo {
         this.stock = stock;
     }
 
-    public void ajustarPorInflacion(double porcentaje) {
-        precio += precio * (porcentaje / 100);
-    }
-
     public void reducirStock() throws NoHayStockException {
         if (chequearStock()) stock--;
     }
@@ -70,14 +32,22 @@ public abstract class Dispositivo {
         return stock > 0;
     }
 
-    public String getInfo() {
-        return fabricante + " " + modelo + " ($" + precio + ")";
-    }
-
     public boolean chequearStock() throws NoHayStockException {
-        if(!hayStock()){
+        if (!hayStock()) {
             throw new NoHayStockException("no es posible realizar la accion ya que no hay stock");
         }
         return true;
+    }
+
+    public double getPrecio() {
+        return precio;
+    }
+
+    public void setPrecio(double precio) {
+        this.precio = precio;
+    }
+
+    public String getInfo() {
+        return getFabricante() + " " + getModelo() + " ($" + precio + ")";
     }
 }
