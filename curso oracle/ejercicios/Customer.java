@@ -2,12 +2,12 @@ package ejercicios.ShopApp;
 
 public class Customer{
     private String name;
-    private String size;
+    private char size;
     private Clothing[] items;
 
     public Customer(){
         this.name = "default";
-        this.size = "S";
+        this.size = 'S';
     }
 
     public Customer(String name, int size){
@@ -46,23 +46,23 @@ public class Customer{
     public char getSize() {
         return size; 
     }
-    public void setSize(String size) { 
+    public void setSize(char size) {
         this.size = size; 
     }
 
-    public void setSize(int measurement) { 
-        switch(measumerent){
+    public void setSize(int medida) {
+        switch(medida){
             case 1,2,3:
-                setSize("S");
+                setSize('S');
                 break;
             case 4,5,6:
-                setSize("M");
+                setSize('M');
                 break;
             case 7,8,9:
-                setSize("L");
+                setSize('L');
                 break;
             default:
-                setSize("X");
+                setSize('X');
                 break;
         }
     }

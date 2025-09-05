@@ -1,16 +1,22 @@
 package ejercicios.ShopApp;
-public class Clothing {
+public class Clothing implements Comparable<Clothing>{
     private String description;
-    private int size;
+    private char size;
     private double price;
 
     public final static double min_price = 10.0;
     public final static double tax = 0.2;
 
-    public Clothing(String description, String size, double price) {
+    public Clothing(String description, char size, double price) {
         this.description = description;
         this.size = size;
         this.price = price;
+    }
+
+    public Clothing() {
+        this.description = "";
+        this.size = 'a';
+        this.price = 0;
     }
 
     public String getDescription() {
@@ -21,11 +27,11 @@ public class Clothing {
         this.description = description;
     }
 
-    public int getSize() {
+    public char getSize() {
         return size;
     }
 
-    public void setSize(int size) {
+    public void setSize(char size) {
         this.size = size;
     }
 
@@ -44,6 +50,11 @@ public class Clothing {
 
     @Override
     public String toString() {
-        return this.getDescription() + ", size: " + this.getSize() + ", price: " + this.getPrice(); +
+        return this.getDescription() + ", size: " + this.getSize() + ", price: " + this.getPrice();
+    }
+
+    @Override
+    public int compareTo(Clothing otroItem) {
+        return this.description.compareTo(otroItem.getDescription());
     }
 }
