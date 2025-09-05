@@ -39,6 +39,7 @@ public class Main {
         personasMain.add(p3);
 
         // para agregar y verificar al mismo tiepo lo del dni
+
         sistema.agregarPersona(personasMain);
 
         // todas las personas + la de mayor y menor coef

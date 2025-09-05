@@ -41,12 +41,10 @@ public class SistemaVentaCompus {
         this.cliente = cliente;
     }
 
-    public void agregarDisp(Dispositivo dispositivo, ArrayList<Dispositivo> dispositivos) {
+    public void agregarDisp(Dispositivo dispositivo, ArrayList<Dispositivo> dispositivos) throws NoHayStockException {
         if (dispositivo.hayStock()) {
             dispositivos.add(dispositivo);
             dispositivo.reducirStock();
-        } else {
-            System.out.println("No hay stock");
         }
     }
 
@@ -86,16 +84,15 @@ public class SistemaVentaCompus {
         return false;
     }
 
-    public boolean sePuedeRealizarCompra(){
-        if(!hayCPU()) {
-            System.out.println("No se puede realizar la compra porque no hay CPU");
-            return false;
+    public boolean sePuedeRealizarCompra() throws ErrorEnCompra{
+        if(!hayCPU() || contarDispEntrada() == 0 || contarDispSalida() == 0) {
+           throw new ErrorEnCompra("No se puede realizar la compra porque faltan dispositivos");
         }
         return true; 
     }
 
-    public void mostrarInfoCompra() {
-        if (this.sePuedeRealizarCompra()) {
+    public void mostrarInfoCompra() throws ErrorEnCompra {
+        if (sePuedeRealizarCompra()) {
             System.out.println("Cliente: " + cliente.getNombre() + " " + cliente.getApellido());
             System.out.println("Cant disp de entrada: " + this.contarDispEntrada());
             System.out.println("Cant disp de salida: " + this.contarDispSalida());
