@@ -1,21 +1,20 @@
-package Labo2025_Lesertesseur_Tedesco.Curso_Java.ShopApp;
+package duke.choice;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class ShopApp {
-    Customer cliente;
+    customer cliente;
 
     public static void main(String[] args) {
-        //double tax = 0.2; 
-        //double total = 0;
-        //double totalImpuesto = 0;
+        double tax = 0.2;
+        double total = 0;
+        double totalImpuesto = 0;
         int measurement = 3;
 
-        System.out.println("Precio mínimo: " + Clothing.getMinPrice() + ", Impuesto: " + Clothing.getTax());
+        customer c1 = new customer("Pinky", "S");
 
-        
-        Customer c1 = new Customer("Pinky", "S");
-        
         System.out.println("Bienvenido " + c1.getNombre());
 
         Clothing item1 = new Clothing("Blue jacket", 20.9, "M");
@@ -44,50 +43,75 @@ public class ShopApp {
          */
 
         for (Clothing item : items) {
-            System.out.println("Item: " + item);
-           //  if (c1.getSize() == item.getSize()) {
-                
-                //total += item.getPrice();
-                //totalImpuesto = (total * tax) + total;
-                
-                // System.out.println(item.getDescription() + " - " + item.getPrice() + " - " + item.getSize());
-                /*               
+
+            if (c1.getSize() == item.getSize()) {
+                total += item.getPrice();
+                totalImpuesto = (total * tax) + total;
+
+                System.out.println(item.getDescription() + " - " + item.getPrice() + " - " + item.getSize());
                 if (total > 15) {
                     break;
                 }
-                */
-            // }
-            
+
+            }
+
         }
-       
-        c1.addItems(items);
 
-        System.out.println("getTotalClothingCost: " + c1.getTotalClothingCost());        
-        //System.out.println("Total de compra sin impuesto: " + total);
-        //System.out.println("Total de compra con impuesto: " + totalImpuesto);
+        System.out.println("Total de compra sin impuesto: " + total);
+        System.out.println("Total de compra con impuesto: " + totalImpuesto);
 
-
-        /*switch (measurement) {
-            case 1:
-            case 2:
-            case 3:
-                c1.size = "S";
-                break;
-            case 4:
-            case 5:
-            case 6:
-                c1.size = "M";
-                break;
-            case 7:
-            case 8:
-            case 9:
-                c1.size = "L";
-                break;
-            default:
-                c1.size = "X";
-                break;
-        }
+        /*
+         * switch (measurement) {
+         * case 1:
+         * case 2:
+         * case 3:
+         * c1.size = "S";
+         * break;
+         * case 4:
+         * case 5:
+         * case 6:
+         * c1.size = "M";
+         * break;
+         * case 7:
+         * case 8:
+         * case 9:
+         * c1.size = "L";
+         * break;
+         * default:
+         * c1.size = "X";
+         * break;
+         * }
          */
         System.out.println("Measurement: " + measurement + " / " + c1.getSize());
+
+        c1.setItems(items);
+
+        // En mi version de java no me deja usar el metodo sort() para Strings como en
+        // el curso
+
+        /*
+         * Arrays.sort(c1.getItems());
+         * for(Clothing item : items){
+         * System.out.println("item: " + item);
+         * }
+         */
+
+        float totalPrecio = 0;
+        for (Clothing item : c1.getItems()) {
+            if(item.getSize().equals("L")){
+                totalPrecio += item.getPrice();
+            }
+        }
+        
+        try{
+        float promedio = totalPrecio / c1.getItems().size();
+        System.out.println("Precio promedio: " +  promedio + " Cantidad de items: " + c1.getItems().size());
+        }
+        catch(ArithmeticException exc){
+            System.err.println("División por cero");
+        }
+
+
     }
+
 }

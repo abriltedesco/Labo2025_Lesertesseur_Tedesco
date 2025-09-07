@@ -1,19 +1,12 @@
-package Labo2025_Lesertesseur_Tedesco.Curso_Java.ShopApp;
+package duke.choice;
 
-public class Clothing {
+
+public class Clothing implements Comparable<Clothing >{
     private String description;
     private double price;
     private String size;
-    private static double minPrice = 10;
-    private static double tax = 0.2;
-    
-    public static double getMinPrice(){
-        return minPrice;
-    }
-    
-    public static double getTax(){
-        return tax;
-    }
+    private final double minPrice = 10;
+    private final double tax = 0.2;
 
     public Clothing (String description, double price, String size){
         this.description = description;
@@ -21,6 +14,7 @@ public class Clothing {
         this.size = size;
     } 
 
+    
     public String getDescription(){
         return description;
     }
@@ -53,7 +47,10 @@ public class Clothing {
     }
 
     @Override
-    public String toString(){
-        return getDescription() + " " + getSize() + " " + getPrice();
+    public int compareTo(Clothing c) {
+        
+        return this.getDescription().compareTo(c.description);
     }
+
+
 }
