@@ -1,5 +1,6 @@
 package bares;
 
+import java.util.HashMap;
 import java.util.HashSet;
 
 public class Bar {
@@ -7,7 +8,23 @@ public class Bar {
     private int cantClientes;
     private double dineroRecaudado;
     private HashSet<Beneficio> implementados;
-    private HashSet<Beneficio> acumulables;
+    private HashSet<Acumulable> acumulables;
+
+    public Bar(HashSet<Diana> dianas, int cantClientes, double dineroRecaudado, HashSet<Beneficio> implementados, HashSet<Acumulable> acumulables) {
+        this.dianas = dianas;
+        this.cantClientes = cantClientes;
+        this.dineroRecaudado = dineroRecaudado;
+        this.implementados = implementados;
+        this.acumulables = acumulables;
+    }
+
+    public Bar(){
+        this.dianas = new HashSet<>();
+        this.cantClientes = 101;
+        this.dineroRecaudado = 353535.65;
+        this.implementados = new HashSet<>();
+        this.acumulables = new HashSet<>();
+    }
 
     public HashSet<Diana> getDianas() {
         return dianas;
@@ -25,11 +42,11 @@ public class Bar {
         this.cantClientes = cantClientes;
     }
 
-    public HashSet<Beneficio> getAcumulables() {
+    public HashSet<Acumulable> getAcumulables() {
         return acumulables;
     }
 
-    public void setAcumulables(HashSet<Beneficio> acumulables) {
+    public void setAcumulables(HashSet<Acumulable> acumulables) {
         this.acumulables = acumulables;
     }
 
@@ -47,5 +64,13 @@ public class Bar {
 
     public void setDineroRecaudado(double dineroRecaudado) {
         this.dineroRecaudado = dineroRecaudado;
+    }
+
+    public int cantBeneficiosNoAcumulables(){
+        return this.implementados.size();
+    }
+
+    public void agregarDianas(Diana diana){
+        this.dianas.add(diana);
     }
 }

@@ -1,16 +1,16 @@
-package elecciones;
+package dispositivos;
 
-public class TelefonoMovil extends Dispositivo implements Mensajes{
+import elecciones.Mensajes;
+
+public class TelefonoMovil extends DispositivoElecciones implements Mensajes {
     private Compania compania;
     private String numero;
-    public boolean prendido;
     public double credito;
 
     public TelefonoMovil(String fabricante, String modelo, int numSerie, Compania compania, String numero, boolean prendido, double credito) {
-        super(fabricante, modelo, numSerie);
+        super(fabricante, modelo, numSerie, prendido);
         this.compania = compania;
         this.numero = numero;
-        this.prendido = prendido;
         this.credito = credito;
     }
 

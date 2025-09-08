@@ -1,4 +1,4 @@
-package elecciones;
+package animal;
 
 public class Ave {
     private String nombre;

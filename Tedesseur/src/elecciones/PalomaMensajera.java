@@ -1,5 +1,7 @@
 package elecciones;
 
+import animal.Ave;
+
 public class PalomaMensajera extends Ave implements Mensajes{
     private boolean aprendio;
 

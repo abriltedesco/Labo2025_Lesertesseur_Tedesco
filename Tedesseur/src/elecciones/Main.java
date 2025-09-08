@@ -1,5 +1,8 @@
 package elecciones;
 
+import dispositivos.Compania;
+import dispositivos.TelefonoMovil;
+
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.HashSet;

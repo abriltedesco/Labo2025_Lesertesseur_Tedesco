@@ -12,6 +12,6 @@ public class Rectangular extends Diana implements Calculos{
 
     @Override
     public double calcularArea() {
-        return (base*altura);
+        return (base * altura);
     }
 }
