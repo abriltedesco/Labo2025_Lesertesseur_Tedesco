@@ -61,7 +61,7 @@ public class Partido {
     }
 
     public void hacerCampania(){
-        for(Mensajes mensajero :  this.mensajeros){
+        for(Mensajes mensajero : this.mensajeros){
             mensajero.enviarMensaje();
         }
     }
