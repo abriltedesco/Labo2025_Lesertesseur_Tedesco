@@ -37,4 +37,5 @@ public class Continente extends Lugar {
             }
             return total;
         }
-    }
+
+}

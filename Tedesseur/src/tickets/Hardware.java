@@ -6,17 +6,9 @@ import java.util.ArrayList;
 public class Hardware extends Ticket{
     private Dispositivo dispositivo;
 
-    public Hardware(Dispositivo dispositivo) {
-        super();
-        this.dispositivo = dispositivo;
-    }
     public Hardware(Cliente cliente, String descripcion, ArrayList<Comentario> comentarios, LocalDateTime creacion, LocalDateTime finalizacion, Dispositivo dispositivo) {
         super(cliente, descripcion, comentarios, creacion, finalizacion);
         this.dispositivo = dispositivo;
-    }
-
-    public Hardware() {
-        this.dispositivo = new Dispositivo();
     }
 
     public Dispositivo getDispositivo() {
@@ -29,9 +21,9 @@ public class Hardware extends Ticket{
 
     @Override
     boolean resuelto() {
-        if(dispositivo.isHay_repuestos_disp() && this.estadoTicket() == Estado.EN_PROGRESO){
+        /*if(dispositivo.isHay_repuestos_disp() && this.estadoTicket() == Estado.EN_PROGRESO){
             return true;
-        }
+        }*/
         return false;
     }
 }

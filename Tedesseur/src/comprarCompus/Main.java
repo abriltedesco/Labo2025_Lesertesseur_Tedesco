@@ -9,7 +9,7 @@ import personas.Cliente;
 import java.util.ArrayList;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws NoHayStockException, ErrorEnCompra {
         Teclado teclado1 = new Teclado("hdhd", "modelo", 123500, 5, "tipito", 2);
         Teclado teclado2 = new Teclado("lenovo", "a32o", 220000, 10, "tipito", 3);
         Impresora impresora  = new Impresora(5, MetodoImpresion.INYECCION);

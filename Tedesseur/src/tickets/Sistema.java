@@ -22,7 +22,7 @@ public class Sistema {
     public Ticket masAntiguo(){
         Ticket mas_antiguo = tickets.get(0);
         for(Ticket ticket : this.tickets){
-            if(ticket.noAgarradoPorDesarrollador() && ticket.getCreacion().isBefore(mas_antiguo.getCreacion()) ){
+            if(/*ticket.noAgarradoPorDesarrollador() &&*/ ticket.getCreacion().isBefore(mas_antiguo.getCreacion()) ){
                 mas_antiguo = ticket;
             }
         }
@@ -37,7 +37,7 @@ public class Sistema {
     public int cantTicketsEnEstado(Estado estado){
         int cant = 0;
         for(Ticket ticket : this.tickets){
-            if (ticket.estadoTicket() == estado){
+            if (ticket.getEstado() == estado){
                 cant ++;
             }
         }
@@ -90,7 +90,7 @@ public class Sistema {
 
     public void chequearSiEstanResueltos(){
         for(Ticket ticket : this.tickets){
-            if(ticket.resuelto() && ticket.estadoTicket() != Estado.RESUELTO){
+            if(ticket.resuelto() && ticket.getEstado() != Estado.RESUELTO){
                 Desarrollador d = ticket.getComentarios().getLast().getDesarrollador();
                 Comentario nuevo_comentario = new Comentario(d, "el desarrollador resolvio el problema", Estado.RESUELTO);
                 ticket.getComentarios().add(nuevo_comentario);

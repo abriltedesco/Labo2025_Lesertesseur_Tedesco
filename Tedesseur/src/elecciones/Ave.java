@@ -5,7 +5,7 @@ public class Ave {
     private static String especie = "ave";
     private String color;
 
-    public Ave(String nombre, String especie, String color) {
+    public Ave(String nombre, String color) {
         this.nombre = nombre;
         this.color = color;
     }

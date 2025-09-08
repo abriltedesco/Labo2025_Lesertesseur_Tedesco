@@ -7,17 +7,14 @@ public class Software extends Ticket{
     private static int cantMaxIntentos = 3;
     private boolean parche_aplicable;
 
-    public Software(boolean parche_aplicable) {
-        super();
-        this.parche_aplicable = parche_aplicable;
-    }
-
 
     public Software(Cliente cliente, String descripcion, ArrayList<Comentario> comentarios, LocalDateTime creacion, LocalDateTime finalizacion, boolean parche_aplicable) {
         super(cliente, descripcion, comentarios, creacion, finalizacion);
         this.parche_aplicable = parche_aplicable;
     }
+
     public Software() {
+        super(new Cliente("a", "d"), "descripcion", new ArrayList<>(), LocalDateTime.now(), LocalDateTime.now());
         this.parche_aplicable = true;
     }
 
@@ -40,9 +37,9 @@ public class Software extends Ticket{
 
     @Override
     boolean resuelto() {
-        if(this.estadoTicket() == Estado.EN_PROGRESO && cantMaxIntentos > 0){
+       /* if(this.estadoTicket() == Estado.EN_PROGRESO && cantMaxIntentos > 0){
             return true;
-        }
+        }*/
         return false;
     }
 }

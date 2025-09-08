@@ -1,22 +1,28 @@
 package elecciones;
 
 import personas.Persona;
-import personas.PersonaPadre;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 
-public class Trabajador extends Persona {
+public class Trabajador extends Persona implements Mensajes {
     private String dni;
     private String numCuil;
     private String residencia;
     private double sueldo;
+    private LocalTime inicioHorarioLaboral;
+    private LocalTime finHorarioLaboral;
 
-    public Trabajador(String nombre, String apellido, LocalDate fechaNacimiento, String dni, String numCuil, String residencia, double sueldo) {
-        super(nombre, apellido, fechaNacimiento);
+
+    public Trabajador(String nombre, int edad, String apellido, LocalDate fechaNacimiento, String dni, String numCuil, String residencia, double sueldo, LocalTime inicioHorarioLaboral, LocalTime finHorarioLaboral) {
+        super(nombre, edad, apellido, fechaNacimiento);
         this.dni = dni;
         this.numCuil = numCuil;
         this.residencia = residencia;
         this.sueldo = sueldo;
+        this.inicioHorarioLaboral = inicioHorarioLaboral;
+        this.finHorarioLaboral = finHorarioLaboral;
     }
 
     public String getDni() {
@@ -49,5 +55,28 @@ public class Trabajador extends Persona {
 
     public void setSueldo(double sueldo) {
         this.sueldo = sueldo;
+    }
+
+    public LocalTime getInicioHorarioLaboral() {
+        return inicioHorarioLaboral;
+    }
+
+    public void setInicioHorarioLaboral(LocalTime inicioHorarioLaboral) {
+        this.inicioHorarioLaboral = inicioHorarioLaboral;
+    }
+
+    public LocalTime getFinHorarioLaboral() {
+        return finHorarioLaboral;
+    }
+
+    public void setFinHorarioLaboral(LocalTime finHorarioLaboral) {
+        this.finHorarioLaboral = finHorarioLaboral;
+    }
+
+    @Override
+    public void enviarMensaje() {
+        if (LocalTime.now().isBefore(this.finHorarioLaboral) && LocalTime.now().isAfter(this.inicioHorarioLaboral)) {
+            System.out.println("Yo " + this.getNombre() + " te invito a que... ");
+        }
     }
 }

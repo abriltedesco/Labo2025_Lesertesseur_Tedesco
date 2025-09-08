@@ -41,21 +41,7 @@ public class Mundo {
 
 
     public int conocerPoblacionPorCodigo(String codigo){
-        for(Continente continente : continentes) {
-            if(continente.getCodigo().equals(codigo)) return continente.obtenerPoblacion();
-            for(Pais pais : continente.getPaises()) {
-                if(pais.getCodigo().equals(codigo)) return pais.obtenerPoblacion();
-                for(Provincia prov : pais.getProvincias()) {
-                    if(prov.getCodigo().equals(codigo)) return prov.obtenerPoblacion();
-                    for(Ciudad ciudad : prov.getCiudades()) {
-                        if(ciudad.getCodigo().equals(codigo)) return ciudad.obtenerPoblacion();
-                        for(Barrio barrio : ciudad.getBarrios()) {
-                            if(barrio.getCodigo().equals(codigo)) return barrio.obtenerPoblacion();
-                        }
-                    }
-                }
-            }
-        }
+       /**/
         return 0;
     }
     public Pais paisMasPoblado() {

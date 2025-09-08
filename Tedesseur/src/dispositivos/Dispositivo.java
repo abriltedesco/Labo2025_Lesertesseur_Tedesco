@@ -16,6 +16,11 @@ public abstract class Dispositivo extends DispositivoPadre {
         this.precio = 0.5;
     }
 
+    public Dispositivo(String fabricante, String modelo, double precio) {
+        super(fabricante, modelo);
+        this.precio = precio;
+    }
+
     public int getStock() {
         return stock;
     }

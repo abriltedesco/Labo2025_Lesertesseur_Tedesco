@@ -1,6 +1,6 @@
 package biblioteca.actual;
 
-import biblioteca.actual.personas.Persona;
+import personas.Persona;
 
 import java.time.LocalDate;
 import java.util.HashMap;
