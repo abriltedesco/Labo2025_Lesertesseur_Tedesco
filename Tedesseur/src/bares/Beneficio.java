@@ -1,6 +1,6 @@
 package bares;
 
-public class Beneficio {
+public abstract class Beneficio {
     private String nombre;
     private String usuario;
 

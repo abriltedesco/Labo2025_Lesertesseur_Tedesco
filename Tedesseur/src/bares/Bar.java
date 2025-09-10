@@ -67,10 +67,21 @@ public class Bar {
     }
 
     public int cantBeneficiosNoAcumulables(){
-        return this.implementados.size();
+        return this.implementados.size() - this.acumulables.size();
     }
 
     public void agregarDianas(Diana diana){
         this.dianas.add(diana);
     }
+
+    public Diana conMasPuntaje() {
+        Diana aux = null;
+        for (Diana diana : this.dianas) {
+            if (aux == null || diana.getPuntajesPorColor().size() > aux.getPuntajesPorColor().size()) {
+                aux = diana;
+            }
+        }
+        return aux;
+    }
+
 }

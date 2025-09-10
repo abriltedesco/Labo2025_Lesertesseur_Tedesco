@@ -37,4 +37,8 @@ public abstract class Diana {
         this.puntajesPorColor = puntajesPorColor;
     }
 
+    public int cantPuntajes(){
+       return this.puntajesPorColor.size();
+    }
+
 }
