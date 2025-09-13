@@ -15,7 +15,7 @@ public class PalomaMensajera extends Ave implements Mensajes{
         if (aprendio) {
             System.out.println("Lanzando un papelito que dice:");
         } else {
-            System.out.println();
+            System.out.println("No se puede enviar el mensaje porque la paloma no aprendio el mapa.");
         }
     }
 }

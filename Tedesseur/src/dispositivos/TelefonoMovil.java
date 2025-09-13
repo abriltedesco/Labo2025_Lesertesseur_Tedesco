@@ -30,14 +30,6 @@ public class TelefonoMovil extends DispositivoElecciones implements Mensajes {
         this.numero = numero;
     }
 
-    public boolean isPrendido() {
-        return prendido;
-    }
-
-    public void setPrendido(boolean prendido) {
-        this.prendido = prendido;
-    }
-
     public double getCredito() {
         return credito;
     }

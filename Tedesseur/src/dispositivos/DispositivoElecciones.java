@@ -9,4 +9,20 @@ public class DispositivoElecciones extends DispositivoPadre {
         this.numSerie = numSerie;
         this.prendido = prendido;
     }
+
+    public int getNumSerie() {
+        return numSerie;
+    }
+
+    public void setNumSerie(int numSerie) {
+        this.numSerie = numSerie;
+    }
+
+    public boolean isPrendido() {
+        return prendido;
+    }
+
+    public void setPrendido(boolean prendido) {
+        this.prendido = prendido;
+    }
 }
