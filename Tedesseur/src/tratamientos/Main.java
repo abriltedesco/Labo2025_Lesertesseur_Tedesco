@@ -6,9 +6,9 @@ public class Main {
     public static void main(String[] args) {
         Ninio n1 = new Ninio("Juan", 5, "Lopez", LocalDate.of(2020, 1, 12), Genero.MASCULINO, TipoSangre.AB_NEG, 7);
         Ninio n2 = new Ninio("Monica", 7, "Sanchez", LocalDate.of(2016, 3, 9), Genero.FEMENINO, TipoSangre.AB_NEG, 3);
-        Ninio n3 = new Ninio("Juan", 5, "Lopez", LocalDate.of(2020, 1, 12), Genero.MASCULINO, TipoSangre.AB_NEG, 7);
+        Ninio n3 = new Ninio("Mariano", 2, "Lopez", LocalDate.of(2020, 1, 12), Genero.MASCULINO, TipoSangre.AB_NEG, 7);
     
-        Joven j1 = new Joven("Tito", 20, "Melgarejo", LocalDate.of(2000, 12, 1), Genero.MASCULINO, TipoSangre.AB_NEG, 2);
+        Joven j1 = new Joven("Tito", 29, "Melgarejo", LocalDate.of(2000, 12, 1), Genero.MASCULINO, TipoSangre.AB_NEG, 2);
         Joven j2 = new Joven("Santino", 20, "Vuotto", LocalDate.of(2000, 11, 10), Genero.MASCULINO, TipoSangre.AB_NEG, 1);
         Joven j3 = new Joven("Nahun", 20, "De la cuesta", LocalDate.of(2000, 11, 10), Genero.MASCULINO, TipoSangre.AB_NEG, 3);
         Sistema sistema = new Sistema();
@@ -29,6 +29,13 @@ public class Main {
         System.out.println("Pacientes que no aplican tratamiento: " + sistema.cantQueNoAplicanTratamiento());
         System.out.println( "Pacientes en total: " + sistema.cantPacientesTotal());
         System.out.println("----------------------------------");
-        //System.out.println(n1.comunicadoIncumplimientoEdad());
+        System.out.println(n3.mensajeTratamiento());
+        System.out.println(n1.mensajeTratamiento());
+        System.out.println("----------------------------------");
+        System.out.println(j2.mensajeTratamiento());
+        System.out.println(j1.mensajeTratamiento());
+        System.out.println("----------------------------------");
+        System.out.println(n1.costoTotalTratamiento());
+        System.out.println(j1.costoTotalTratamiento());
     }
 }

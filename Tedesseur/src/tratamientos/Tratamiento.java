@@ -2,7 +2,7 @@ package tratamientos;
 
 public interface Tratamiento {
      boolean tieneEdadRequerida();
-     void comunicadoIncumplimientoEdad();
-     void mensajeTratamiento();
+     //String comunicadoIncumplimientoEdad();
+     String mensajeTratamiento();
      int costoTotalTratamiento();
 }
