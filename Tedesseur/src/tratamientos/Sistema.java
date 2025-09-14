@@ -6,6 +6,11 @@ public class Sistema {
     private HashSet<Paciente> pacientesTotales;
     private HashSet<Tratamiento> pacientesConTratamiento;
 
+    public Sistema() {
+        this.pacientesTotales = new HashSet<>();
+        this.pacientesConTratamiento = new HashSet<>();
+    }
+
     public HashSet<Paciente> getPacientesTotales() {
         return pacientesTotales;
     }
@@ -26,5 +31,19 @@ public class Sistema {
         return pacientesTotales.size() - pacientesConTratamiento.size();
     }
 
+    public void agregarPacienteTotal(Paciente paciente){
+        this.pacientesTotales.add(paciente);
+    }
+    
+    public void agregarPacienteConTratamiento(Tratamiento pacienteTratamiento){
+        this.pacientesConTratamiento.add(pacienteTratamiento);
+    }
 
+    public int cantPacientesConTratamiento(){
+        return this.pacientesConTratamiento.size();
+    }  
+    
+    public int cantPacientesTotal(){
+        return this.pacientesTotales.size();
+    }
 }
