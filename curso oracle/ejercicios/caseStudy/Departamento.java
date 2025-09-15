@@ -3,8 +3,6 @@ package ejercicios.ShopApp.caseStudy;
 public class Departamento {
     private int id;
     private Empleado[] empleados = new Empleado[5];
-    private int indiceUltEmp = -1;
-
     public Departamento(int id) {
         this.id = id;
     }
@@ -18,7 +16,7 @@ public class Departamento {
     }
 
     public Empleado[] getEmpleados() {
-        Empleado[] actuales = new Empleado[indiceUltEmp+1];
+        Empleado[] actuales = new Empleado[0];
         for(int i = 0; i < actuales.length ; i++){
             actuales[i] = empleados[i];
         }
@@ -26,14 +24,12 @@ public class Departamento {
     }
 
     public int getCantEmp(){
-        return indiceUltEmp + 1;
+        return empleados.length;
     }
 
     public Empleado agarrarPorId(int id){
         for(Empleado emp : empleados){
-            if(emp.getId() == id){
-                return emp;
-            }
+            if(emp.getId() == id){ return emp; }
         }
         return null;
     }
@@ -43,15 +39,14 @@ public class Departamento {
     }
 
     public void agregarEmpleado(Empleado emp){
-        if(indiceUltEmp < empleados.length){
-            indiceUltEmp++;
-            empleados[indiceUltEmp] = emp;
-        }
+        Empleado[] nuevo = java.util.Arrays.copyOf(this.empleados, this.empleados.length + 1);;
+        nuevo[nuevo.length + 1] = emp;
+        this.empleados = nuevo;
     }
 
     public double salarioTotal(){
         double total = 0.0;
-        for(int i = 0; i<=indiceUltEmp ; i++){
+        for(int i = 0; i <= empleados.length ; i++){
             total += empleados[i].getSalario();
         }
         return total;
@@ -59,8 +54,9 @@ public class Departamento {
 
     public double promSalario(){
         double prom = 0;
-        if(indiceUltEmp > -1){
-            prom = salarioTotal()/ (indiceUltEmp ++ );
+        int ultimoEmp = this.empleados.length - 1;
+        if(ultimoEmp > -1){
+            prom = salarioTotal()/ultimoEmp ++;
         }
         return prom;
     }
