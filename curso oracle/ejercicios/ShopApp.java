@@ -5,7 +5,6 @@ import java.util.Arrays;
 public class ShopApp{
     private Customer cliente;
 
-
     public Customer getCliente(){
         return cliente;
     }
