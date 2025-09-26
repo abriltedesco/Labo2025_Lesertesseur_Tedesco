@@ -1,3 +1,5 @@
+package nosededondeeraesteejercicio;
+
 import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -95,7 +97,7 @@ public class Chef {
             for(Evento evento : mapa.getValue()){
                 double conComision = evento.getValor() + (evento.getValor() * Empresa.getComisiones().get(esp));
                 double comision = conComision - evento.getValor() ;
-                System.out.println("Cliente: " + evento.getCliente() + "Monto: " + conComision + "Comision: " + comision);
+                System.out.println("nosededondeeraesteejercicio.Cliente: " + evento.getCliente() + "Monto: " + conComision + "Comision: " + comision);
             }
         }
     }

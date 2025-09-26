@@ -1,3 +1,5 @@
+package nosededondeeraesteejercicio;
+
 public class Evento {
     private Cliente cliente;
     private double valor;

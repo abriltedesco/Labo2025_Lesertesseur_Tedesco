@@ -1,3 +1,5 @@
+package nosededondeeraesteejercicio;
+
 import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -69,7 +71,7 @@ public class Empresa {
 
     public void mostrarInfoDeCadaChef(){
         for(Chef chef : chefs){
-            System.out.println("Chef: " + chef.getNombre());
+            System.out.println("nosededondeeraesteejercicio.Chef: " + chef.getNombre());
             chef.resumenCompleto();
         }
     }
