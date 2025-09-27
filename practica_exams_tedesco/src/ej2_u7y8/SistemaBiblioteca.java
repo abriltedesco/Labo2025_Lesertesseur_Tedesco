@@ -13,6 +13,13 @@ public class SistemaBiblioteca {
     HashSet<Prestamo> prestamosRealizados;
     HashSet<Usuario> usuarios;
 
+    public SistemaBiblioteca(HashSet<Publicacion> publicacionesTotales, HashSet<Prestable> publicacionesPrestables, HashSet<Prestamo> prestamosRealizados, HashSet<Usuario> usuarios) {
+        this.publicacionesTotales = publicacionesTotales;
+        this.publicacionesPrestables = publicacionesPrestables;
+        this.prestamosRealizados = prestamosRealizados;
+        this.usuarios = usuarios;
+    }
+
     public HashSet<Publicacion> getPublicacionesTotales() {
         return publicacionesTotales;
     }
@@ -45,16 +52,9 @@ public class SistemaBiblioteca {
         this.usuarios = usuarios;
     }
 
-    public SistemaBiblioteca(HashSet<Publicacion> publicacionesTotales, HashSet<Prestable> publicacionesPrestables, HashSet<Prestamo> prestamosRealizados, HashSet<Usuario> usuarios) {
-        this.publicacionesTotales = publicacionesTotales;
-        this.publicacionesPrestables = publicacionesPrestables;
-        this.prestamosRealizados = prestamosRealizados;
-        this.usuarios = usuarios;
-    }
-
     public Publicacion buscarPublicacion(String titulo) throws NoPrestableException {
         for(Publicacion publicacion : publicacionesTotales){
-            if(publicacion.getTitulo() == titulo){
+            if(publicacion.getTitulo().equals(titulo)){
                 return publicacion;
             }
         }
@@ -76,19 +76,18 @@ public class SistemaBiblioteca {
     }
 
 
-    public void agregarPrestamo(Prestable publicacion, String numeroSocio) throws NoPrestableException {
-        verificarDisponibilidad((Publicacion)publicacion);
-
-        LocalDate fechaDevolucion = publicacion.darPrestamo();
-        Prestamo nuevoPrestamo = new Prestamo((Publicacion)publicacion, numeroSocio, LocalDate.now(), fechaDevolucion);
-
-        for(Usuario usuario : usuarios){
-            if(usuario.getNumSocio().equals(numeroSocio)){
-                usuario.agregarPrestamo(nuevoPrestamo.getArticulo());
-            }
+    public void agregarPrestamo(Publicacion publicacion, String numeroSocio) throws NoPrestableException, StockInsuficienteException {
+        if (!verificarDisponibilidad(publicacion)) {
+            return;
         }
 
-        System.out.println("Préstamo agregado correctamente");
+        Prestamo nuevoPrestamo = new Prestamo(publicacion, numeroSocio, LocalDate.now());
+
+        publicacion.reducirStock();
+        prestamosRealizados.add(nuevoPrestamo);
+
+        System.out.println("Prestamo agregado");
+        nuevoPrestamo.infoAlUser();
     }
 
     public void devolverPrestamo(Prestamo prestamo, Usuario usuario) throws FueraDeFecha {

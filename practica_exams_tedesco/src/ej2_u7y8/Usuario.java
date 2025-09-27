@@ -92,7 +92,14 @@ public class Usuario {
     }
 
     public void agregarPrestamo(Publicacion publicacion){
-        this.prestamosRealizados.put(publicacion, 1);
+        int cant = 0;
+        if(prestamosRealizados.containsKey(publicacion)){
+            cant = prestamosRealizados.get(publicacion);
+        }
+        this.prestamosRealizados.put(publicacion, cant+1);
+        if(!publicacionesLeidas.contains(publicacion)){
+            publicacionesLeidas.add(publicacion);
+        }
         publicacion.reducirStock();
     }
 

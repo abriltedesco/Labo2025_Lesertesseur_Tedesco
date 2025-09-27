@@ -8,16 +8,12 @@ public class Prestamo {
     private LocalDate fechaPrestada;
     private LocalDate devolucionEstimada;
 
-    public Prestamo(Publicacion articulo, String numSocio, LocalDate fechaPrestada, LocalDate devolucionEstimada) {
+    public Prestamo(Publicacion articulo, String numSocio, LocalDate fechaPrestada) {
         this.articulo = articulo;
         this.numSocio = numSocio;
-        this.fechaPrestada = fechaPrestada;/*
-        this.devolucionEstimada = calcularCuandoDevuelve();*/
+        this.fechaPrestada = fechaPrestada;
+        this.devolucionEstimada = ((Prestable) articulo).darPrestamo();
     }
-
-    /* public LocalDate calcularCuandoDevuelve(){
-        return fechaPrestada.plusDays();
-    } */
 
     public Publicacion getArticulo() {
         return articulo;
