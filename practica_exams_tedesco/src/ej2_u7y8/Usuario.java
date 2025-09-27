@@ -11,9 +11,18 @@ public class Usuario {
     private LocalDate fechaNacimiento;
     private HashSet<Publicacion> publicacionesLeidas;
     private HashMap<Publicacion, Integer> prestamosRealizados;
-    private int cantVecesPidio;
     private int credito;
     private String numSocio;
+
+    public Usuario(String nombre, String apellido, String mail, HashSet<Publicacion> publicacionesLeidas, LocalDate fechaNacimiento, int credito, String numSocio) {
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.mail = mail;
+        this.publicacionesLeidas = publicacionesLeidas;
+        this.fechaNacimiento = fechaNacimiento;
+        this.credito = credito;
+        this.numSocio = numSocio;
+    }
 
     public String getNombre() {
         return nombre;
@@ -61,14 +70,6 @@ public class Usuario {
 
     public void setPrestamosRealizados(HashMap<Publicacion, Integer> prestamosRealizados) {
         this.prestamosRealizados = prestamosRealizados;
-    }
-
-    public int getCantVecesPidio() {
-        return cantVecesPidio;
-    }
-
-    public void setCantVecesPidio(int cantVecesPidio) {
-        this.cantVecesPidio = cantVecesPidio;
     }
 
     public int getCredito() {

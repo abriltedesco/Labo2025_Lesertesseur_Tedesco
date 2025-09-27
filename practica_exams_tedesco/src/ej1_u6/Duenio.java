@@ -1,3 +1,5 @@
+import ej2_u6.Persona;
+
 public class Duenio extends Persona {
     private String dni;
 

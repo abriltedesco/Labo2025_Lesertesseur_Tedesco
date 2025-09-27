@@ -81,31 +81,38 @@ public class SistemaBiblioteca {
             return;
         }
 
-        Prestamo nuevoPrestamo = new Prestamo(publicacion, numeroSocio, LocalDate.now());
+        for(Usuario usuario : usuarios){
+            if(usuario.getNumSocio().equals(numeroSocio)) {
+                Prestamo nuevoPrestamo = new Prestamo(publicacion, numeroSocio, LocalDate.now());
 
-        publicacion.reducirStock();
-        prestamosRealizados.add(nuevoPrestamo);
+                publicacion.reducirStock();
+                prestamosRealizados.add(nuevoPrestamo);
 
-        System.out.println("Prestamo agregado");
-        nuevoPrestamo.infoAlUser();
+                System.out.println("Prestamo agregado");
+                nuevoPrestamo.infoAlUser();
+                return;
+            }
+        }
+
+        System.out.println("No existe usuario con ese numero de socio");
     }
 
     public void devolverPrestamo(Prestamo prestamo, Usuario usuario) throws FueraDeFecha {
         if (prestamo.estaVencido()) {
             Prestable publicacionPrestable = (Prestable) prestamo.getArticulo();
-            double multa = publicacionPrestable.calcularMulta();
-
-            usuario.setCredito((int) (usuario.getCredito() - multa));
-
+            usuario.setCredito(usuario.getCredito() - publicacionPrestable.calcularMulta());
             throw new FueraDeFecha("Prestamo devuelto fuera de fecha");
         }
 
         usuario.agregarPrestamo(prestamo.getArticulo());
+        usuario.getPublicacionesLeidas().add(prestamo.getArticulo());
         System.out.println("Préstamo devuelto correctamente");
     }
 
-    public void extenderPrestamo(Prestable publicacion, Usuario user){
+    public void extenderPrestamo(Prestamo prestamo, Usuario user) throws NoPrestableException {
+        if(user.getCredito()>0 || prestamo.puedeExtenderse(false) ){
 
+        }
     }
 
     public void agregarPublicacion(Publicacion publicacion){

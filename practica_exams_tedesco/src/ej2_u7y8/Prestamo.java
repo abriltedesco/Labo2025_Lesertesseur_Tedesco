@@ -1,5 +1,8 @@
 package ej2_u7y8;
 
+import ej2_u7y8.excepciones.NoPrestableException;
+
+import java.sql.SQLOutput;
 import java.time.LocalDate;
 
 public class Prestamo {
@@ -56,5 +59,14 @@ public class Prestamo {
             return true;
         }
         return false;
+    }
+
+    public boolean puedeExtenderse(boolean tieneOtraRevista) throws NoPrestableException {
+        if (this.articulo.getStock() <= 5 && tieneOtraRevista) {
+            throw new NoPrestableException("No es posible extender el prestamo");
+        }
+
+        System.out.println("Prestamo extendido");
+        return true;
     }
 }

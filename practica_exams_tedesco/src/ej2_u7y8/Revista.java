@@ -33,4 +33,5 @@ public class Revista extends Publicacion implements Prestable {
             return LocalDate.now().plusDays(3);
         }
     }
+
 }
