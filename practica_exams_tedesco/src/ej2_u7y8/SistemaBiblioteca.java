@@ -58,7 +58,6 @@ public class SistemaBiblioteca {
                 return publicacion;
             }
         }
-
         throw new NoPrestableException("no tenemos ese libro para prestarle");
     }
 
@@ -109,9 +108,15 @@ public class SistemaBiblioteca {
         System.out.println("Préstamo devuelto correctamente");
     }
 
-    public void extenderPrestamo(Prestamo prestamo, Usuario user) throws NoPrestableException {
-        if(user.getCredito()>0 || prestamo.puedeExtenderse(false) ){
-
+    public void extenderPrestamo(Prestamo prestamo, Usuario user, int dias) throws NoPrestableException {
+        if(prestamo.getNumSocio().equals(user.getNumSocio())) {
+            if (user.getCredito() > 0 || prestamo.puedeExtenderse(false)) {
+                prestamo.setDevolucionEstimada(prestamo.getDevolucionEstimada().plusDays(dias));
+                System.out.println("prestamo extendido");
+            }
+        }
+        else{
+            System.out.println("No coinciden los numeros de socios");
         }
     }
 

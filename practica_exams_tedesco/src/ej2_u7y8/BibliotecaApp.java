@@ -106,9 +106,15 @@ public class BibliotecaApp {
         try {
             sistema.devolverPrestamo(prestamoVencido, user1);
         } catch (Exception e) {
-            if (libro2 instanceof Prestable) {
-                System.out.println("Multa libro: " + ((Prestable) libro2).calcularMulta());
-            }
+            System.out.println("Multa libro: " + libro2.calcularMulta());
+        }
+
+        try{
+            Prestamo prestamo = new Prestamo(libro2, "1", LocalDate.now().minusDays(3));
+            sistema.extenderPrestamo(prestamo, user1, 10);
+        }
+        catch (NoPrestableException e){
+            System.out.println(e.getMessage());
         }
 
     }

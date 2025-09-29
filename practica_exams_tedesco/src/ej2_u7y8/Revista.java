@@ -18,7 +18,6 @@ public class Revista extends Publicacion implements Prestable {
         this.distribuidora = distribuidora;
     }
 
-
     @Override
     public int calcularMulta() {
         return 3500;

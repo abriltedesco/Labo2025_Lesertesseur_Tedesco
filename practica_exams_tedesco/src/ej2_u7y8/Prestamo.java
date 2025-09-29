@@ -1,5 +1,6 @@
 package ej2_u7y8;
 
+import ej2_u7y8.excepciones.FueraDeFecha;
 import ej2_u7y8.excepciones.NoPrestableException;
 
 import java.sql.SQLOutput;
@@ -54,9 +55,9 @@ public class Prestamo {
         System.out.println("Recuerda que deberás devolverlo el dia " + devolucionEstimada.getDayOfMonth() + "/" + devolucionEstimada.getMonthValue() + "/" + devolucionEstimada.getYear());
     }
 
-    public boolean estaVencido(){
+    public boolean estaVencido() throws FueraDeFecha {
         if(LocalDate.now().isAfter(devolucionEstimada)){
-            return true;
+            throw new FueraDeFecha("Prestamo devuelto fuera de fecha");
         }
         return false;
     }
