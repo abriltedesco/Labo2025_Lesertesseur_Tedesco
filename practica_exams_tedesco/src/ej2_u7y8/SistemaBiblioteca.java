@@ -1,6 +1,6 @@
 package ej2_u7y8;
 
-import ej2_u7y8.excepciones.FueraDeFecha;
+import ej2_u7y8.excepciones.FueraDeFechaException;
 import ej2_u7y8.excepciones.NoPrestableException;
 import ej2_u7y8.excepciones.StockInsuficienteException;
 
@@ -96,15 +96,14 @@ public class SistemaBiblioteca {
         System.out.println("No existe usuario con ese numero de socio");
     }
 
-    public void devolverPrestamo(Prestamo prestamo, Usuario usuario) throws FueraDeFecha {
-        if (prestamo.estaVencido()) {
+    public void devolverPrestamo(Prestamo prestamo, Usuario usuario) throws FueraDeFechaException {
+        if (LocalDate.now().isAfter(prestamo.getDevolucionEstimada())) {
             Prestable publicacionPrestable = (Prestable) prestamo.getArticulo();
             usuario.setCredito(usuario.getCredito() - publicacionPrestable.calcularMulta());
-            throw new FueraDeFecha("Prestamo devuelto fuera de fecha");
+            throw new FueraDeFechaException("Prestamo devuelto fuera de fecha");
         }
 
-        usuario.agregarPrestamo(prestamo.getArticulo());
-        usuario.getPublicacionesLeidas().add(prestamo.getArticulo());
+        prestamo.getArticulo().aumentarStock();
         System.out.println("Préstamo devuelto correctamente");
     }
 

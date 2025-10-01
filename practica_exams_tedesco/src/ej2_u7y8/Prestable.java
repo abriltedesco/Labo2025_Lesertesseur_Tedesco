@@ -4,5 +4,5 @@ import java.time.LocalDate;
 
 public interface Prestable {
     int calcularMulta();
-    LocalDate darPrestamo();
+    LocalDate darPrestamo(LocalDate fechaPrestada);
 }

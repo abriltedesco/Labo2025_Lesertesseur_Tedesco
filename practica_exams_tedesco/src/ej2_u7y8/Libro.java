@@ -16,7 +16,7 @@ public class Libro extends Publicacion implements Prestable {
     }
 
     @Override
-    public LocalDate darPrestamo() {
-        return LocalDate.now().plusDays(15);
+    public LocalDate darPrestamo(LocalDate fechaPrestada) {
+        return fechaPrestada.plusDays(15);
     }
 }

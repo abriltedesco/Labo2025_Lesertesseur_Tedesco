@@ -19,6 +19,7 @@ public class Usuario {
         this.apellido = apellido;
         this.mail = mail;
         this.publicacionesLeidas = publicacionesLeidas;
+        this.prestamosRealizados = new HashMap<>();
         this.fechaNacimiento = fechaNacimiento;
         this.credito = credito;
         this.numSocio = numSocio;

@@ -1,5 +1,6 @@
 package ej2_u7y8;
 
+import ej2_u7y8.excepciones.FueraDeFechaException;
 import ej2_u7y8.excepciones.NoPrestableException;
 import ej2_u7y8.excepciones.StockInsuficienteException;
 
@@ -43,6 +44,8 @@ public class BibliotecaApp {
         sistema.agregarPublicacion(audio1);
         sistema.agregarPublicacion(audio2);
 
+
+        System.out.println("------ PROBANDO ENCONTRAR PUBLICACION + RECOMENDACION ----------");
         try {
             Publicacion encontrada = sistema.buscarPublicacion("Emma");
             if(sistema.getPublicacionesTotales().contains(encontrada)) {
@@ -57,6 +60,8 @@ public class BibliotecaApp {
             System.out.println("No tenemos ese libro");
         }
 
+        System.out.println("--------------------------------------------------------------------");
+        System.out.println("------ PROBANDO ENCONTRAR PUBLICACION + RECOMENDACION ----------");
         try {
             Publicacion encontrada2 = sistema.buscarPublicacion("fdsg");
 
@@ -72,6 +77,8 @@ public class BibliotecaApp {
             System.out.println("No tenemos ese libro");
         }
 
+        System.out.println("--------------------------------------------------------------------");
+        System.out.println("------ PROBANDO AGREGAR PRESTAMOS + FALTA DE STOCK Y/0 NO PRESTABLE ----------");
         try {
             sistema.agregarPrestamo(libro1, "2");
             sistema.agregarPrestamo(libro2, "1");
@@ -87,6 +94,8 @@ public class BibliotecaApp {
             System.out.println("No se puede dar a prestamo");
         }
 
+        System.out.println("--------------------------------------------------------------------");
+        System.out.println("------ PROBANDO NO STOCK  ----------");
         try {
             sistema.agregarPrestamo(revista2, "3");
         }
@@ -94,6 +103,8 @@ public class BibliotecaApp {
             System.out.println("No hay stock suficiente");
         }
 
+        System.out.println("--------------------------------------------------------------------");
+        System.out.println("------ PROBANDO NO PODER DAR PRESTAMO ----------");
         try {
             sistema.agregarPrestamo(audio1, "2");
         }
@@ -102,13 +113,18 @@ public class BibliotecaApp {
         }
 
 
-        Prestamo prestamoVencido = new Prestamo(libro2, "1", LocalDate.now().minusDays(15));
+        System.out.println("--------------------------------------------------------------------");
+        System.out.println("------ PROBANDO DEVOLVER VENCIDO  ----------");
+        Prestamo prestamoVencido = new Prestamo(libro2, "1", LocalDate.now().minusDays(45));
         try {
             sistema.devolverPrestamo(prestamoVencido, user1);
-        } catch (Exception e) {
-            System.out.println("Multa libro: " + libro2.calcularMulta());
         }
-
+        catch (FueraDeFechaException e) {
+            System.out.println("Prestamo devuelto fuera de fecha");
+            System.out.println("Multa libro: 7500");
+        }
+        System.out.println("--------------------------------------------------------------------");
+        System.out.println("------ PROBANDO EXTENDER PRESTAMO ----------");
         try{
             Prestamo prestamo = new Prestamo(libro2, "1", LocalDate.now().minusDays(3));
             sistema.extenderPrestamo(prestamo, user1, 10);
@@ -116,6 +132,6 @@ public class BibliotecaApp {
         catch (NoPrestableException e){
             System.out.println(e.getMessage());
         }
-
+        System.out.println("--------------------------------------------------------------------");
     }
 }

@@ -1,9 +1,8 @@
 package ej2_u7y8;
 
-import ej2_u7y8.excepciones.FueraDeFecha;
+import ej2_u7y8.excepciones.FueraDeFechaException;
 import ej2_u7y8.excepciones.NoPrestableException;
 
-import java.sql.SQLOutput;
 import java.time.LocalDate;
 
 public class Prestamo {
@@ -16,7 +15,7 @@ public class Prestamo {
         this.articulo = articulo;
         this.numSocio = numSocio;
         this.fechaPrestada = fechaPrestada;
-        this.devolucionEstimada = ((Prestable) articulo).darPrestamo();
+        this.devolucionEstimada = ((Prestable) articulo).darPrestamo(fechaPrestada);
     }
 
     public Publicacion getArticulo() {
@@ -53,13 +52,6 @@ public class Prestamo {
 
     public void infoAlUser(){
         System.out.println("Recuerda que deberás devolverlo el dia " + devolucionEstimada.getDayOfMonth() + "/" + devolucionEstimada.getMonthValue() + "/" + devolucionEstimada.getYear());
-    }
-
-    public boolean estaVencido() throws FueraDeFecha {
-        if(LocalDate.now().isAfter(devolucionEstimada)){
-            throw new FueraDeFecha("Prestamo devuelto fuera de fecha");
-        }
-        return false;
     }
 
     public boolean puedeExtenderse(boolean tieneOtraRevista) throws NoPrestableException {

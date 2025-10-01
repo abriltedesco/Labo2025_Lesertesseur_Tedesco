@@ -24,12 +24,12 @@ public class Revista extends Publicacion implements Prestable {
     }
 
     @Override
-    public LocalDate darPrestamo() {
+    public LocalDate darPrestamo(LocalDate fechaPrestada) {
         if (this.getAnioPublicacion() < 2020) {
-            return LocalDate.now().plusDays(10);
+            return fechaPrestada.plusDays(10);
         }
         else {
-            return LocalDate.now().plusDays(3);
+            return fechaPrestada.plusDays(3);
         }
     }
 
